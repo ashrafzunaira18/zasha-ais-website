@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Portal — Zasha.AIS Inspection & Quality Control</title>
+  <meta name="description" content="Dedicated client portal for booking apparel inspections, auditing production, and tracking AQL quality reports in Pakistan." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      letter-spacing: -0.01em;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printableSlip, #printableSlip * {
+        visibility: visible;
+      }
+      #printableSlip {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-teal-700 selection:text-white">
+
+  <!-- Portal Top Bar -->
+  <header class="sticky top-0 z-30 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo + Verified Badge -->
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex items-center space-x-2 text-white group">
+          <span class="h-8 w-8 rounded bg-teal-600 text-white font-bold text-sm flex items-center justify-center">Z</span>
+          <span class="font-bold text-lg tracking-tight text-white">Zasha<span class="text-orange-400">.AIS</span></span>
+        </a>
+
+        <div class="hidden sm:block h-5 w-px bg-slate-700"></div>
+
+        <div class="hidden sm:flex items-center gap-2">
+          <span class="text-xs text-slate-300 font-semibold" id="clientCompanyDisplay">Client Portal</span>
+          <span class="bg-teal-900/80 text-teal-300 text-[10px] font-semibold px-2 py-0.5 rounded border border-teal-700">Verified Client</span>
+        </div>
+      </div>
+
+      <!-- Center Nav Tabs -->
+      <nav class="flex items-center space-x-1 bg-slate-800 p-1 rounded-lg text-xs font-semibold">
+        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <span>Book Inspection</span>
+        </button>
+        <button id="tabBtnHistory" onclick="switchPortalSection('history')" class="px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>My Bookings (<span id="historyCountBadge">0</span>)</span>
+        </button>
+        <button id="tabBtnPricing" onclick="switchPortalSection('pricing')" class="px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          <span>Fee Estimator</span>
+        </button>
+      </nav>
+
+      <!-- Right Exit Links -->
+      <div class="flex items-center space-x-4 text-xs">
+        <a href="index.html" class="hidden md:flex items-center gap-1 text-slate-400 hover:text-white transition font-medium">
+          <span>Website</span>
+        </a>
+        <button onclick="logoutPortal()" class="text-slate-400 hover:text-red-400 transition font-medium">
+          Logout
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- Main Dashboard Container -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    
+    <!-- ======================================================= -->
+    <!-- SECTION 1: BOOK AN INSPECTION FORM (Dedicated Page View) -->
+    <!-- ======================================================= -->
+    <section id="sectionBooking" class="space-y-6">
+      
+      <!-- Top Assurance Header -->
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block mb-0.5">Online Dossier Submission</span>
+          <h1 class="text-xl font-bold text-slate-900">Book Apparel Inspection & Factory Audit</h1>
+          <p class="text-xs text-slate-500 mt-1">Complete the 9-part specification below. Auditor scheduled on-site in Pakistan within 48 hours.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg border border-emerald-200">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            48h Dispatch Active
+          </span>
+        </div>
+      </div>
+
+      <!-- 9-PART COMPREHENSIVE BOOKING FORM -->
+      <form id="inspectionBookingForm" onsubmit="handleInspectionFormSubmit(event)" class="space-y-6">
+        
+        <!-- Part 1: Service Type, Location & Factory Schedule -->
+        <div class="bg-white p-6 sm:p-7 rounded-xl border border-slate-200 shadow-sm space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-800 block">Part 1: Service Type, Location & Factory Schedule</span>
+          
+          <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-700 mb-1">1. Inspection Service Workflow *</label>
+              <select id="fService" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="1. Pre-Shipment Inspection">1. Pre-Shipment Inspection</option>
+<option value="2. Final Random Inspection">2. Final Random Inspection</option>
+<option value="3. During Production Inspection">3. During Production Inspection</option>
+<option value="4. Initial Production Check">4. Initial Production Check</option>
+<option value="5. Sample Picking Inspection">5. Sample Picking Inspection</option>
+<option value="6. Container Loading Check">6. Container Loading Check</option>
+<option value="7. Seam and Stitching Inspection">7. Seam and Stitching Inspection</option>
+<option value="8. Finishing Process">8. Finishing Process</option>
+<option value="9. Fabric Inspection">9. Fabric Inspection</option>
+<option value="10. Sampling and Testing">10. Sampling and Testing</option>
+<option value="11. Quality Control Measures">11. Quality Control Measures</option>
+<option value="12. Raw Material Verification">12. Raw Material Verification</option>
+<option value="13. Production Process Evaluation">13. Production Process Evaluation</option>
+<option value="14. Dyeing/Printing Inspection">14. Dyeing/Printing Inspection</option>
+<option value="15. Weaving/Knitting Inspection">15. Weaving/Knitting Inspection</option>
+<option value="16. Spinning and Yarn Formation">16. Spinning and Yarn Formation</option>
+<option value="17. Communication with Partners">17. Communication with Partners</option>
+<option value="18. Supplier Assessment">18. Supplier Assessment</option>
+<option value="19. VOC (Verification of Conformity)">19. VOC (Verification of Conformity)</option>
+<option value="20. Documentation Review">20. Documentation Review</option>
+<option value="21. Quality Control Points">21. Quality Control Points</option>
+
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">2. Target Inspection Date *</label>
+              <input id="fDate" type="date" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-700 mb-1">3. Factory City (Pakistan) *</label>
+              <select id="fCity" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="Lahore" selected>Lahore (Knitwear, Denim & Wovens)</option>
+                <option value="Sialkot">Sialkot (Sportswear, Gloves & Leather)</option>
+                <option value="Faisalabad">Faisalabad (Textile Capital & Home Textiles)</option>
+                <option value="Karachi">Karachi (Port Hub & Denim Mills)</option>
+                <option value="Multan">Multan (Yarn & Processing)</option>
+                <option value="Islamabad">Islamabad & Northern Cluster</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">4. Factory / Mill Name *</label>
+              <input id="fFactoryName" type="text" required placeholder="e.g. Master Textile Mills Ltd" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">5. Factory On-site Contact Person & Mobile *</label>
+              <input id="fFactoryContact" type="text" required placeholder="e.g. Tariq Mehmood (GM Quality, +92 300 1234567)" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+          </div>
+
+          <div class="text-xs font-semibold">
+            <label class="block text-slate-700 mb-1">6. Factory Full Physical Address & Location *</label>
+            <input id="fFactoryAddress" type="text" required placeholder="Plot / Street number, Industrial Estate, Sector, City" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+          </div>
+        </div>
+
+        <!-- Part 2: Client Information (Auto-Populated) -->
+        <div class="bg-white p-6 sm:p-7 rounded-xl border border-slate-200 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-800 block">Part 2: Client & Brand Profile (Auto-Populated from Account)</span>
+            <span class="text-[11px] text-slate-400">Verified Client Record</span>
+          </div>
+
+          <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-500 mb-1">Client / Brand Company</label>
+              <input id="fClientCompany" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">Authorized Contact</label>
+              <input id="fContactPerson" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">Report Email Destination</label>
+              <input id="fEmail" type="email" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">WhatsApp / Phone</label>
+              <input id="fPhone" type="tel" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Part 3: Purchase Order & Garment Specifications -->
+        <div class="bg-white p-6 sm:p-7 rounded-xl border border-slate-200 shadow-sm space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-800 block">Part 3: Purchase Order & Garment Specifications</span>
+          
+          <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-700 mb-1">Product Category *</label>
+              <select id="fCategory" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="Knitwear (T-shirts, Hoodies, Polos)">Knitwear (T-shirts, Hoodies, Polos)</option>
+                <option value="Wovens & Denim (Jeans, Shirts)">Wovens & Denim (Jeans, Shirts)</option>
+                <option value="Sportswear & Activewear">Sportswear & Activewear</option>
+                <option value="Home Textiles (Towels, Bedding)">Home Textiles (Towels, Bedding)</option>
+                <option value="Leather & Motorbike Garments">Leather & Motorbike Garments</option>
+                <option value="Apparel Accessories">Apparel Accessories</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">Garment Item Description *</label>
+              <input id="fGarmentType" type="text" required placeholder="e.g. Heavyweight Fleece Hoodie" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">PO Number *</label>
+              <input id="fPoNumber" type="text" required placeholder="e.g. PO-8921-EU" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">Style / Article No *</label>
+              <input id="fStyleNumber" type="text" required placeholder="e.g. ST-2026-X" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-700 mb-1">Total Order Quantity (Pieces) *</label>
+              <input id="fTotalQty" type="number" required min="100" placeholder="e.g. 5000" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm" />
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">Production Status / Ready % *</label>
+              <select id="fPackedQty" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="100% finished & 80%+ packed (Ready for FRI)">100% finished & 80%+ packed (Ready for FRI)</option>
+                <option value="50-80% in sewing/finishing (Ready for DUPRO)">50-80% in sewing/finishing (Ready for DUPRO)</option>
+                <option value="Initial batch ready (Ready for IPC)">Initial batch ready (Ready for IPC)</option>
+                <option value="Pre-production / Fabric rolls ready">Pre-production / Fabric rolls ready</option>
+                <option value="Packed & ready for container stuffing">Packed & ready for container stuffing</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">AQL Sampling Standard *</label>
+              <select id="fAqlLevel" required class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="ISO 2859-1 Level II (Critical: 0, Major: 2.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 2.5 Normal) - Standard</option>
+                <option value="ISO 2859-1 Level II (Critical: 0, Major: 1.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 1.5 Strict)</option>
+                <option value="ISO 2859-1 Level I (Reduced Sampling)">ISO 2859-1 Level I (Reduced Sampling)</option>
+                <option value="100% Full Piece-by-Piece Inspection">100% Full Piece-by-Piece Inspection</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part 4: Billing Preferences & Specific Instructions -->
+        <div class="bg-white p-6 sm:p-7 rounded-xl border border-slate-200 shadow-sm space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-800 block">Part 4: Billing Preferences & Specific Instructions</span>
+          
+          <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-700 mb-1">Invoicing Currency</label>
+              <select id="fCurrency" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="USD ($)">USD ($) - Standard International</option>
+                <option value="EUR (€)">EUR (€) - European Union</option>
+                <option value="GBP (£)">GBP (£) - United Kingdom</option>
+                <option value="PKR (₨)">PKR (₨) - Local Pakistan</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-700 mb-1">Payment Method Preference</label>
+              <select id="fPayment" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm">
+                <option value="International Wire Transfer (SWIFT)">International Wire Transfer (SWIFT)</option>
+                <option value="Online Credit Card / Debit Card">Online Credit Card / Debit Card</option>
+                <option value="Corporate Account Invoicing (Net 15)">Corporate Account Invoicing (Net 15)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="text-xs font-semibold">
+            <label class="block text-slate-700 mb-1">Special Inspection Requirements / Auditor Notes</label>
+            <textarea id="fNotes" rows="3" placeholder="Specific measurement tolerance specs, high-risk points (e.g. zipper pull test, barcoding scannability, shade banding, carton drop test)..." class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700 text-sm"></textarea>
+          </div>
+
+          <div class="pt-2">
+            <label class="flex items-start gap-2 text-xs text-slate-600 font-normal cursor-pointer">
+              <input type="checkbox" required checked class="mt-0.5 rounded accent-teal-800" />
+              <span>I confirm that the factory location and PO details provided are accurate for auditor dispatch. Standard 48h deployment SLA applies upon booking confirmation.</span>
+            </label>
+          </div>
+
+          <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
+            <div class="text-xs text-slate-500">
+              Standard inspection day rate: <strong class="text-slate-800 font-bold">$199 USD</strong> / man-day within city limits.
+            </div>
+            <button type="submit" class="px-8 py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs tracking-wide transition shadow-sm flex items-center gap-2">
+              <span>Submit Inspection Booking & Generate Dossier</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- CONFIRMATION DOSSIER CARD (Displayed on the page after submission) -->
+      <div id="bookingConfirmationCard" class="hidden bg-white p-6 sm:p-8 rounded-xl border-2 border-emerald-500 shadow-md space-y-6">
+        
+        <div id="printableSlip" class="space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
+            <div class="flex items-center space-x-3">
+              <div class="h-10 w-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">
+                ✓
+              </div>
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">Inspection Dossier Created</span>
+                <h3 class="text-lg font-bold text-slate-900">Official Booking Confirmation Slip</h3>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block font-mono">Dossier Reference ID</span>
+              <span id="resRefId" class="text-base sm:text-lg font-mono font-bold text-teal-900 bg-teal-50 px-3 py-1 rounded border border-teal-200">
+                ZA-2026-0000
+              </span>
+            </div>
+          </div>
+
+          <!-- Summary Table -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-lg border border-slate-200 text-xs">
+            <div>
+              <span class="text-slate-400 block font-medium">Service Workflow</span>
+              <strong id="resService" class="text-slate-800">Pre-Shipment Inspection</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block font-medium">Factory Location</span>
+              <strong id="resLocation" class="text-slate-800">Lahore, Pakistan</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block font-medium">PO & Quantity</span>
+              <strong id="resPoQty" class="text-slate-800">PO-12345 (5,000 Pcs)</strong>
+            </div>
+            <div>
+              <span class="text-slate-400 block font-medium">Target Date</span>
+              <strong id="resDate" class="text-emerald-700">2026-10-15</strong>
+            </div>
+          </div>
+
+          <div class="p-4 bg-teal-50/70 border border-teal-200 rounded-lg text-xs text-teal-950 space-y-1">
+            <div class="font-bold">Status: Submitted — Dispatch Team Notified</div>
+            <p>Our operations desk is verifying factory coordinates. Your lead inspector will be scheduled for deployment within 48 hours.</p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200">
+          <div class="flex items-center gap-2">
+            <button onclick="window.print()" class="px-4 py-2 rounded border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              <span>Print Confirmation Slip</span>
+            </button>
+            <button onclick="switchPortalSection('history')" class="px-4 py-2 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition">
+              View in My Bookings
+            </button>
+          </div>
+
+          <button onclick="dispatchConfirmationWhatsApp()" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
+            <span>Send Dossier via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================= -->
+    <!-- SECTION 2: MY BOOKINGS DASHBOARD (Dedicated Page View)   -->
+    <!-- ======================================================= -->
+    <section id="sectionHistory" class="hidden space-y-6">
+      
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block mb-0.5">Audit Tracking</span>
+          <h2 class="text-xl font-bold text-slate-900">My Inspection Bookings</h2>
+          <p class="text-xs text-slate-500 mt-1">Real-time status updates and direct auditor contact links for your purchase orders.</p>
+        </div>
+        <button onclick="switchPortalSection('booking')" class="px-4 py-2 rounded-lg bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold transition">
+          + Book New Inspection
+        </button>
+      </div>
+
+      <!-- Bookings Table -->
+      <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[10px] tracking-wider">
+              <tr>
+                <th class="py-3.5 px-4">Ref ID</th>
+                <th class="py-3.5 px-4">Service</th>
+                <th class="py-3.5 px-4">City & Factory</th>
+                <th class="py-3.5 px-4">PO & Quantity</th>
+                <th class="py-3.5 px-4">Inspection Date</th>
+                <th class="py-3.5 px-4">Status</th>
+                <th class="py-3.5 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTableBody" class="divide-y divide-slate-100 text-slate-700 font-medium">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="noBookingsMsg" class="hidden py-16 text-center text-slate-400 text-xs">
+          No bookings submitted yet. Click "Book New Inspection" to create your first quality audit dossier.
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ======================================================= -->
+    <!-- SECTION 3: PRICING ESTIMATOR (Dedicated Page View)       -->
+    <!-- ======================================================= -->
+    <section id="sectionPricing" class="hidden space-y-6">
+      
+      <div class="bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block mb-1">Cost & SLA Calculator</span>
+          <h2 class="text-xl font-bold text-slate-900">Interactive Inspection Pricing & SLA Estimator</h2>
+          <p class="text-xs text-slate-500 mt-1">Transparent flat-rate all-inclusive inspection rates across all manufacturing cities in Pakistan.</p>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-8 items-stretch">
+          <div class="md:col-span-7 space-y-5 text-xs font-semibold">
+            <div>
+              <label class="block text-slate-700 mb-1">1. Select Factory Location City</label>
+              <select id="calcCity" onchange="runCostEstimator()" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal text-sm">
+                <option value="Lahore" selected>Lahore (Knitwear, Denim & Wovens)</option>
+                <option value="Sialkot">Sialkot (Sportswear, Gloves & Leather)</option>
+                <option value="Faisalabad">Faisalabad (Textile Capital & Home Textiles)</option>
+                <option value="Karachi">Karachi (Port Hub & Denim)</option>
+                <option value="Multan">Multan (Yarn & Processing)</option>
+                <option value="Islamabad">Islamabad & Northern Cluster</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-slate-700 mb-1">2. Select Inspection Workflow Stage</label>
+              <select id="calcService" onchange="runCostEstimator()" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-slate-900 font-normal text-sm">
+                <option value="FRI">Final Random Inspection (FRI) / Pre-Shipment</option>
+                <option value="DUPRO">During Production Inspection (DUPRO - 20-60% inline)</option>
+                <option value="IPC">Initial Production Check (IPC - First output)</option>
+                <option value="CLC">Container Loading Check (CLC - Port/Factory)</option>
+                <option value="AUDIT">Factory Evaluation & Supplier Audit</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-slate-700 mb-1">
+                <span>3. Total Order Quantity (Pieces)</span>
+                <span id="calcQtyVal" class="text-orange-600 font-mono font-bold text-sm">3,000 Pcs</span>
+              </div>
+              <input id="calcQtySlider" type="range" min="500" max="25000" step="500" value="3000" oninput="updateCalcSlider(this.value)" class="w-full accent-orange-600 cursor-pointer" />
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono mt-1">
+                <span>500 pcs</span>
+                <span>5,000 pcs</span>
+                <span>10,000 pcs</span>
+                <span>25,000+ pcs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5 bg-teal-950 text-white rounded-xl p-6 flex flex-col justify-between shadow-sm">
+            <div>
+              <span class="text-[10px] uppercase font-bold text-teal-300 tracking-wider">Estimated Fee</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="text-4xl font-black text-orange-400" id="calcPriceDisplay">$199</span>
+                <span class="text-xs text-teal-200 font-medium">USD all-inclusive</span>
+              </div>
+              
+              <div class="mt-5 pt-5 border-t border-teal-900 space-y-2.5 text-xs text-teal-100">
+                <div class="flex justify-between">
+                  <span class="text-teal-300">Required Man-Days:</span>
+                  <strong id="calcMandays" class="text-white">1 Man-Day</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-teal-300">Sample Units (AQL II):</span>
+                  <strong id="calcSampleUnits" class="text-white">125 Garments</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-teal-300">Auditor Deployment:</span>
+                  <strong class="text-white">Within 48h Nationwide</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-teal-300">PDF Report Turnaround:</span>
+                  <strong class="text-orange-300">Within 24 Hours</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-5">
+              <button onclick="applyEstimateToBooking()" class="w-full py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-sm">
+                Apply to Booking Form
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    let currentUser = null;
+    let lastCreatedBooking = null;
+
+    // Check user authentication on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const userStr = localStorage.getItem('zasha_user');
+      if (!userStr) {
+        // Redirect to dedicated login page if not authenticated
+        const urlParams = new URLSearchParams(window.location.search);
+        const reqSvc = urlParams.get('service');
+        window.location.href = 'login.html' + (reqSvc ? '?service=' + encodeURIComponent(reqSvc) : '');
+        return;
+      }
+
+      try {
+        currentUser = JSON.parse(userStr);
+      } catch (e) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Display user details
+      document.getElementById('clientCompanyDisplay').innerText = currentUser.company;
+      document.getElementById('fClientCompany').value = currentUser.company;
+      document.getElementById('fContactPerson').value = currentUser.name;
+      document.getElementById('fEmail').value = currentUser.email;
+      document.getElementById('fPhone').value = currentUser.phone;
+
+      // Default date to today + 3 days
+      const d = new Date();
+      d.setDate(d.getDate() + 3);
+      document.getElementById('fDate').value = d.toISOString().split('T')[0];
+
+      // If service passed in query string, auto-select it
+      const urlParams = new URLSearchParams(window.location.search);
+      const reqService = urlParams.get('service');
+      if (reqService) {
+        const sel = document.getElementById('fService');
+        for (let i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value.toLowerCase().includes(reqService.toLowerCase()) || reqService.toLowerCase().includes(sel.options[i].value.toLowerCase())) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      renderBookingsHistory();
+      runCostEstimator();
+    });
+
+    function logoutPortal() {
+      localStorage.removeItem('zasha_user');
+      window.location.href = 'index.html';
+    }
+
+    function switchPortalSection(section) {
+      const btnB = document.getElementById('tabBtnBooking');
+      const btnH = document.getElementById('tabBtnHistory');
+      const btnP = document.getElementById('tabBtnPricing');
+
+      const secB = document.getElementById('sectionBooking');
+      const secH = document.getElementById('sectionHistory');
+      const secP = document.getElementById('sectionPricing');
+
+      [btnB, btnH, btnP].forEach(b => b.className = 'px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5');
+      [secB, secH, secP].forEach(s => s.classList.add('hidden'));
+
+      if (section === 'booking') {
+        btnB.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
+        secB.classList.remove('hidden');
+      } else if (section === 'history') {
+        btnH.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
+        secH.classList.remove('hidden');
+        renderBookingsHistory();
+      } else if (section === 'pricing') {
+        btnP.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
+        secP.classList.remove('hidden');
+      }
+    }
+
+    function handleInspectionFormSubmit(e) {
+      e.preventDefault();
+
+      const refId = 'ZA-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+
+      const booking = {
+        refId,
+        service: document.getElementById('fService').value,
+        date: document.getElementById('fDate').value,
+        city: document.getElementById('fCity').value,
+        factoryName: document.getElementById('fFactoryName').value,
+        factoryContact: document.getElementById('fFactoryContact').value,
+        factoryAddress: document.getElementById('fFactoryAddress').value,
+        company: currentUser.company,
+        contact: currentUser.name,
+        email: currentUser.email,
+        phone: currentUser.phone,
+        category: document.getElementById('fCategory').value,
+        garment: document.getElementById('fGarmentType').value,
+        po: document.getElementById('fPoNumber').value,
+        style: document.getElementById('fStyleNumber').value,
+        totalQty: document.getElementById('fTotalQty').value,
+        packedQty: document.getElementById('fPackedQty').value,
+        aql: document.getElementById('fAqlLevel').value,
+        currency: document.getElementById('fCurrency').value,
+        payment: document.getElementById('fPayment').value,
+        notes: document.getElementById('fNotes').value || 'Standard protocol',
+        status: 'Submitted / Pending Review',
+        createdAt: new Date().toLocaleDateString()
+      };
+
+      lastCreatedBooking = booking;
+
+      // Save to localStorage
+      let bookings = [];
+      try {
+        bookings = JSON.parse(localStorage.getItem('zasha_bookings') || '[]');
+      } catch (err) {}
+      bookings.unshift(booking);
+      localStorage.setItem('zasha_bookings', JSON.stringify(bookings));
+
+      // Display Confirmation card on page
+      document.getElementById('resRefId').innerText = refId;
+      document.getElementById('resService').innerText = booking.service;
+      document.getElementById('resLocation').innerText = booking.city + ' (' + booking.factoryName + ')';
+      document.getElementById('resPoQty').innerText = booking.po + ' (' + parseInt(booking.totalQty).toLocaleString() + ' Pcs)';
+      document.getElementById('resDate').innerText = booking.date;
+
+      document.getElementById('inspectionBookingForm').classList.add('hidden');
+      document.getElementById('bookingConfirmationCard').classList.remove('hidden');
+      document.getElementById('bookingConfirmationCard').scrollIntoView({ behavior: 'smooth' });
+
+      renderBookingsHistory();
+    }
+
+    function dispatchConfirmationWhatsApp() {
+      if (!lastCreatedBooking) return;
+      const b = lastCreatedBooking;
+      const msg = encodeURIComponent(
+`*ZASHA.AIS — INSPECTION BOOKING DOSSIER*
+*Reference ID:* ${b.refId}
+*Status:* ${b.status}
+------------------------------------
+*Client Profile:*
+• Company: ${b.company}
+• Contact: ${b.contact}
+• Phone: ${b.phone}
+• Email: ${b.email}
+
+*Inspection Scope:*
+• Service: ${b.service}
+• Target Date: ${b.date}
+• City: ${b.city}
+• Factory: ${b.factoryName}
+• Address: ${b.factoryAddress}
+• On-site Contact: ${b.factoryContact}
+
+*Order Specs:*
+• Category: ${b.category}
+• Garment: ${b.garment}
+• PO Number: ${b.po}
+• Style: ${b.style}
+• Quantity: ${b.totalQty} pcs
+• Production Stage: ${b.packedQty}
+• Standard: ${b.aql}
+
+*Special Notes:* ${b.notes}
+------------------------------------
+Please assign the on-site inspector and confirm scheduling.`
+      );
+      window.open(`https://wa.me/923151467673?text=${msg}`, '_blank');
+    }
+
+    function renderBookingsHistory() {
+      let bookings = [];
+      try {
+        bookings = JSON.parse(localStorage.getItem('zasha_bookings') || '[]');
+      } catch (err) {}
+
+      const badge = document.getElementById('historyCountBadge');
+      if (badge) badge.innerText = bookings.length;
+
+      const tbody = document.getElementById('bookingsTableBody');
+      const empty = document.getElementById('noBookingsMsg');
+
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (bookings.length === 0) {
+        if (empty) empty.classList.remove('hidden');
+        return;
+      }
+
+      if (empty) empty.classList.add('hidden');
+
+      bookings.forEach(b => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 transition';
+        tr.innerHTML = `
+          <td class="py-3.5 px-4 font-mono font-bold text-teal-900">${b.refId}</td>
+          <td class="py-3.5 px-4">${b.service}</td>
+          <td class="py-3.5 px-4">${b.city}<br><span class="text-[10px] text-slate-400 font-normal">${b.factoryName || 'Factory'}</span></td>
+          <td class="py-3.5 px-4 font-mono">${b.po}<br><span class="text-[10px] text-slate-400 font-normal">${parseInt(b.totalQty || 0).toLocaleString()} pcs</span></td>
+          <td class="py-3.5 px-4">${b.date}</td>
+          <td class="py-3.5 px-4">
+            <span class="inline-flex items-center gap-1 bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-bold">
+              <span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
+              ${b.status || 'Pending'}
+            </span>
+          </td>
+          <td class="py-3.5 px-4 text-right">
+            <a href="https://wa.me/923151467673?text=Status%20inquiry%20for%20dossier%20${b.refId}" target="_blank" class="px-2.5 py-1 rounded bg-teal-50 text-teal-800 hover:bg-teal-700 hover:text-white border border-teal-200 text-[11px] font-semibold transition">
+              Track
+            </a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function updateCalcSlider(val) {
+      document.getElementById('calcQtyVal').innerText = parseInt(val).toLocaleString() + ' Pcs';
+      runCostEstimator();
+    }
+
+    function runCostEstimator() {
+      const qty = parseInt(document.getElementById('calcQtySlider').value);
+      const service = document.getElementById('calcService').value;
+
+      let manDays = 1;
+      let sampleUnits = 125;
+      let price = 199;
+
+      if (qty <= 1200) {
+        sampleUnits = 80;
+        manDays = 1;
+        price = 199;
+      } else if (qty <= 3200) {
+        sampleUnits = 125;
+        manDays = 1;
+        price = 199;
+      } else if (qty <= 10000) {
+        sampleUnits = 200;
+        manDays = 2;
+        price = 379;
+      } else {
+        sampleUnits = 315;
+        manDays = 3;
+        price = 549;
+      }
+
+      if (service === 'AUDIT') price += 50;
+
+      document.getElementById('calcPriceDisplay').innerText = '$' + price;
+      document.getElementById('calcMandays').innerText = manDays + (manDays === 1 ? ' Man-Day' : ' Man-Days');
+      document.getElementById('calcSampleUnits').innerText = sampleUnits + ' Garments';
+    }
+
+    function applyEstimateToBooking() {
+      const city = document.getElementById('calcCity').value;
+      const qty = document.getElementById('calcQtySlider').value;
+
+      switchPortalSection('booking');
+      document.getElementById('fCity').value = city;
+      document.getElementById('fTotalQty').value = qty;
+    }
+  </script>
+</body>
+</html>

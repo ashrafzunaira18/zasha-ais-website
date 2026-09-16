@@ -17,20 +17,6 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       letter-spacing: -0.01em;
     }
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      #printArea, #printArea * {
-        visibility: visible;
-      }
-      #printArea {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased selection:bg-teal-700 selection:text-white">
@@ -60,7 +46,7 @@
         </nav>
       </div>
 
-      <!-- Right side: Fast SLA Badge, Direct Phone, and Dynamic Portal/Auth Button -->
+      <!-- Right side: Fast SLA Badge, Direct Phone, and Link to Dedicated Client Portal -->
       <div class="hidden sm:flex items-center space-x-4 text-xs font-medium text-slate-600">
         <span class="flex items-center gap-1.5 text-teal-800 bg-teal-50 px-2.5 py-1 rounded border border-teal-200 text-[11px] font-semibold">
           <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
@@ -70,9 +56,12 @@
           +92 315 1467673
         </a>
 
-        <!-- Dynamic Auth Button in Header -->
+        <!-- Dedicated Auth / Portal Link -->
         <div id="headerAuthArea">
-          <!-- Injected via JavaScript based on login state -->
+          <a href="login.html" class="px-3.5 py-1.5 rounded bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <span>Sign In / Portal</span>
+          </a>
         </div>
       </div>
 
@@ -90,8 +79,10 @@
       <a href="#gallery" onclick="toggleMobileNav()" class="block hover:text-teal-800">4. Gallery</a>
       <a href="#reports" onclick="toggleMobileNav()" class="block hover:text-teal-800">5. Sample Reports</a>
       <a href="#contact" onclick="toggleMobileNav()" class="block hover:text-teal-800">6. Contact Us</a>
-      <div id="mobileAuthArea" class="pt-3 border-t border-slate-200">
-        <!-- Injected via JS -->
+      <div class="pt-3 border-t border-slate-200">
+        <a href="login.html" class="block w-full text-center py-2 rounded bg-teal-800 text-white font-semibold">
+          Client Portal (Sign In / Register)
+        </a>
       </div>
     </div>
   </header>
@@ -124,9 +115,9 @@
         Independent on-site apparel inspection, factory audits, and compliance verification across Pakistan's manufacturing heartland.
       </p>
 
-      <!-- CTA Button: Opens Login/Register -> Inspection Booking Portal -->
+      <!-- CTA Button: Routes directly to dedicated flow -->
       <div class="pt-2 flex flex-wrap items-center justify-center gap-4">
-        <button onclick="handleBookInspectionClick()" class="px-6 py-3 rounded bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs tracking-wide transition shadow-sm flex items-center gap-2">
+        <button onclick="goToInspectionBooking()" class="px-6 py-3 rounded bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs tracking-wide transition shadow-sm flex items-center gap-2">
           <span>Book an Inspection</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
@@ -332,7 +323,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('1. Pre-Shipment Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('1. Pre-Shipment Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -352,7 +343,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('2. Final Random Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('2. Final Random Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -372,7 +363,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('3. During Production Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('3. During Production Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -392,7 +383,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('4. Initial Production Check')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('4. Initial Production Check')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -412,7 +403,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('5. Sample Picking Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('5. Sample Picking Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -432,7 +423,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('6. Container Loading Check')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('6. Container Loading Check')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -452,7 +443,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('7. Seam and Stitching Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('7. Seam and Stitching Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -472,7 +463,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('8. Finishing Process')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('8. Finishing Process')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -492,7 +483,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('9. Fabric Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('9. Fabric Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -512,7 +503,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('10. Sampling and Testing')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('10. Sampling and Testing')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -532,7 +523,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('11. Quality Control Measures')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('11. Quality Control Measures')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -552,7 +543,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('12. Raw Material Verification')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('12. Raw Material Verification')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -572,7 +563,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('13. Production Process Evaluation')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('13. Production Process Evaluation')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -592,7 +583,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('14. Dyeing/Printing Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('14. Dyeing/Printing Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -612,7 +603,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('15. Weaving/Knitting Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('15. Weaving/Knitting Inspection')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -632,7 +623,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('16. Spinning and Yarn Formation')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('16. Spinning and Yarn Formation')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -652,7 +643,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('17. Communication with Partners')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('17. Communication with Partners')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -672,7 +663,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('18. Supplier Assessment')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('18. Supplier Assessment')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -692,7 +683,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('19. VOC (Verification of Conformity)')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('19. VOC (Verification of Conformity)')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -712,7 +703,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('20. Documentation Review')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('20. Documentation Review')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -732,7 +723,7 @@
             </div>
           </div>
           <div class="px-5 pb-5">
-            <button onclick="handleBookInspectionClick('21. Quality Control Points')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
+            <button onclick="goToInspectionBooking('21. Quality Control Points')" class="w-full py-2 rounded bg-teal-50 hover:bg-teal-700 hover:text-white border border-teal-200 text-xs font-semibold text-teal-900 transition flex items-center justify-center gap-1.5">
               <span>Book This Service</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -1156,1007 +1147,49 @@
   </div>
 
 
-  <!-- ===================================================== -->
-  <!-- MODAL: CLIENT AUTHENTICATION (SIGN IN & REGISTRATION) -->
-  <!-- ===================================================== -->
-  <div id="authModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl max-w-md w-full border border-slate-200 shadow-2xl overflow-hidden relative">
-      <!-- Close Button -->
-      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 p-1 rounded-full hover:bg-slate-100 transition">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-
-      <!-- Modal Header -->
-      <div class="p-6 pb-0 bg-slate-50/70 border-b border-slate-100">
-        <div class="flex items-center space-x-2 mb-2">
-          <span class="h-6 w-6 rounded bg-teal-800 text-white font-bold text-xs flex items-center justify-center">Z</span>
-          <span class="font-bold text-sm text-teal-950">Zasha<span class="text-orange-600">.AIS</span> Client Portal</span>
-        </div>
-        <h3 id="authModalHeading" class="text-lg font-bold text-slate-900">Sign in to book inspection</h3>
-        <p id="authModalSub" class="text-xs text-slate-500 mt-0.5 mb-4">Access online inspection booking, real-time tracking, and verified audit reports.</p>
-
-        <!-- Tabs -->
-        <div class="flex border-b border-slate-200 text-xs font-semibold">
-          <button id="authTabLogin" onclick="switchAuthTab('login')" class="flex-1 py-2.5 text-center border-b-2 border-teal-800 text-teal-900 transition">
-            Sign In
-          </button>
-          <button id="authTabRegister" onclick="switchAuthTab('register')" class="flex-1 py-2.5 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition">
-            Register Account
-          </button>
-        </div>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="p-6">
-        
-        <!-- 1. SIGN IN FORM -->
-        <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-4 text-xs font-semibold">
-          <div>
-            <label class="block text-slate-700 mb-1">Work Email Address *</label>
-            <input id="loginEmail" type="email" required placeholder="buyer@company.com" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-          </div>
-          <div>
-            <div class="flex items-center justify-between mb-1">
-              <label class="text-slate-700">Password *</label>
-              <span class="text-[11px] text-teal-700 font-normal">Demo: any password</span>
-            </div>
-            <input id="loginPassword" type="password" required placeholder="••••••••" class="w-full border border-slate-300 rounded-lg p-2.5 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-          </div>
-
-          <div class="flex items-center justify-between text-[11px] font-normal text-slate-600">
-            <label class="flex items-center gap-1.5 cursor-pointer">
-              <input type="checkbox" id="loginRemember" checked class="rounded accent-teal-700" />
-              Remember my session
-            </label>
-          </div>
-
-          <div id="loginError" class="hidden p-2.5 rounded bg-red-50 border border-red-200 text-red-700 text-xs font-normal"></div>
-
-          <button type="submit" class="w-full py-2.5 rounded-lg bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs tracking-wide transition shadow-sm">
-            Sign In & Enter Portal
-          </button>
-
-          <div class="relative flex py-1 items-center">
-            <div class="flex-grow border-t border-slate-200"></div>
-            <span class="flex-shrink mx-3 text-[10px] text-slate-400 font-normal uppercase tracking-wider">Instant Demo Access</span>
-            <div class="flex-grow border-t border-slate-200"></div>
-          </div>
-
-          <!-- 1-Click Demo Buyer Login Button -->
-          <button type="button" onclick="handleDemoLogin()" class="w-full py-2.5 rounded-lg bg-orange-50 hover:bg-orange-100 border border-orange-200 text-orange-700 font-semibold text-xs transition flex items-center justify-center gap-2">
-            <span class="h-2 w-2 rounded-full bg-orange-500"></span>
-            1-Click Demo Buyer Sign In
-          </button>
-        </form>
-
-        <!-- 2. REGISTER FORM -->
-        <form id="registerForm" onsubmit="handleRegisterSubmit(event)" class="hidden space-y-3 text-xs font-semibold">
-          <div>
-            <label class="block text-slate-700 mb-1">Company / Brand Name *</label>
-            <input id="regCompany" type="text" required placeholder="e.g. Nordic Apparel Sourcing Ltd" class="w-full border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-slate-700 mb-1">Contact Person Name *</label>
-              <input id="regName" type="text" required placeholder="e.g. Marcus Vance" class="w-full border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">Business Role *</label>
-              <select id="regRole" class="w-full border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-teal-700 font-normal text-xs">
-                <option value="International Apparel Brand">International Apparel Brand</option>
-                <option value="Buying House / Agent">Buying House / Agent</option>
-                <option value="Garment Importer">Garment Importer</option>
-                <option value="Factory Manufacturer">Factory Manufacturer</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-slate-700 mb-1">Work Email *</label>
-              <input id="regEmail" type="email" required placeholder="buyer@brand.com" class="w-full border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">WhatsApp / Phone *</label>
-              <input id="regPhone" type="tel" required placeholder="+44 7911 123456" class="w-full border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-slate-700 mb-1">Password *</label>
-            <input id="regPassword" type="password" required minlength="4" placeholder="••••••••" class="w-full border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-teal-700 font-normal" />
-          </div>
-
-          <div id="registerError" class="hidden p-2 rounded bg-red-50 border border-red-200 text-red-700 text-xs font-normal"></div>
-
-          <button type="submit" class="w-full py-2.5 rounded-lg bg-teal-800 hover:bg-teal-900 text-white font-bold text-xs tracking-wide transition shadow-sm mt-2">
-            Create Account & Enter Portal
-          </button>
-        </form>
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ===================================================== -->
-  <!-- MODAL / OVERLAY: CLIENT INSPECTION PORTAL -->
-  <!-- ===================================================== -->
-  <div id="portalModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
-    <div class="bg-white rounded-xl max-w-5xl w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
-      
-      <!-- Portal Top Header -->
-      <div class="px-6 py-3.5 bg-slate-900 text-white border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center space-x-3">
-          <div class="h-8 w-8 rounded bg-teal-600 text-white font-bold text-sm flex items-center justify-center">Z</div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-bold text-sm text-white">Zasha<span class="text-orange-400">.AIS</span> Client Portal</span>
-              <span class="bg-teal-900/80 text-teal-300 text-[10px] font-semibold px-2 py-0.5 rounded border border-teal-700">Verified Client</span>
-            </div>
-            <div class="text-[11px] text-slate-400">
-              Welcome, <strong id="portalUserCompany" class="text-slate-200">Company</strong> (<span id="portalUserName">User</span>)
-            </div>
-          </div>
-        </div>
-
-        <!-- Portal Navigation Tabs -->
-        <div class="flex items-center space-x-1 bg-slate-800 p-1 rounded-lg text-xs font-semibold">
-          <button id="pTabBooking" onclick="switchPortalTab('booking')" class="px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-            Book Inspection
-          </button>
-          <button id="pTabHistory" onclick="switchPortalTab('history')" class="px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            My Bookings (<span id="portalBookingCount">0</span>)
-          </button>
-          <button id="pTabPricing" onclick="switchPortalTab('pricing')" class="px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-            Estimator
-          </button>
-        </div>
-
-        <!-- Exit Actions -->
-        <div class="flex items-center space-x-3 text-xs">
-          <button onclick="handleLogout()" class="text-slate-400 hover:text-red-400 transition font-medium">
-            Logout
-          </button>
-          <button onclick="closePortal()" class="text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800 transition" title="Close Portal (Return to Website)">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Portal Scrollable Body -->
-      <div class="p-6 overflow-y-auto flex-1 bg-slate-50">
-        
-        <!-- PANE 1: BOOK AN INSPECTION FORM -->
-        <div id="portalPaneBooking" class="max-w-4xl mx-auto space-y-6">
-          
-          <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-            <div>
-              <h3 class="text-base font-bold text-slate-900">Online Inspection Booking Dossier</h3>
-              <p class="text-xs text-slate-500">Submit factory coordinates and purchase order specs. 48h deployment SLA across Pakistan.</p>
-            </div>
-            <span class="text-[11px] font-semibold bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded border border-emerald-200">
-              ● 48h Field Deployment Active
-            </span>
-          </div>
-
-          <!-- The Inspection Form -->
-          <form id="portalBookingForm" onsubmit="handlePortalBookingSubmit(event)" class="space-y-6">
-            
-            <!-- Part 1: Service Type, Location & Factory Schedule -->
-            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block">Part 1: Service Type, Location & Factory Schedule</span>
-              
-              <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-700 mb-1">1. Inspection Service Workflow *</label>
-                  <select id="pBkService" required class="w-full bg-slate-50 border border-slate-300 rounded p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="1. Pre-Shipment Inspection">1. Pre-Shipment Inspection</option>
-<option value="2. Final Random Inspection">2. Final Random Inspection</option>
-<option value="3. During Production Inspection">3. During Production Inspection</option>
-<option value="4. Initial Production Check">4. Initial Production Check</option>
-<option value="5. Sample Picking Inspection">5. Sample Picking Inspection</option>
-<option value="6. Container Loading Check">6. Container Loading Check</option>
-<option value="7. Seam and Stitching Inspection">7. Seam and Stitching Inspection</option>
-<option value="8. Finishing Process">8. Finishing Process</option>
-<option value="9. Fabric Inspection">9. Fabric Inspection</option>
-<option value="10. Sampling and Testing">10. Sampling and Testing</option>
-<option value="11. Quality Control Measures">11. Quality Control Measures</option>
-<option value="12. Raw Material Verification">12. Raw Material Verification</option>
-<option value="13. Production Process Evaluation">13. Production Process Evaluation</option>
-<option value="14. Dyeing/Printing Inspection">14. Dyeing/Printing Inspection</option>
-<option value="15. Weaving/Knitting Inspection">15. Weaving/Knitting Inspection</option>
-<option value="16. Spinning and Yarn Formation">16. Spinning and Yarn Formation</option>
-<option value="17. Communication with Partners">17. Communication with Partners</option>
-<option value="18. Supplier Assessment">18. Supplier Assessment</option>
-<option value="19. VOC (Verification of Conformity)">19. VOC (Verification of Conformity)</option>
-<option value="20. Documentation Review">20. Documentation Review</option>
-<option value="21. Quality Control Points">21. Quality Control Points</option>
-
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">2. Target Inspection Date *</label>
-                  <input id="pBkDate" type="date" required class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-              </div>
-
-              <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-700 mb-1">3. Factory City (Pakistan) *</label>
-                  <select id="pBkCity" required class="w-full bg-slate-50 border border-slate-300 rounded p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="Lahore" selected>Lahore (Knitwear, Denim & Wovens)</option>
-                    <option value="Sialkot">Sialkot (Sportswear, Gloves & Leather)</option>
-                    <option value="Faisalabad">Faisalabad (Textile Capital & Home Textiles)</option>
-                    <option value="Karachi">Karachi (Port Hub & Denim Mills)</option>
-                    <option value="Multan">Multan (Yarn & Processing)</option>
-                    <option value="Islamabad">Islamabad & Northern Cluster</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">4. Factory / Mill Name *</label>
-                  <input id="pBkFactoryName" type="text" required placeholder="e.g. Master Textile Mills Ltd" class="w-full bg-slate-50 border border-slate-300 rounded p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">5. Factory On-site Contact Person *</label>
-                  <input id="pBkFactoryContact" type="text" required placeholder="e.g. Tariq Mehmood (GM Quality)" class="w-full bg-slate-50 border border-slate-300 rounded p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-              </div>
-
-              <div class="text-xs font-semibold">
-                <label class="block text-slate-700 mb-1">6. Factory Full Physical Address & Location *</label>
-                <input id="pBkFactoryAddress" type="text" required placeholder="Plot / Street, Industrial Estate, Sector, City" class="w-full bg-slate-50 border border-slate-300 rounded p-2.5 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-              </div>
-            </div>
-
-            <!-- Part 2: Client Information (Auto-Filled) -->
-            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block">Part 2: Client & Brand Information (Auto-Filled)</span>
-              <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-500 mb-1">Client / Brand Company</label>
-                  <input id="pBkClientCompany" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded p-2 text-slate-700 font-medium" />
-                </div>
-                <div>
-                  <label class="block text-slate-500 mb-1">Authorized Contact</label>
-                  <input id="pBkContactPerson" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded p-2 text-slate-700 font-medium" />
-                </div>
-                <div>
-                  <label class="block text-slate-500 mb-1">Report Email Destination</label>
-                  <input id="pBkEmail" type="email" readonly class="w-full bg-slate-100 border border-slate-200 rounded p-2 text-slate-700 font-medium" />
-                </div>
-                <div>
-                  <label class="block text-slate-500 mb-1">WhatsApp / Phone</label>
-                  <input id="pBkPhone" type="tel" readonly class="w-full bg-slate-100 border border-slate-200 rounded p-2 text-slate-700 font-medium" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Part 3: Purchase Order & Garment Specifications -->
-            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block">Part 3: Purchase Order & Garment Specifications</span>
-              
-              <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-700 mb-1">Product Category *</label>
-                  <select id="pBkCategory" required class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="Knitwear (T-shirts, Hoodies, Polos)">Knitwear (T-shirts, Hoodies, Polos)</option>
-                    <option value="Wovens & Denim (Jeans, Shirts)">Wovens & Denim (Jeans, Shirts)</option>
-                    <option value="Sportswear & Activewear">Sportswear & Activewear</option>
-                    <option value="Home Textiles (Towels, Bedding)">Home Textiles (Towels, Bedding)</option>
-                    <option value="Leather & Motorbike Garments">Leather & Motorbike Garments</option>
-                    <option value="Apparel Accessories">Apparel Accessories</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">Garment Description *</label>
-                  <input id="pBkGarmentType" type="text" required placeholder="e.g. Heavyweight Fleece Hoodie" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">PO Number *</label>
-                  <input id="pBkPoNumber" type="text" required placeholder="e.g. PO-8921-EU" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">Style / Article No *</label>
-                  <input id="pBkStyleNumber" type="text" required placeholder="e.g. ST-2026-X" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-              </div>
-
-              <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-700 mb-1">Total Order Quantity (Pcs) *</label>
-                  <input id="pBkTotalQty" type="number" required min="100" placeholder="e.g. 5000" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700" />
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">Production Status / Ready % *</label>
-                  <select id="pBkPackedQty" required class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="100% finished & 80%+ packed (Ready for FRI)">100% finished & 80%+ packed (Ready for FRI)</option>
-                    <option value="50-80% in sewing/finishing (Ready for DUPRO)">50-80% in sewing/finishing (Ready for DUPRO)</option>
-                    <option value="Initial batch ready (Ready for IPC)">Initial batch ready (Ready for IPC)</option>
-                    <option value="Pre-production / Fabric rolls ready">Pre-production / Fabric rolls ready</option>
-                    <option value="Packed & ready for container stuffing">Packed & ready for container stuffing</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">AQL Sampling Standard *</label>
-                  <select id="pBkAqlLevel" required class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="ISO 2859-1 Level II (Critical: 0, Major: 2.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 2.5 Normal) - Standard</option>
-                    <option value="ISO 2859-1 Level II (Critical: 0, Major: 1.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 1.5 Strict)</option>
-                    <option value="ISO 2859-1 Level I (Reduced Sampling)">ISO 2859-1 Level I (Reduced Sampling)</option>
-                    <option value="100% Full Piece-by-Piece Inspection">100% Full Piece-by-Piece Inspection</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Part 4: Billing Preferences & Specific Instructions -->
-            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm space-y-4">
-              <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block">Part 4: Billing Preferences & Specific Instructions</span>
-              
-              <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-700 mb-1">Invoicing Currency</label>
-                  <select id="pBkCurrency" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="USD ($)">USD ($) - Standard International</option>
-                    <option value="EUR (€)">EUR (€) - European Union</option>
-                    <option value="GBP (£)">GBP (£) - United Kingdom</option>
-                    <option value="PKR (₨)">PKR (₨) - Local Pakistan</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-slate-700 mb-1">Payment Method Preference</label>
-                  <select id="pBkPayment" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700">
-                    <option value="International Wire Transfer (SWIFT)">International Wire Transfer (SWIFT)</option>
-                    <option value="Online Credit Card / Debit Card">Online Credit Card / Debit Card</option>
-                    <option value="Corporate Account Invoicing (Net 15)">Corporate Account Invoicing (Net 15)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="text-xs font-semibold">
-                <label class="block text-slate-700 mb-1">Special Inspection Focus / Auditor Notes</label>
-                <textarea id="pBkNotes" rows="3" placeholder="Specific measurement tolerance specs, high-risk points (e.g. zipper pull test, barcoding scannability, shade banding, carton drop test)..." class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal focus:outline-none focus:border-teal-700"></textarea>
-              </div>
-
-              <div class="pt-2">
-                <label class="flex items-start gap-2 text-xs text-slate-600 font-normal cursor-pointer">
-                  <input type="checkbox" required checked class="mt-0.5 rounded accent-teal-800" />
-                  <span>I confirm that the factory location and PO details provided are accurate for auditor dispatch. Standard 48h deployment SLA applies upon booking confirmation.</span>
-                </label>
-              </div>
-
-              <div class="pt-3 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
-                <div class="text-xs text-slate-500">
-                  Standard inspection fee: <strong class="text-slate-800 font-bold">$199 USD</strong> / man-day within city limits.
-                </div>
-                <button type="submit" class="px-8 py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs tracking-wide transition shadow-sm flex items-center gap-2">
-                  <span>Submit Booking & Generate Dossier</span>
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </button>
-              </div>
-            </div>
-          </form>
-
-          <!-- CONFIRMATION DOSSIER SCREEN (Shown upon submission) -->
-          <div id="portalConfirmationCard" class="hidden bg-white p-6 sm:p-8 rounded-xl border-2 border-emerald-500 shadow-md space-y-6">
-            
-            <div id="printArea" class="space-y-6">
-              <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
-                <div class="flex items-center space-x-3">
-                  <div class="h-10 w-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">
-                    ✓
-                  </div>
-                  <div>
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">Inspection Dossier Created</span>
-                    <h3 class="text-lg font-bold text-slate-900">Official Booking Confirmation</h3>
-                  </div>
-                </div>
-                <div class="text-right">
-                  <span class="text-xs text-slate-400 block font-mono">Dossier Reference ID</span>
-                  <span id="confRefId" class="text-base sm:text-lg font-mono font-bold text-teal-900 bg-teal-50 px-3 py-1 rounded border border-teal-200">
-                    ZA-2026-0000
-                  </span>
-                </div>
-              </div>
-
-              <!-- Summary Table -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-lg border border-slate-200 text-xs">
-                <div>
-                  <span class="text-slate-400 block font-medium">Service Workflow</span>
-                  <strong id="confService" class="text-slate-800">Pre-Shipment Inspection</strong>
-                </div>
-                <div>
-                  <span class="text-slate-400 block font-medium">Factory Location</span>
-                  <strong id="confLocation" class="text-slate-800">Lahore, Pakistan</strong>
-                </div>
-                <div>
-                  <span class="text-slate-400 block font-medium">PO & Quantity</span>
-                  <strong id="confPoQty" class="text-slate-800">PO-12345 (5,000 Pcs)</strong>
-                </div>
-                <div>
-                  <span class="text-slate-400 block font-medium">Target Date</span>
-                  <strong id="confDate" class="text-emerald-700">2026-10-15</strong>
-                </div>
-              </div>
-
-              <div class="p-4 bg-teal-50/70 border border-teal-200 rounded-lg text-xs text-teal-950 space-y-1">
-                <div class="font-bold">Status: Submitted — Dispatch Team Notified</div>
-                <p>Our operations desk is verifying factory coordinates. Your lead inspector will be scheduled for deployment within 48 hours.</p>
-              </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200">
-              <div class="flex items-center gap-2">
-                <button onclick="window.print()" class="px-4 py-2 rounded border border-slate-300 bg-white hover:bg-slate-100 text-slate-700 text-xs font-semibold transition flex items-center gap-1.5">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                  Print / Save Slip
-                </button>
-                <button onclick="switchPortalTab('history')" class="px-4 py-2 rounded bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold transition">
-                  View in My Bookings
-                </button>
-              </div>
-
-              <button onclick="dispatchConfirmationWhatsApp()" class="px-5 py-2 rounded bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-2">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
-                Send Dossier via WhatsApp
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-
-        <!-- PANE 2: MY BOOKINGS DASHBOARD -->
-        <div id="portalPaneHistory" class="hidden max-w-4xl mx-auto space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-            <div>
-              <h3 class="text-base font-bold text-slate-900">My Inspection Bookings</h3>
-              <p class="text-xs text-slate-500">Track current auditor deployment status and access downloadable inspection records.</p>
-            </div>
-            <button onclick="switchPortalTab('booking')" class="px-4 py-2 rounded bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold transition">
-              + New Inspection
-            </button>
-          </div>
-
-          <!-- Bookings Table Container -->
-          <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
-            <div class="overflow-x-auto">
-              <table class="w-full text-left text-xs">
-                <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[10px] tracking-wider">
-                  <tr>
-                    <th class="py-3 px-4">Ref ID</th>
-                    <th class="py-3 px-4">Service</th>
-                    <th class="py-3 px-4">City / Factory</th>
-                    <th class="py-3 px-4">PO & Quantity</th>
-                    <th class="py-3 px-4">Inspection Date</th>
-                    <th class="py-3 px-4">Status</th>
-                    <th class="py-3 px-4 text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="bookingsTableBody" class="divide-y divide-slate-100 text-slate-700 font-medium">
-                  <!-- Filled via JS -->
-                </tbody>
-              </table>
-            </div>
-
-            <div id="noBookingsMsg" class="hidden py-12 text-center text-slate-400 text-xs">
-              No inspection bookings recorded yet. Click "Book Inspection" to submit your first audit dossier.
-            </div>
-          </div>
-        </div>
-
-
-        <!-- PANE 3: PRICING ESTIMATOR -->
-        <div id="portalPanePricing" class="hidden max-w-4xl mx-auto space-y-6">
-          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm space-y-6">
-            <div>
-              <span class="text-[11px] font-bold uppercase tracking-wider text-teal-800 block mb-1">Cost Calculator</span>
-              <h3 class="text-base font-bold text-slate-900">Interactive Inspection Pricing & SLA Estimator</h3>
-              <p class="text-xs text-slate-500">Flat-rate all-inclusive inspection day rates across all Pakistan industrial hubs.</p>
-            </div>
-
-            <div class="grid md:grid-cols-12 gap-6 items-stretch">
-              <div class="md:col-span-7 space-y-4 text-xs font-semibold">
-                <div>
-                  <label class="block text-slate-700 mb-1">1. Factory Location</label>
-                  <select id="calcCity" onchange="runCostCalculator()" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal">
-                    <option value="Lahore" selected>Lahore (Knitwear, Denim & Wovens)</option>
-                    <option value="Sialkot">Sialkot (Sportswear, Gloves & Leather)</option>
-                    <option value="Faisalabad">Faisalabad (Textile Capital & Home Textiles)</option>
-                    <option value="Karachi">Karachi (Port Hub & Denim)</option>
-                    <option value="Multan">Multan (Yarn & Processing)</option>
-                    <option value="Islamabad">Islamabad & Northern Cluster</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label class="block text-slate-700 mb-1">2. Inspection Service</label>
-                  <select id="calcService" onchange="runCostCalculator()" class="w-full bg-slate-50 border border-slate-300 rounded p-2 text-slate-900 font-normal">
-                    <option value="FRI">Final Random Inspection (FRI) / Pre-Shipment</option>
-                    <option value="DUPRO">During Production Inspection (DUPRO)</option>
-                    <option value="IPC">Initial Production Check (IPC)</option>
-                    <option value="CLC">Container Loading Check (CLC)</option>
-                    <option value="AUDIT">Factory Evaluation & Social Audit</option>
-                  </select>
-                </div>
-
-                <div>
-                  <div class="flex justify-between text-slate-700 mb-1">
-                    <span>3. Total Batch Quantity</span>
-                    <span id="calcQtyVal" class="text-orange-600 font-mono font-bold">3,000 Pcs</span>
-                  </div>
-                  <input id="calcQtySlider" type="range" min="500" max="25000" step="500" value="3000" oninput="updateCalcSlider(this.value)" class="w-full accent-orange-600 cursor-pointer" />
-                </div>
-              </div>
-
-              <div class="md:col-span-5 bg-teal-950 text-white rounded-lg p-5 flex flex-col justify-between">
-                <div>
-                  <span class="text-[10px] uppercase font-bold text-teal-300 tracking-wider">Estimated Fee</span>
-                  <div class="flex items-baseline gap-2 mt-1">
-                    <span class="text-3xl font-extrabold text-orange-400" id="calcPriceDisplay">$199</span>
-                    <span class="text-xs text-teal-200">USD all-inclusive</span>
-                  </div>
-                  
-                  <div class="mt-4 pt-4 border-t border-teal-900 space-y-2 text-xs text-teal-100">
-                    <div class="flex justify-between">
-                      <span class="text-teal-300">Required Man-Days:</span>
-                      <strong id="calcMandays" class="text-white">1 Man-Day</strong>
-                    </div>
-                    <div class="flex justify-between">
-                      <span class="text-teal-300">Sample Units (AQL II):</span>
-                      <strong id="calcSampleUnits" class="text-white">125 Garments</strong>
-                    </div>
-                    <div class="flex justify-between">
-                      <span class="text-teal-300">Auditor Deployment:</span>
-                      <strong class="text-white">Within 48h</strong>
-                    </div>
-                    <div class="flex justify-between">
-                      <span class="text-teal-300">PDF Report Delivery:</span>
-                      <strong class="text-orange-300">Within 24h</strong>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="pt-4">
-                  <button onclick="applyEstimateToBooking()" class="w-full py-2.5 rounded bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition">
-                    Apply to Booking Form
-                  </button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- SCRIPT LOGIC -->
+  <!-- Script Logic -->
   <script>
-    // State management
-    let currentUser = null;
-    let pendingServiceSelection = null;
-    let lastCreatedBooking = null;
-
-    // Load session on startup
+    // Check if user is logged in
     window.addEventListener('DOMContentLoaded', () => {
-      loadUserSession();
-      renderAuthButtons();
-      runCostCalculator();
+      const userStr = localStorage.getItem('zasha_user');
+      const headerAuth = document.getElementById('headerAuthArea');
+      if (userStr) {
+        try {
+          const u = JSON.parse(userStr);
+          if (headerAuth) {
+            headerAuth.innerHTML = `
+              <div class="flex items-center gap-2">
+                <a href="portal.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold hover:bg-teal-100 transition">
+                  <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                  <span>Portal (${u.company ? u.company.split(' ')[0] : 'Client'})</span>
+                </a>
+                <button onclick="logoutUser()" class="text-xs text-slate-500 hover:text-red-600 font-medium">
+                  Logout
+                </button>
+              </div>`;
+          }
+        } catch(e) {}
+      }
     });
 
-    function loadUserSession() {
-      try {
-        const saved = localStorage.getItem('zasha_user');
-        if (saved) {
-          currentUser = JSON.parse(saved);
-        }
-      } catch (err) {}
-    }
-
-    function saveUserSession(user) {
-      currentUser = user;
-      localStorage.setItem('zasha_user', JSON.stringify(user));
-      renderAuthButtons();
-    }
-
-    function handleLogout() {
+    function logoutUser() {
       localStorage.removeItem('zasha_user');
-      currentUser = null;
-      renderAuthButtons();
-      closePortal();
-      closeAuthModal();
-      alert('You have been logged out.');
+      window.location.reload();
     }
 
-    function renderAuthButtons() {
-      const headerArea = document.getElementById('headerAuthArea');
-      const mobileArea = document.getElementById('mobileAuthArea');
-      
-      if (currentUser) {
-        const loggedHtml = `
-          <div class="flex items-center gap-2">
-            <button onclick="openPortal('booking')" class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-teal-50 border border-teal-200 text-teal-900 text-xs font-bold hover:bg-teal-100 transition">
-              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-              <span>Portal (${currentUser.company.split(' ')[0]})</span>
-            </button>
-            <button onclick="handleLogout()" class="text-xs text-slate-500 hover:text-red-600 font-medium">
-              Logout
-            </button>
-          </div>`;
-        if (headerArea) headerArea.innerHTML = loggedHtml;
-        if (mobileArea) mobileArea.innerHTML = loggedHtml;
-      } else {
-        const guestHtml = `
-          <button onclick="openAuthModal('login')" class="px-3.5 py-1.5 rounded bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold transition flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-            <span>Client Portal</span>
-          </button>`;
-        if (headerArea) headerArea.innerHTML = guestHtml;
-        if (mobileArea) mobileArea.innerHTML = guestHtml;
-      }
+    function goToInspectionBooking(serviceName = null) {
+      const user = localStorage.getItem('zasha_user');
+      const targetPage = user ? 'portal.html' : 'login.html';
+      const q = serviceName ? '?service=' + encodeURIComponent(serviceName) : '';
+      window.location.href = targetPage + q;
     }
 
-    // Auth Modal handling
-    function openAuthModal(tab = 'login', reasonMessage = null) {
-      const m = document.getElementById('authModal');
-      m.classList.remove('hidden');
-      switchAuthTab(tab);
-      if (reasonMessage) {
-        document.getElementById('authModalSub').innerText = reasonMessage;
-      } else {
-        document.getElementById('authModalSub').innerText = 'Access online inspection booking, real-time tracking, and verified audit reports.';
-      }
-    }
-
-    function closeAuthModal() {
-      document.getElementById('authModal').classList.add('hidden');
-    }
-
-    function switchAuthTab(tab) {
-      const tabLogin = document.getElementById('authTabLogin');
-      const tabRegister = document.getElementById('authTabRegister');
-      const formLogin = document.getElementById('loginForm');
-      const formRegister = document.getElementById('registerForm');
-      const heading = document.getElementById('authModalHeading');
-
-      if (tab === 'login') {
-        tabLogin.className = 'flex-1 py-2.5 text-center border-b-2 border-teal-800 text-teal-900 font-bold transition';
-        tabRegister.className = 'flex-1 py-2.5 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition';
-        formLogin.classList.remove('hidden');
-        formRegister.classList.add('hidden');
-        heading.innerText = 'Sign in to book inspection';
-      } else {
-        tabRegister.className = 'flex-1 py-2.5 text-center border-b-2 border-teal-800 text-teal-900 font-bold transition';
-        tabLogin.className = 'flex-1 py-2.5 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition';
-        formRegister.classList.remove('hidden');
-        formLogin.classList.add('hidden');
-        heading.innerText = 'Create your client account';
-      }
-    }
-
-    function handleDemoLogin() {
-      const demoUser = {
-        company: 'Vanguard Apparel Group (UK)',
-        name: 'Alexander Ross',
-        email: 'alex.ross@vanguardapparel.co.uk',
-        phone: '+44 7911 849201',
-        role: 'International Apparel Brand'
-      };
-      saveUserSession(demoUser);
-      closeAuthModal();
-      openPortal('booking', pendingServiceSelection);
-    }
-
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('loginEmail').value;
-      const user = {
-        company: email.split('@')[1].split('.')[0].toUpperCase() + ' Sourcing',
-        name: email.split('@')[0].replace('.', ' ').toUpperCase(),
-        email: email,
-        phone: '+44 7911 234567',
-        role: 'Verified Buyer / Brand'
-      };
-      saveUserSession(user);
-      closeAuthModal();
-      openPortal('booking', pendingServiceSelection);
-    }
-
-    function handleRegisterSubmit(e) {
-      e.preventDefault();
-      const company = document.getElementById('regCompany').value;
-      const name = document.getElementById('regName').value;
-      const email = document.getElementById('regEmail').value;
-      const phone = document.getElementById('regPhone').value;
-      const role = document.getElementById('regRole').value;
-
-      const newUser = { company, name, email, phone, role };
-      saveUserSession(newUser);
-      closeAuthModal();
-      openPortal('booking', pendingServiceSelection);
-    }
-
-    // "Book an Inspection" click router
-    function handleBookInspectionClick(serviceName = null) {
-      pendingServiceSelection = serviceName;
-      if (!currentUser) {
-        const msg = serviceName ? `Please sign in or register to book ${serviceName}.` : 'Please sign in or register to proceed to the booking portal.';
-        openAuthModal('login', msg);
-      } else {
-        openPortal('booking', serviceName);
-      }
-    }
-
-    // Portal controls
-    function openPortal(tab = 'booking', serviceName = null) {
-      if (!currentUser) {
-        openAuthModal('login');
-        return;
-      }
-
-      document.getElementById('portalUserCompany').innerText = currentUser.company;
-      document.getElementById('portalUserName').innerText = currentUser.name;
-
-      // Fill client fields
-      document.getElementById('pBkClientCompany').value = currentUser.company;
-      document.getElementById('pBkContactPerson').value = currentUser.name;
-      document.getElementById('pBkEmail').value = currentUser.email;
-      document.getElementById('pBkPhone').value = currentUser.phone;
-
-      // Default date to tomorrow + 2 days
-      const d = new Date();
-      d.setDate(d.getDate() + 3);
-      document.getElementById('pBkDate').value = d.toISOString().split('T')[0];
-
-      if (serviceName) {
-        const sel = document.getElementById('pBkService');
-        for (let i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].value.toLowerCase().includes(serviceName.toLowerCase()) || serviceName.toLowerCase().includes(sel.options[i].value.toLowerCase())) {
-            sel.selectedIndex = i;
-            break;
-          }
-        }
-      }
-
-      renderBookingsHistory();
-      switchPortalTab(tab);
-      document.getElementById('portalModal').classList.remove('hidden');
-    }
-
-    function closePortal() {
-      document.getElementById('portalModal').classList.add('hidden');
-    }
-
-    function switchPortalTab(tab) {
-      const tabB = document.getElementById('pTabBooking');
-      const tabH = document.getElementById('pTabHistory');
-      const tabP = document.getElementById('pTabPricing');
-
-      const paneB = document.getElementById('portalPaneBooking');
-      const paneH = document.getElementById('portalPaneHistory');
-      const paneP = document.getElementById('portalPanePricing');
-
-      [tabB, tabH, tabP].forEach(t => t.className = 'px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5');
-      [paneB, paneH, paneP].forEach(p => p.classList.add('hidden'));
-
-      if (tab === 'booking') {
-        tabB.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
-        paneB.classList.remove('hidden');
-      } else if (tab === 'history') {
-        tabH.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
-        paneH.classList.remove('hidden');
-        renderBookingsHistory();
-      } else if (tab === 'pricing') {
-        tabP.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
-        paneP.classList.remove('hidden');
-      }
-    }
-
-    // Portal Form Submit
-    function handlePortalBookingSubmit(e) {
-      e.preventDefault();
-
-      const refId = 'ZA-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
-      
-      const newBooking = {
-        refId,
-        service: document.getElementById('pBkService').value,
-        date: document.getElementById('pBkDate').value,
-        city: document.getElementById('pBkCity').value,
-        factoryName: document.getElementById('pBkFactoryName').value,
-        factoryContact: document.getElementById('pBkFactoryContact').value,
-        factoryAddress: document.getElementById('pBkFactoryAddress').value,
-        company: currentUser.company,
-        contact: currentUser.name,
-        email: currentUser.email,
-        phone: currentUser.phone,
-        category: document.getElementById('pBkCategory').value,
-        garment: document.getElementById('pBkGarmentType').value,
-        po: document.getElementById('pBkPoNumber').value,
-        style: document.getElementById('pBkStyleNumber').value,
-        totalQty: document.getElementById('pBkTotalQty').value,
-        packedQty: document.getElementById('pBkPackedQty').value,
-        aql: document.getElementById('pBkAqlLevel').value,
-        currency: document.getElementById('pBkCurrency').value,
-        payment: document.getElementById('pBkPayment').value,
-        notes: document.getElementById('pBkNotes').value || 'Standard protocol',
-        status: 'Submitted / Pending Review',
-        createdAt: new Date().toLocaleDateString()
-      };
-
-      lastCreatedBooking = newBooking;
-
-      // Save to localStorage
-      let bookings = [];
-      try {
-        bookings = JSON.parse(localStorage.getItem('zasha_bookings') || '[]');
-      } catch (err) {}
-      bookings.unshift(newBooking);
-      localStorage.setItem('zasha_bookings', JSON.stringify(bookings));
-
-      // Display Confirmation card
-      document.getElementById('confRefId').innerText = refId;
-      document.getElementById('confService').innerText = newBooking.service;
-      document.getElementById('confLocation').innerText = newBooking.city + ' (' + newBooking.factoryName + ')';
-      document.getElementById('confPoQty').innerText = newBooking.po + ' (' + parseInt(newBooking.totalQty).toLocaleString() + ' Pcs)';
-      document.getElementById('confDate').innerText = newBooking.date;
-
-      document.getElementById('portalBookingForm').classList.add('hidden');
-      document.getElementById('portalConfirmationCard').classList.remove('hidden');
-      document.getElementById('portalConfirmationCard').scrollIntoView({ behavior: 'smooth' });
-
-      renderBookingsHistory();
-    }
-
-    function dispatchConfirmationWhatsApp() {
-      if (!lastCreatedBooking) return;
-      const b = lastCreatedBooking;
-      const msg = encodeURIComponent(
-`*ZASHA.AIS — INSPECTION BOOKING DOSSIER*
-*Reference ID:* ${b.refId}
-*Status:* ${b.status}
-------------------------------------
-*Client Profile:*
-• Company: ${b.company}
-• Contact: ${b.contact}
-• Phone: ${b.phone}
-• Email: ${b.email}
-
-*Inspection Scope:*
-• Service: ${b.service}
-• Target Date: ${b.date}
-• City: ${b.city}
-• Factory: ${b.factoryName}
-• Address: ${b.factoryAddress}
-• On-site Contact: ${b.factoryContact}
-
-*Order Specs:*
-• Category: ${b.category}
-• Garment: ${b.garment}
-• PO Number: ${b.po}
-• Style: ${b.style}
-• Quantity: ${b.totalQty} pcs
-• Production Stage: ${b.packedQty}
-• Standard: ${b.aql}
-
-*Special Notes:* ${b.notes}
-------------------------------------
-Please assign the on-site inspector and confirm scheduling.`
-      );
-      window.open(`https://wa.me/923151467673?text=${msg}`, '_blank');
-    }
-
-    function renderBookingsHistory() {
-      let bookings = [];
-      try {
-        bookings = JSON.parse(localStorage.getItem('zasha_bookings') || '[]');
-      } catch (err) {}
-
-      const countEl = document.getElementById('portalBookingCount');
-      if (countEl) countEl.innerText = bookings.length;
-
-      const tbody = document.getElementById('bookingsTableBody');
-      const empty = document.getElementById('noBookingsMsg');
-
-      if (!tbody) return;
-      tbody.innerHTML = '';
-
-      if (bookings.length === 0) {
-        if (empty) empty.classList.remove('hidden');
-        return;
-      }
-
-      if (empty) empty.classList.add('hidden');
-
-      bookings.forEach(b => {
-        const tr = document.createElement('tr');
-        tr.className = 'hover:bg-slate-50 transition';
-        tr.innerHTML = `
-          <td class="py-3 px-4 font-mono font-bold text-teal-900">${b.refId}</td>
-          <td class="py-3 px-4">${b.service}</td>
-          <td class="py-3 px-4">${b.city}<br><span class="text-[10px] text-slate-400 font-normal">${b.factoryName || 'Factory'}</span></td>
-          <td class="py-3 px-4 font-mono">${b.po}<br><span class="text-[10px] text-slate-400 font-normal">${parseInt(b.totalQty || 0).toLocaleString()} pcs</span></td>
-          <td class="py-3 px-4">${b.date}</td>
-          <td class="py-3 px-4">
-            <span class="inline-flex items-center gap-1 bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-bold">
-              <span class="h-1.5 w-1.5 rounded-full bg-amber-500"></span>
-              ${b.status || 'Pending'}
-            </span>
-          </td>
-          <td class="py-3 px-4 text-right">
-            <a href="https://wa.me/923151467673?text=Status%20inquiry%20for%20dossier%20${b.refId}" target="_blank" class="px-2.5 py-1 rounded bg-teal-50 text-teal-800 hover:bg-teal-700 hover:text-white border border-teal-200 text-[11px] font-semibold transition">
-              Track
-            </a>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // Cost Calculator Logic
-    function updateCalcSlider(val) {
-      document.getElementById('calcQtyVal').innerText = parseInt(val).toLocaleString() + ' Pcs';
-      runCostCalculator();
-    }
-
-    function runCostCalculator() {
-      const qty = parseInt(document.getElementById('calcQtySlider').value);
-      const service = document.getElementById('calcService').value;
-
-      let manDays = 1;
-      let sampleUnits = 125;
-      let price = 199;
-
-      if (qty <= 1200) {
-        sampleUnits = 80;
-        manDays = 1;
-        price = 199;
-      } else if (qty <= 3200) {
-        sampleUnits = 125;
-        manDays = 1;
-        price = 199;
-      } else if (qty <= 10000) {
-        sampleUnits = 200;
-        manDays = 2;
-        price = 379;
-      } else {
-        sampleUnits = 315;
-        manDays = 3;
-        price = 549;
-      }
-
-      if (service === 'AUDIT') price += 50;
-
-      document.getElementById('calcPriceDisplay').innerText = '$' + price;
-      document.getElementById('calcMandays').innerText = manDays + (manDays === 1 ? ' Man-Day' : ' Man-Days');
-      document.getElementById('calcSampleUnits').innerText = sampleUnits + ' Garments';
-    }
-
-    function applyEstimateToBooking() {
-      const city = document.getElementById('calcCity').value;
-      const qty = document.getElementById('calcQtySlider').value;
-
-      switchPortalTab('booking');
-      document.getElementById('pBkCity').value = city;
-      document.getElementById('pBkTotalQty').value = qty;
-    }
-
-    // Navigation and Modals
     function toggleMobileNav() {
       const m = document.getElementById('mobileNav');
       m.classList.toggle('hidden');
     }
 
-    // Sample Reports Data and Modals
+    // Sample Reports Data
     const reportData = {
       fri: {
         category: 'AQL 2.5 Standard',
@@ -2227,11 +1260,7 @@ Please assign the on-site inspector and confirm scheduling.`
     }
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeReportModal();
-        closeAuthModal();
-        closePortal();
-      }
+      if (e.key === 'Escape') closeReportModal();
     });
 
     function handleContactForm(e) {
