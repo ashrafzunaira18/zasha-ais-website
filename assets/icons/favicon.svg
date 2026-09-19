@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#115e59" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Shield / Tile -->
+  <rect width="64" height="64" rx="14" fill="url(#tealGrad)" />
+  <!-- Signature Z Shape -->
+  <path d="M 17 20 L 47 20 L 23 44 L 47 44" fill="none" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Precision Inspection Dot (Corporate Accent Orange) -->
+  <circle cx="47" cy="20" r="3.5" fill="#ea580c" />
+  <circle cx="17" cy="44" r="3.5" fill="#ea580c" />
+</svg>
