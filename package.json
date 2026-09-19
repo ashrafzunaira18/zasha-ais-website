@@ -1,0 +1,20 @@
+{
+  "name": "zasha-ais-website",
+  "version": "1.0.0",
+  "description": "Zasha.AIS - Third-Party Apparel Inspection & Quality Control Agency in Pakistan",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "apparel",
+    "inspection",
+    "quality-control",
+    "pakistan",
+    "aql",
+    "b2b"
+  ],
+  "author": "Zasha.AIS",
+  "license": "ISC"
+}
