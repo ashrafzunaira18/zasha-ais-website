@@ -6,6 +6,11 @@
   <title>ZASHA.AIS — Third-Party Quality Control & Apparel Inspection in Pakistan</title>
   <meta name="description" content="Pakistan-based third-party apparel inspection, factory audit & quality assurance agency. 48-hour nationwide auditor dispatch, 24-hour PDF reports." />
   
+  <!-- Anti-Cache Directives for Instant Live Updates -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="alternate icon" href="assets/icons/favicon.svg" />
@@ -49,32 +54,42 @@
   <!-- NAVIGATION BAR (Dark Navy #131b26) -->
   <!-- ===================================================== -->
   <header class="sticky top-0 z-50 bg-[#131b26]/95 backdrop-blur border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 relative flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#home" class="flex items-center space-x-1 group">
-        <span class="font-display font-bold text-2xl tracking-wider text-white">ZASHA<span class="text-[#e88d14]">.AIS</span></span>
-        <span class="text-[#e88d14] text-xs font-black inline-block transform rotate-45 translate-x-1">◆</span>
+      <!-- Brand Logo (Left) -->
+      <a href="#home" class="flex items-center space-x-1.5 group z-10 shrink-0">
+        <span class="font-display font-bold text-2xl sm:text-3xl tracking-wider text-white">ZASHA<span class="text-[#e88d14]">.AIS</span></span>
+        <span class="text-[#e88d14] text-xs font-black inline-block transform rotate-45 translate-x-0.5">◆</span>
       </a>
 
-      <!-- Center Nav Items with Active Underline -->
-      <nav class="hidden md:flex items-center space-x-7 text-xs font-medium text-slate-300">
-        <a href="#home" class="hover:text-white transition py-2 border-b-2 border-[#e88d14] text-white">Home</a>
-        <a href="#about" class="hover:text-white transition py-2 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
-        <a href="#services" class="hover:text-white transition py-2 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
-        <a href="#gallery" class="hover:text-white transition py-2 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
-        <a href="#reports" class="hover:text-white transition py-2 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
-        <a href="#contact" class="hover:text-white transition py-2 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
+      <!-- Center Nav Items (Mathematically centered in the middle of header & enlarged typography) -->
+      <nav id="desktopNav" class="hidden lg:flex items-center space-x-8 xl:space-x-10 absolute left-1/2 -translate-x-1/2 text-[15px] xl:text-base font-semibold text-slate-300 tracking-wide">
+        <a href="#home" class="nav-item hover:text-white transition py-1.5 border-b-2 border-[#e88d14] text-white">Home</a>
+        <a href="#about" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
+        <a href="#services" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
+        <a href="#gallery" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
+        <a href="#reports" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
+        <a href="#contact" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
+      </nav>
+
+      <!-- Mid-size screens nav fallback (768px - 1023px) -->
+      <nav class="hidden md:flex lg:hidden items-center space-x-5 text-sm font-semibold text-slate-300">
+        <a href="#home" class="hover:text-white transition py-1 border-b-2 border-[#e88d14] text-white">Home</a>
+        <a href="#about" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
+        <a href="#services" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
+        <a href="#gallery" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
+        <a href="#reports" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
+        <a href="#contact" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
       </nav>
 
       <!-- Right CTA Button + Portal Access -->
-      <div class="hidden sm:flex items-center space-x-3">
+      <div class="hidden sm:flex items-center space-x-3.5 z-10 shrink-0">
         <div id="headerAuthArea">
-          <a href="login.html" class="text-xs text-slate-300 hover:text-white px-2.5 py-1.5 rounded transition font-medium">
+          <a href="login.html" class="text-xs sm:text-sm text-slate-300 hover:text-white px-2.5 py-1.5 rounded transition font-medium">
             Client Portal
           </a>
         </div>
-        <a href="#contact" class="px-5 py-2 rounded bg-[#e88d14] hover:bg-[#d97706] text-[#111827] font-semibold text-xs transition shadow-sm">
+        <a href="#contact" class="px-5 py-2.5 rounded bg-[#e88d14] hover:bg-[#d97706] text-[#111827] font-bold text-xs sm:text-sm tracking-wide transition shadow-sm">
           Request a Quote
         </a>
       </div>
@@ -86,18 +101,18 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileNav" class="hidden md:hidden bg-[#16202e] border-b border-slate-800 px-6 py-4 space-y-3 text-xs font-semibold text-slate-300">
+    <div id="mobileNav" class="hidden md:hidden bg-[#16202e] border-b border-slate-800 px-6 py-5 space-y-3.5 text-base font-semibold text-slate-300">
       <a href="#home" onclick="toggleMobileNav()" class="block hover:text-white text-[#e88d14]">Home</a>
       <a href="#about" onclick="toggleMobileNav()" class="block hover:text-white">About</a>
       <a href="#services" onclick="toggleMobileNav()" class="block hover:text-white">Our Services</a>
       <a href="#gallery" onclick="toggleMobileNav()" class="block hover:text-white">Gallery</a>
       <a href="#reports" onclick="toggleMobileNav()" class="block hover:text-white">Sample Reports</a>
       <a href="#contact" onclick="toggleMobileNav()" class="block hover:text-white">Contact Us</a>
-      <div class="pt-3 border-t border-slate-700 flex flex-col gap-2">
-        <a href="login.html" class="block w-full text-center py-2 rounded bg-slate-800 text-white font-medium">
+      <div class="pt-3.5 border-t border-slate-700 flex flex-col gap-2.5">
+        <a href="login.html" class="block w-full text-center py-2.5 rounded bg-slate-800 text-white font-medium text-sm">
           Client Portal Login
         </a>
-        <a href="#contact" onclick="toggleMobileNav()" class="block w-full text-center py-2 rounded bg-[#e88d14] text-[#111827] font-bold">
+        <a href="#contact" onclick="toggleMobileNav()" class="block w-full text-center py-2.5 rounded bg-[#e88d14] text-[#111827] font-bold text-sm">
           Request a Quote
         </a>
       </div>
@@ -1292,6 +1307,38 @@
         if (btnText) btnText.innerText = 'Send message';
       }
     }
+
+    // Dynamic Navigation Scroll-Spy for Centered Navbar
+    window.addEventListener('DOMContentLoaded', () => {
+      const sectionIds = ['home', 'about', 'services', 'gallery', 'reports', 'contact'];
+      const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+
+      function updateActiveNav() {
+        const scrollPosition = window.scrollY + 140;
+        let currentSection = 'home';
+
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el && el.offsetTop <= scrollPosition) {
+            currentSection = id;
+          }
+        }
+
+        navLinks.forEach(link => {
+          const targetId = link.getAttribute('href').replace('#', '');
+          if (targetId === currentSection) {
+            link.classList.add('border-[#e88d14]', 'text-white');
+            link.classList.remove('border-transparent');
+          } else {
+            link.classList.remove('border-[#e88d14]', 'text-white');
+            link.classList.add('border-transparent');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      updateActiveNav();
+    });
   </script>
 </body>
 </html>
