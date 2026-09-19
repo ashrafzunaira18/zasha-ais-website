@@ -54,42 +54,42 @@
   <!-- NAVIGATION BAR (Dark Navy #131b26) -->
   <!-- ===================================================== -->
   <header class="sticky top-0 z-50 bg-[#131b26]/95 backdrop-blur border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 relative flex items-center justify-between">
+    <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 relative flex items-center justify-between">
       
       <!-- Brand Logo (Left) -->
-      <a href="#home" class="flex items-center space-x-1.5 group z-10 shrink-0">
+      <a href="#home" class="flex items-center space-x-1.5 group z-10 shrink-0 whitespace-nowrap">
         <span class="font-display font-bold text-2xl sm:text-3xl tracking-wider text-white">ZASHA<span class="text-[#e88d14]">.AIS</span></span>
         <span class="text-[#e88d14] text-xs font-black inline-block transform rotate-45 translate-x-0.5">◆</span>
       </a>
 
-      <!-- Center Nav Items (Mathematically centered in the middle of header & enlarged typography) -->
-      <nav id="desktopNav" class="hidden lg:flex items-center space-x-8 xl:space-x-10 absolute left-1/2 -translate-x-1/2 text-[15px] xl:text-base font-semibold text-slate-300 tracking-wide">
-        <a href="#home" class="nav-item hover:text-white transition py-1.5 border-b-2 border-[#e88d14] text-white">Home</a>
-        <a href="#about" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
-        <a href="#services" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
-        <a href="#gallery" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
-        <a href="#reports" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
-        <a href="#contact" class="nav-item hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
+      <!-- Center Nav Items (Strictly single-line, non-breaking, mathematically centered) -->
+      <nav id="desktopNav" class="hidden lg:flex items-center space-x-6 xl:space-x-8 absolute left-1/2 -translate-x-1/2 text-[14px] xl:text-[15px] font-semibold text-slate-300 tracking-wide whitespace-nowrap">
+        <a href="#home" class="nav-item whitespace-nowrap shrink-0 hover:text-white transition py-1.5 border-b-2 border-[#e88d14] text-white">Home</a>
+        <a href="#about" class="nav-item whitespace-nowrap shrink-0 hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
+        <a href="#services" class="nav-item whitespace-nowrap shrink-0 hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
+        <a href="#gallery" class="nav-item whitespace-nowrap shrink-0 hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
+        <a href="#reports" class="nav-item whitespace-nowrap shrink-0 hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
+        <a href="#contact" class="nav-item whitespace-nowrap shrink-0 hover:text-white transition py-1.5 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
       </nav>
 
       <!-- Mid-size screens nav fallback (768px - 1023px) -->
-      <nav class="hidden md:flex lg:hidden items-center space-x-5 text-sm font-semibold text-slate-300">
-        <a href="#home" class="hover:text-white transition py-1 border-b-2 border-[#e88d14] text-white">Home</a>
-        <a href="#about" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
-        <a href="#services" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
-        <a href="#gallery" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
-        <a href="#reports" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
-        <a href="#contact" class="hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
+      <nav class="hidden md:flex lg:hidden items-center space-x-3.5 text-xs font-semibold text-slate-300 whitespace-nowrap">
+        <a href="#home" class="whitespace-nowrap shrink-0 hover:text-white transition py-1 border-b-2 border-[#e88d14] text-white">Home</a>
+        <a href="#about" class="whitespace-nowrap shrink-0 hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">About</a>
+        <a href="#services" class="whitespace-nowrap shrink-0 hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Our Services</a>
+        <a href="#gallery" class="whitespace-nowrap shrink-0 hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Gallery</a>
+        <a href="#reports" class="whitespace-nowrap shrink-0 hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Sample Reports</a>
+        <a href="#contact" class="whitespace-nowrap shrink-0 hover:text-white transition py-1 border-b-2 border-transparent hover:border-[#e88d14]">Contact Us</a>
       </nav>
 
       <!-- Right CTA Button + Portal Access -->
-      <div class="hidden sm:flex items-center space-x-3.5 z-10 shrink-0">
-        <div id="headerAuthArea">
-          <a href="login.html" class="text-xs sm:text-sm text-slate-300 hover:text-white px-2.5 py-1.5 rounded transition font-medium">
+      <div class="hidden sm:flex items-center space-x-3 z-10 shrink-0 whitespace-nowrap">
+        <div id="headerAuthArea" class="shrink-0">
+          <a href="login.html" class="whitespace-nowrap text-xs sm:text-sm text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 transition font-medium">
             Client Portal
           </a>
         </div>
-        <a href="#contact" class="px-5 py-2.5 rounded bg-[#e88d14] hover:bg-[#d97706] text-[#111827] font-bold text-xs sm:text-sm tracking-wide transition shadow-sm">
+        <a href="#contact" class="whitespace-nowrap shrink-0 px-5 py-2.5 rounded bg-[#e88d14] hover:bg-[#d97706] text-[#111827] font-bold text-xs sm:text-sm tracking-wide transition shadow-sm">
           Request a Quote
         </a>
       </div>
