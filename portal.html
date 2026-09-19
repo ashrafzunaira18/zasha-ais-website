@@ -55,35 +55,35 @@
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-[#e88d14] selection:text-white">
 
   <!-- Portal Top Bar -->
-  <header class="sticky top-0 z-30 bg-[#131b26] text-white border-b border-slate-800">
+  <header class="sticky top-0 z-30 bg-white text-slate-800 border-b border-slate-200 shadow-sm" style="background-color: #ffffff !important; border-bottom: 1px solid #e2e8f0 !important;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand Logo + Verified Badge -->
       <div class="flex items-center space-x-4">
         <a href="index.html" class="flex items-center space-x-1 group">
-          <span class="font-display font-bold text-2xl tracking-wider text-white">ZASHA<span class="text-[#e88d14]">.AIS</span></span>
+          <span class="font-display font-bold text-2xl tracking-wider text-slate-900">ZASHA<span class="text-[#e88d14]">.AIS</span></span>
           <span class="text-[#e88d14] text-xs font-black inline-block transform rotate-45 translate-x-1">◆</span>
         </a>
 
-        <div class="hidden sm:block h-5 w-px bg-slate-700"></div>
+        <div class="hidden sm:block h-5 w-px bg-slate-200"></div>
 
         <div class="hidden sm:flex items-center gap-2">
-          <span class="text-xs text-slate-300 font-semibold" id="clientCompanyDisplay">Client Portal</span>
-          <span class="bg-teal-900/80 text-teal-300 text-[10px] font-semibold px-2 py-0.5 rounded border border-teal-700">Verified Client</span>
+          <span class="text-xs text-slate-700 font-semibold" id="clientCompanyDisplay">Client Portal</span>
+          <span class="bg-teal-50 text-teal-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-teal-200">Verified Client</span>
         </div>
       </div>
 
       <!-- Center Nav Tabs -->
-      <nav class="flex items-center space-x-1 bg-slate-800 p-1 rounded-lg text-xs font-semibold">
-        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5">
+      <nav class="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg text-xs font-semibold border border-slate-200">
+        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-3.5 py-1.5 rounded-md bg-[#e88d14] text-white transition flex items-center gap-1.5 font-semibold shadow-sm">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           <span>Book Inspection</span>
         </button>
-        <button id="tabBtnHistory" onclick="switchPortalSection('history')" class="px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <button id="tabBtnHistory" onclick="switchPortalSection('history')" class="px-3.5 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>My Bookings (<span id="historyCountBadge">0</span>)</span>
         </button>
-        <button id="tabBtnPricing" onclick="switchPortalSection('pricing')" class="px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5">
+        <button id="tabBtnPricing" onclick="switchPortalSection('pricing')" class="px-3.5 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
           <span>Fee Estimator</span>
         </button>
@@ -91,10 +91,10 @@
 
       <!-- Right Exit Links -->
       <div class="flex items-center space-x-4 text-xs">
-        <a href="index.html" class="hidden md:flex items-center gap-1 text-slate-400 hover:text-white transition font-medium">
+        <a href="index.html" class="hidden md:flex items-center gap-1 text-slate-600 hover:text-slate-900 transition font-medium">
           <span>Website</span>
         </a>
-        <button onclick="logoutPortal()" class="text-slate-400 hover:text-red-400 transition font-medium">
+        <button onclick="logoutPortal()" class="text-slate-500 hover:text-red-600 transition font-medium">
           Logout
         </button>
       </div>
