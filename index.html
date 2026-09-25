@@ -1215,6 +1215,7 @@
       container.innerHTML = '';
 
       servicesToRender.forEach((s) => {
+        const cleanDesc = (s.desc || '').replace(/\.+$/, '');
         const card = document.createElement('div');
         card.className = 'bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group';
         card.innerHTML = `
@@ -1230,11 +1231,7 @@
                 ${s.name}
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed mt-2 font-normal">
-                <span>${s.desc}</span>
-                <span id="details_${s.id}" class="hidden text-slate-800 font-medium"> ${s.details}</span>
-                <button type="button" onclick="toggleCardDetail('${s.id}')" id="btn_${s.id}" class="inline text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] underline ml-1 cursor-pointer transition focus:outline-none">
-                  <span id="text_${s.id}">See more</span>
-                </button>
+                <span>${cleanDesc}</span><span id="details_${s.id}" class="hidden text-slate-800 font-medium">. ${s.details}</span> <button type="button" onclick="toggleCardDetail('${s.id}')" id="btn_${s.id}" class="inline text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] underline hover:no-underline cursor-pointer transition focus:outline-none ml-0.5"><span id="text_${s.id}">... See more</span></button>
               </p>
             </div>
 
@@ -1253,15 +1250,15 @@
     function toggleCardDetail(cardId) {
       const details = document.getElementById('details_' + cardId);
       const text = document.getElementById('text_' + cardId);
-      if (!details) return;
+      if (!details || !text) return;
 
       const isHidden = details.classList.contains('hidden');
       if (isHidden) {
         details.classList.remove('hidden');
-        if (text) text.innerText = 'See less';
+        text.innerText = 'See less';
       } else {
         details.classList.add('hidden');
-        if (text) text.innerText = 'See more';
+        text.innerText = '... See more';
       }
     }
 
