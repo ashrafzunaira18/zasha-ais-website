@@ -89,29 +89,29 @@
     <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 relative flex items-center justify-between">
       
       <!-- Brand Logo (Left) -->
-      <a href="#home" class="flex items-center space-x-1.5 group z-10 shrink-0 whitespace-nowrap">
+      <a href="#home" onclick="navigateToSection('home'); return false;" class="flex items-center space-x-1.5 group z-10 shrink-0 whitespace-nowrap">
         <span class="font-display font-bold text-2xl sm:text-3xl tracking-wider text-slate-900">ZASHA<span class="text-[#2563eb]">.AIS</span></span>
         <span class="text-[#2563eb] text-xs font-black inline-block transform rotate-45 translate-x-0.5">◆</span>
       </a>
 
       <!-- Center Nav Items (Strictly single-line, non-breaking, mathematically centered on white) -->
-      <nav id="desktopNav" class="hidden lg:flex items-center space-x-6 xl:space-x-8 absolute left-1/2 -translate-x-1/2 text-[14px] xl:text-[15px] font-semibold text-slate-700 tracking-wide whitespace-nowrap">
-        <a href="#home" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-[#2563eb] text-slate-950 font-bold">Home</a>
-        <a href="#about" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]">About</a>
-        <a href="#services" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]">Our Services</a>
-        <a href="#gallery" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]">Gallery</a>
-        <a href="#reports" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]">Sample Reports</a>
-        <a href="#contact" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]">Contact Us</a>
+      <nav id="desktopNav" class="hidden lg:flex items-center space-x-6 xl:space-x-8 absolute left-1/2 -translate-x-1/2 text-[14px] xl:text-[15px] font-semibold text-slate-700 tracking-wide whitespace-nowrap z-20">
+        <a href="#home" onclick="navigateToSection('home'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-[#2563eb] text-slate-950 font-bold" data-target="home">Home</a>
+        <a href="#about" onclick="navigateToSection('about'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]" data-target="about">About</a>
+        <a href="#services" onclick="navigateToSection('services'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]" data-target="services">Our Services</a>
+        <a href="#gallery" onclick="navigateToSection('gallery'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]" data-target="gallery">Gallery</a>
+        <a href="#reports" onclick="navigateToSection('reports'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]" data-target="reports">Sample Reports</a>
+        <a href="#contact" onclick="navigateToSection('contact'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1.5 border-b-2 border-transparent hover:border-[#2563eb]" data-target="contact">Contact Us</a>
       </nav>
 
       <!-- Mid-size screens nav fallback (768px - 1023px) -->
-      <nav class="hidden md:flex lg:hidden items-center space-x-3.5 text-xs font-semibold text-slate-700 whitespace-nowrap">
-        <a href="#home" class="whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-[#2563eb] text-slate-950 font-bold">Home</a>
-        <a href="#about" class="whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]">About</a>
-        <a href="#services" class="whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]">Our Services</a>
-        <a href="#gallery" class="whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]">Gallery</a>
-        <a href="#reports" class="whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]">Sample Reports</a>
-        <a href="#contact" class="whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]">Contact Us</a>
+      <nav id="midNav" class="hidden md:flex lg:hidden items-center space-x-3.5 text-xs font-semibold text-slate-700 whitespace-nowrap z-20">
+        <a href="#home" onclick="navigateToSection('home'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-[#2563eb] text-slate-950 font-bold" data-target="home">Home</a>
+        <a href="#about" onclick="navigateToSection('about'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]" data-target="about">About</a>
+        <a href="#services" onclick="navigateToSection('services'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]" data-target="services">Our Services</a>
+        <a href="#gallery" onclick="navigateToSection('gallery'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]" data-target="gallery">Gallery</a>
+        <a href="#reports" onclick="navigateToSection('reports'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]" data-target="reports">Sample Reports</a>
+        <a href="#contact" onclick="navigateToSection('contact'); return false;" class="nav-item whitespace-nowrap shrink-0 hover:text-slate-950 transition py-1 border-b-2 border-transparent hover:border-[#2563eb]" data-target="contact">Contact Us</a>
       </nav>
 
       <!-- Right Side: Client Portal Access -->
@@ -132,12 +132,12 @@
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobileNav" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-3.5 text-base font-semibold text-slate-700 shadow-md">
-      <a href="#home" onclick="toggleMobileNav()" class="block hover:text-slate-950 text-[#2563eb]">Home</a>
-      <a href="#about" onclick="toggleMobileNav()" class="block hover:text-slate-950">About</a>
-      <a href="#services" onclick="toggleMobileNav()" class="block hover:text-slate-950">Our Services</a>
-      <a href="#gallery" onclick="toggleMobileNav()" class="block hover:text-slate-950">Gallery</a>
-      <a href="#reports" onclick="toggleMobileNav()" class="block hover:text-slate-950">Sample Reports</a>
-      <a href="#contact" onclick="toggleMobileNav()" class="block hover:text-slate-950">Contact Us</a>
+      <a href="#home" onclick="navigateToSection('home'); toggleMobileNav(); return false;" class="block hover:text-slate-950 text-[#2563eb] font-bold" data-target="home">Home</a>
+      <a href="#about" onclick="navigateToSection('about'); toggleMobileNav(); return false;" class="block hover:text-slate-950 text-slate-700 font-semibold" data-target="about">About</a>
+      <a href="#services" onclick="navigateToSection('services'); toggleMobileNav(); return false;" class="block hover:text-slate-950 text-slate-700 font-semibold" data-target="services">Our Services</a>
+      <a href="#gallery" onclick="navigateToSection('gallery'); toggleMobileNav(); return false;" class="block hover:text-slate-950 text-slate-700 font-semibold" data-target="gallery">Gallery</a>
+      <a href="#reports" onclick="navigateToSection('reports'); toggleMobileNav(); return false;" class="block hover:text-slate-950 text-slate-700 font-semibold" data-target="reports">Sample Reports</a>
+      <a href="#contact" onclick="navigateToSection('contact'); toggleMobileNav(); return false;" class="block hover:text-slate-950 text-slate-700 font-semibold" data-target="contact">Contact Us</a>
       <div class="pt-3.5 border-t border-slate-200">
         <a href="login.html" class="block w-full text-center py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-sm transition shadow-sm">
           Client Portal Login
@@ -148,55 +148,65 @@
 
 
   <!-- ===================================================== -->
-  <!-- HERO SECTION (Option 4: Royal Midnight Navy & Platinum Silver) -->
+  <!-- MAIN CONTENT VIEWS CONTAINER -->
   <!-- ===================================================== -->
-  <section id="home" class="relative pt-24 pb-28 overflow-hidden bg-[#0d1b2a] border-b border-[#1b263b]">
-    <!-- Factory Hero Background Image with Royal Midnight Navy Atmosphere & Visible 8s Ken Burns Animation -->
-    <div class="absolute inset-0 z-0 overflow-hidden bg-[#0d1b2a]">
-      <img src="assets/images/hero-factory.jpg" alt="Apparel factory inspection in Pakistan" class="w-full h-full object-cover object-center hero-kenburns opacity-55 filter contrast-110 brightness-95" style="animation: heroKenBurns 8s ease-in-out infinite alternate !important; will-change: transform;" />
-      <!-- Royal Midnight Navy Gradient Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#09121d]/95 via-[#0d1b2a]/80 to-[#1b263b]/50"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#09121d]/90 via-transparent to-transparent"></div>
-    </div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl space-y-7 animate-hero-fade">
+  <main id="mainContent">
+
+    <!-- PAGE VIEW: HOME -->
+    <div id="page-home" class="page-view min-h-[calc(100vh-14rem)]">
+      <!-- ===================================================== -->
+      <!-- HERO SECTION (Option 4: Royal Midnight Navy & Platinum Silver) -->
+      <!-- ===================================================== -->
+      <section id="home" class="relative pt-24 pb-28 overflow-hidden bg-[#0d1b2a] border-b border-[#1b263b]">
+        <!-- Factory Hero Background Image with Royal Midnight Navy Atmosphere & Visible 8s Ken Burns Animation -->
+        <div class="absolute inset-0 z-0 overflow-hidden bg-[#0d1b2a]">
+          <img src="assets/images/hero-factory.jpg" alt="Apparel factory inspection in Pakistan" class="w-full h-full object-cover object-center hero-kenburns opacity-55 filter contrast-110 brightness-95" style="animation: heroKenBurns 8s ease-in-out infinite alternate !important; will-change: transform;" />
+          <!-- Royal Midnight Navy Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#09121d]/95 via-[#0d1b2a]/80 to-[#1b263b]/50"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#09121d]/90 via-transparent to-transparent"></div>
+        </div>
         
-        <!-- Eyebrow -->
-        <div class="flex items-center space-x-2 text-xs font-mono-code font-bold tracking-wider text-[#38bdf8] uppercase">
-          <span class="w-8 h-0.5 bg-[#38bdf8]"></span>
-          <span>PAKISTAN • APPAREL & TEXTILE INSPECTION</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-3xl space-y-7 animate-hero-fade">
+            
+            <!-- Eyebrow -->
+            <div class="flex items-center space-x-2 text-xs font-mono-code font-bold tracking-wider text-[#38bdf8] uppercase">
+              <span class="w-8 h-0.5 bg-[#38bdf8]"></span>
+              <span>PAKISTAN • APPAREL & TEXTILE INSPECTION</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.08]">
+              Your third-party quality control partner in Pakistan
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-2xl">
+              Zasha.AIS gives global apparel brands one reliable partner for factory evaluation, quality assurance, product development and supplier sourcing — from first sample to final shipment.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <button onclick="goToInspectionBooking()" class="px-7 py-4 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs tracking-wide transition shadow-lg hover:shadow-xl hover:scale-[1.02] transform">
+                Request an inspection
+              </button>
+              <a href="#services" onclick="navigateToSection('services'); return false;" class="px-7 py-4 rounded-lg bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur font-semibold text-xs tracking-wide transition shadow-sm">
+                See our services
+              </a>
+            </div>
+
+          </div>
         </div>
-
-        <!-- Main Headline -->
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.08]">
-          Your third-party quality control partner in Pakistan
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-2xl">
-          Zasha.AIS gives global apparel brands one reliable partner for factory evaluation, quality assurance, product development and supplier sourcing — from first sample to final shipment.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="pt-2 flex flex-wrap items-center gap-4">
-          <button onclick="goToInspectionBooking()" class="px-7 py-4 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs tracking-wide transition shadow-lg hover:shadow-xl hover:scale-[1.02] transform">
-            Request an inspection
-          </button>
-          <a href="#services" class="px-7 py-4 rounded-lg bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur font-semibold text-xs tracking-wide transition shadow-sm">
-            See our services
-          </a>
-        </div>
-
-      </div>
+      </section>
     </div>
-  </section>
 
 
-  <!-- ===================================================== -->
-  <!-- ABOUT SECTION (Option 4: Platinum Silver #f4f6f9) -->
-  <!-- ===================================================== -->
-  <section id="about" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
+    <!-- PAGE VIEW: ABOUT -->
+    <div id="page-about" class="page-view hidden min-h-[calc(100vh-14rem)]">
+      <!-- ===================================================== -->
+      <!-- ABOUT SECTION (Option 4: Platinum Silver #f4f6f9) -->
+      <!-- ===================================================== -->
+      <section id="about" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid lg:grid-cols-12 gap-12 items-start">
@@ -430,12 +440,14 @@
 
     </div>
   </section>
+  </div>
 
-
-  <!-- ===================================================== -->
-  <!-- OUR SERVICES (Option 4: Platinum Silver #f4f6f9) -->
-  <!-- ===================================================== -->
-  <section id="services" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
+  <!-- PAGE VIEW: OUR SERVICES -->
+  <div id="page-services" class="page-view hidden min-h-[calc(100vh-14rem)]">
+    <!-- ===================================================== -->
+    <!-- OUR SERVICES (Option 4: Platinum Silver #f4f6f9) -->
+    <!-- ===================================================== -->
+    <section id="services" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <div class="max-w-2xl">
@@ -470,12 +482,14 @@
 
     </div>
   </section>
+  </div>
 
-
-  <!-- ===================================================== -->
-  <!-- GALLERY SECTION (Option 4: Royal Midnight Navy #0d1b2a) -->
-  <!-- ===================================================== -->
-  <section id="gallery" class="py-20 bg-[#0d1b2a] text-white border-b border-[#1b263b]">
+  <!-- PAGE VIEW: GALLERY -->
+  <div id="page-gallery" class="page-view hidden min-h-[calc(100vh-14rem)]">
+    <!-- ===================================================== -->
+    <!-- GALLERY SECTION (Option 4: Royal Midnight Navy #0d1b2a) -->
+    <!-- ===================================================== -->
+    <section id="gallery" class="py-20 bg-[#0d1b2a] text-white border-b border-[#1b263b]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <div class="max-w-2xl">
@@ -550,12 +564,14 @@
 
     </div>
   </section>
+  </div>
 
-
-  <!-- ===================================================== -->
-  <!-- SAMPLE REPORTS SECTION (Option 4: Platinum Silver #f4f6f9) -->
-  <!-- ===================================================== -->
-  <section id="reports" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
+  <!-- PAGE VIEW: SAMPLE REPORTS -->
+  <div id="page-reports" class="page-view hidden min-h-[calc(100vh-14rem)]">
+    <!-- ===================================================== -->
+    <!-- SAMPLE REPORTS SECTION (Option 4: Platinum Silver #f4f6f9) -->
+    <!-- ===================================================== -->
+    <section id="reports" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
       <div class="max-w-2xl">
@@ -732,12 +748,14 @@
 
     </div>
   </section>
+  </div>
 
-
-  <!-- ===================================================== -->
-  <!-- CONTACT US SECTION (Option 4: Platinum Silver #f4f6f9) -->
-  <!-- ===================================================== -->
-  <section id="contact" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
+  <!-- PAGE VIEW: CONTACT US -->
+  <div id="page-contact" class="page-view hidden min-h-[calc(100vh-14rem)]">
+    <!-- ===================================================== -->
+    <!-- CONTACT US SECTION (Option 4: Platinum Silver #f4f6f9) -->
+    <!-- ===================================================== -->
+    <section id="contact" class="py-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
       <div class="max-w-2xl">
@@ -859,6 +877,9 @@
 
     </div>
   </section>
+  </div>
+
+  </main>
 
 
   <!-- ===================================================== -->
@@ -1304,37 +1325,75 @@
       }
     }
 
-    // Dynamic Navigation Scroll-Spy for Centered Navbar
-    window.addEventListener('DOMContentLoaded', () => {
-      const sectionIds = ['home', 'about', 'services', 'gallery', 'reports', 'contact'];
-      const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+    // =====================================================
+    // Dedicated View Navigation & Hash Routing
+    // =====================================================
+    const sectionIds = ['home', 'about', 'services', 'gallery', 'reports', 'contact'];
 
-      function updateActiveNav() {
-        const scrollPosition = window.scrollY + 140;
-        let currentSection = 'home';
+    function navigateToSection(targetId, updateHash = true) {
+      if (!sectionIds.includes(targetId)) targetId = 'home';
 
-        for (const id of sectionIds) {
-          const el = document.getElementById(id);
-          if (el && el.offsetTop <= scrollPosition) {
-            currentSection = id;
+      // 1. Show only the targeted page view and hide all others
+      sectionIds.forEach(id => {
+        const pageEl = document.getElementById('page-' + id);
+        if (pageEl) {
+          if (id === targetId) {
+            pageEl.classList.remove('hidden');
+          } else {
+            pageEl.classList.add('hidden');
           }
         }
+      });
 
-        navLinks.forEach(link => {
-          const targetId = link.getAttribute('href').replace('#', '');
-          if (targetId === currentSection) {
-            link.classList.add('border-[#2563eb]', 'text-slate-950', 'font-bold');
-            link.classList.remove('border-transparent', 'text-slate-700', 'font-semibold');
-          } else {
-            link.classList.remove('border-[#2563eb]', 'text-slate-950', 'font-bold');
-            link.classList.add('border-transparent', 'text-slate-700', 'font-semibold');
-          }
-        });
+      // 2. Update active link styling on Desktop & Mid Navbars
+      const desktopAndMidLinks = document.querySelectorAll('#desktopNav a[data-target], #midNav a[data-target]');
+      desktopAndMidLinks.forEach(link => {
+        const itemTarget = link.getAttribute('data-target');
+        if (itemTarget === targetId) {
+          link.classList.add('border-[#2563eb]', 'text-slate-950', 'font-bold');
+          link.classList.remove('border-transparent', 'text-slate-700', 'font-semibold');
+        } else {
+          link.classList.remove('border-[#2563eb]', 'text-slate-950', 'font-bold');
+          link.classList.add('border-transparent', 'text-slate-700', 'font-semibold');
+        }
+      });
+
+      // 3. Update active link styling on Mobile Dropdown Menu
+      const mobileLinks = document.querySelectorAll('#mobileNav a[data-target]');
+      mobileLinks.forEach(link => {
+        const itemTarget = link.getAttribute('data-target');
+        if (itemTarget === targetId) {
+          link.classList.add('text-[#2563eb]', 'font-bold');
+          link.classList.remove('text-slate-700', 'font-semibold');
+        } else {
+          link.classList.remove('text-[#2563eb]', 'font-bold');
+          link.classList.add('text-slate-700', 'font-semibold');
+        }
+      });
+
+      // 4. Scroll to top of the page cleanly
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // 5. Update browser URL hash for bookmarking and history navigation
+      if (updateHash) {
+        if (window.location.hash !== '#' + targetId) {
+          history.pushState(null, '', '#' + targetId);
+        }
       }
+    }
 
-      window.addEventListener('scroll', updateActiveNav, { passive: true });
-      updateActiveNav();
-    });
+    // Hash route listener for initial page load and browser back/forward buttons
+    function handleRouteFromHash() {
+      const hash = window.location.hash.replace('#', '').trim().toLowerCase();
+      if (sectionIds.includes(hash)) {
+        navigateToSection(hash, false);
+      } else {
+        navigateToSection('home', false);
+      }
+    }
+
+    window.addEventListener('hashchange', handleRouteFromHash);
+    window.addEventListener('DOMContentLoaded', handleRouteFromHash);
   </script>
 </body>
 </html>
