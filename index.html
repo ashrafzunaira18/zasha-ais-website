@@ -1230,28 +1230,17 @@
                 ${s.name}
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed mt-2 font-normal">
-                ${s.desc}
+                <span>${s.desc}</span>
+                <span id="details_${s.id}" class="hidden text-slate-800 font-medium"> ${s.details}</span>
+                <button type="button" onclick="toggleCardDetail('${s.id}')" id="btn_${s.id}" class="inline text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] underline ml-1 cursor-pointer transition focus:outline-none">
+                  <span id="text_${s.id}">See more</span>
+                </button>
               </p>
             </div>
 
-            <!-- Complete Information (Expands on "See More") -->
-            <div id="details_${s.id}" class="hidden pt-3 border-t border-slate-100 text-xs text-slate-600 space-y-2">
-              <div class="bg-[#f8fafc] p-3.5 rounded-lg border border-slate-200 text-slate-700 leading-relaxed text-xs">
-                <span class="font-bold text-slate-900 block mb-1">Inspection Scope & Details:</span>
-                ${s.details}
-              </div>
-            </div>
-
-            <!-- Card Bottom Bar: See More & Book Service -->
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
-              <button onclick="toggleCardDetail('${s.id}')" id="btn_${s.id}" class="text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] inline-flex items-center gap-1.5 transition py-1">
-                <span id="text_${s.id}">See More</span>
-                <svg id="svg_${s.id}" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </button>
-
-              <button onclick="goToInspectionBooking('${s.name}')" class="px-3.5 py-1.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs tracking-wide transition shadow-sm hover:shadow">
+            <!-- Card Bottom Bar: Book Service -->
+            <div class="pt-3 border-t border-slate-100">
+              <button onclick="goToInspectionBooking('${s.name}')" class="w-full py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs tracking-wide transition shadow-sm hover:shadow text-center">
                 Book Service
               </button>
             </div>
@@ -1264,18 +1253,15 @@
     function toggleCardDetail(cardId) {
       const details = document.getElementById('details_' + cardId);
       const text = document.getElementById('text_' + cardId);
-      const svg = document.getElementById('svg_' + cardId);
       if (!details) return;
 
       const isHidden = details.classList.contains('hidden');
       if (isHidden) {
         details.classList.remove('hidden');
-        if (text) text.innerText = 'See Less';
-        if (svg) svg.classList.add('rotate-180');
+        if (text) text.innerText = 'See less';
       } else {
         details.classList.add('hidden');
-        if (text) text.innerText = 'See More';
-        if (svg) svg.classList.remove('rotate-180');
+        if (text) text.innerText = 'See more';
       }
     }
 
