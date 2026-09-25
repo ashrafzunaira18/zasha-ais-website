@@ -52,7 +52,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-[#e88d14] selection:text-white">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-[#2563eb] selection:text-white">
 
   <!-- Portal Top Bar -->
   <header class="sticky top-0 z-30 bg-white text-slate-800 border-b border-slate-200 shadow-sm" style="background-color: #ffffff !important; border-bottom: 1px solid #e2e8f0 !important;">
@@ -61,8 +61,8 @@
       <!-- Brand Logo + Verified Badge -->
       <div class="flex items-center space-x-4">
         <a href="index.html" class="flex items-center space-x-1 group">
-          <span class="font-display font-bold text-2xl tracking-wider text-slate-900">ZASHA<span class="text-[#e88d14]">.AIS</span></span>
-          <span class="text-[#e88d14] text-xs font-black inline-block transform rotate-45 translate-x-1">◆</span>
+          <span class="font-display font-bold text-2xl tracking-wider text-slate-900">ZASHA<span class="text-[#2563eb]">.AIS</span></span>
+          <span class="text-[#2563eb] text-xs font-black inline-block transform rotate-45 translate-x-1">◆</span>
         </a>
 
         <div class="hidden sm:block h-5 w-px bg-slate-200"></div>
@@ -75,7 +75,7 @@
 
       <!-- Center Nav Tabs -->
       <nav class="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg text-xs font-semibold border border-slate-200">
-        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-3.5 py-1.5 rounded-md bg-[#e88d14] text-white transition flex items-center gap-1.5 font-semibold shadow-sm">
+        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           <span>Book Inspection</span>
         </button>
@@ -319,7 +319,7 @@
             <div class="text-xs text-slate-500">
               Standard inspection day rate: <strong class="text-slate-800 font-bold">$199 USD</strong> / man-day within city limits.
             </div>
-            <button type="submit" class="px-8 py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs tracking-wide transition shadow-sm flex items-center gap-2">
+            <button type="submit" class="px-8 py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs tracking-wide transition shadow-sm flex items-center gap-2">
               <span>Submit Inspection Booking & Generate Dossier</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
@@ -408,7 +408,7 @@
           <h2 class="text-xl font-bold text-slate-900">My Inspection Bookings</h2>
           <p class="text-xs text-slate-500 mt-1">Real-time status updates and direct auditor contact links for your purchase orders.</p>
         </div>
-        <button onclick="switchPortalSection('booking')" class="px-4 py-2 rounded-lg bg-teal-800 hover:bg-teal-900 text-white text-xs font-semibold transition">
+        <button onclick="switchPortalSection('booking')" class="px-4 py-2 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold transition">
           + Book New Inspection
         </button>
       </div>
@@ -482,9 +482,9 @@
             <div>
               <div class="flex justify-between text-slate-700 mb-1">
                 <span>3. Total Order Quantity (Pieces)</span>
-                <span id="calcQtyVal" class="text-orange-600 font-mono font-bold text-sm">3,000 Pcs</span>
+                <span id="calcQtyVal" class="text-[#2563eb] font-mono font-bold text-sm">3,000 Pcs</span>
               </div>
-              <input id="calcQtySlider" type="range" min="500" max="25000" step="500" value="3000" oninput="updateCalcSlider(this.value)" class="w-full accent-orange-600 cursor-pointer" />
+              <input id="calcQtySlider" type="range" min="500" max="25000" step="500" value="3000" oninput="updateCalcSlider(this.value)" class="w-full accent-[#2563eb] cursor-pointer" />
               <div class="flex justify-between text-[11px] text-slate-400 font-mono mt-1">
                 <span>500 pcs</span>
                 <span>5,000 pcs</span>
@@ -494,36 +494,36 @@
             </div>
           </div>
 
-          <div class="md:col-span-5 bg-teal-950 text-white rounded-xl p-6 flex flex-col justify-between shadow-sm">
+          <div class="md:col-span-5 bg-[#0d1b2a] text-white rounded-xl p-6 flex flex-col justify-between shadow-sm border border-[#1b263b]">
             <div>
-              <span class="text-[10px] uppercase font-bold text-teal-300 tracking-wider">Estimated Fee</span>
+              <span class="text-[10px] uppercase font-bold text-[#38bdf8] tracking-wider">Estimated Fee</span>
               <div class="flex items-baseline gap-2 mt-1">
-                <span class="text-4xl font-black text-orange-400" id="calcPriceDisplay">$199</span>
-                <span class="text-xs text-teal-200 font-medium">USD all-inclusive</span>
+                <span class="text-4xl font-black text-[#38bdf8]" id="calcPriceDisplay">$199</span>
+                <span class="text-xs text-slate-300 font-medium">USD all-inclusive</span>
               </div>
               
-              <div class="mt-5 pt-5 border-t border-teal-900 space-y-2.5 text-xs text-teal-100">
+              <div class="mt-5 pt-5 border-t border-[#1b263b] space-y-2.5 text-xs text-slate-200">
                 <div class="flex justify-between">
-                  <span class="text-teal-300">Required Man-Days:</span>
+                  <span class="text-slate-400">Required Man-Days:</span>
                   <strong id="calcMandays" class="text-white">1 Man-Day</strong>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-teal-300">Sample Units (AQL II):</span>
+                  <span class="text-slate-400">Sample Units (AQL II):</span>
                   <strong id="calcSampleUnits" class="text-white">125 Garments</strong>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-teal-300">Auditor Deployment:</span>
+                  <span class="text-slate-400">Auditor Deployment:</span>
                   <strong class="text-white">Within 48h Nationwide</strong>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-teal-300">PDF Report Turnaround:</span>
-                  <strong class="text-orange-300">Within 24 Hours</strong>
+                  <span class="text-slate-400">PDF Report Turnaround:</span>
+                  <strong class="text-[#38bdf8]">Within 24 Hours</strong>
                 </div>
               </div>
             </div>
 
             <div class="pt-5">
-              <button onclick="applyEstimateToBooking()" class="w-full py-3 rounded-lg bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs transition shadow-sm">
+              <button onclick="applyEstimateToBooking()" class="w-full py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs transition shadow-sm">
                 Apply to Booking Form
               </button>
             </div>
@@ -601,18 +601,18 @@
       const secH = document.getElementById('sectionHistory');
       const secP = document.getElementById('sectionPricing');
 
-      [btnB, btnH, btnP].forEach(b => b.className = 'px-3.5 py-1.5 rounded-md text-slate-300 hover:text-white transition flex items-center gap-1.5');
+      [btnB, btnH, btnP].forEach(b => b.className = 'px-3.5 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5');
       [secB, secH, secP].forEach(s => s.classList.add('hidden'));
 
       if (section === 'booking') {
-        btnB.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
+        btnB.className = 'px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
         secB.classList.remove('hidden');
       } else if (section === 'history') {
-        btnH.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
+        btnH.className = 'px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
         secH.classList.remove('hidden');
         renderBookingsHistory();
       } else if (section === 'pricing') {
-        btnP.className = 'px-3.5 py-1.5 rounded-md bg-teal-700 text-white transition flex items-center gap-1.5';
+        btnP.className = 'px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
         secP.classList.remove('hidden');
       }
     }
