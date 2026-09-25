@@ -459,22 +459,19 @@
         </p>
       </div>
 
-      <!-- Service Stage Filter Tabs -->
-      <div class="flex flex-wrap gap-4 sm:gap-6 border-b border-slate-200 text-xs sm:text-sm font-semibold text-slate-500">
-        <button id="tabBtnAll" onclick="switchServiceTab('all')" class="pb-3 border-b-2 border-[#2563eb] text-slate-900 font-bold transition">
-          All Services (21)
-        </button>
-        <button id="tabBtnPreProd" onclick="switchServiceTab('pre-production')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Pre-Production (6)
+      <!-- Service Stage Filter Tabs (Existing 4 Categories) -->
+      <div class="flex flex-wrap gap-6 border-b border-slate-200 text-xs font-semibold text-slate-500">
+        <button id="tabBtnPreProd" onclick="switchServiceTab('pre-production')" class="pb-3 border-b-2 border-[#2563eb] text-slate-900 font-bold transition">
+          Pre-Production
         </button>
         <button id="tabBtnInProd" onclick="switchServiceTab('in-production')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          In-Production (6)
+          In-Production
         </button>
         <button id="tabBtnFinal" onclick="switchServiceTab('pre-shipment')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Pre-Shipment & Final (5)
+          Pre-Shipment & Final
         </button>
         <button id="tabBtnAssurance" onclick="switchServiceTab('assurance')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Assurance & Partnership (4)
+          Assurance & Partnership
         </button>
       </div>
 
@@ -991,7 +988,7 @@
       }
 
       // Render initial services list
-      switchServiceTab('all');
+      switchServiceTab('pre-production');
     });
 
     function logoutUser() {
@@ -1192,8 +1189,9 @@
     };
 
     function switchServiceTab(stageKey) {
+      if (!serviceStages[stageKey]) stageKey = 'pre-production';
+
       const tabs = {
-        'all': document.getElementById('tabBtnAll'),
         'pre-production': document.getElementById('tabBtnPreProd'),
         'in-production': document.getElementById('tabBtnInProd'),
         'pre-shipment': document.getElementById('tabBtnFinal'),
@@ -1213,15 +1211,7 @@
       const container = document.getElementById('serviceListContainer');
       if (!container) return;
 
-      let servicesToRender = [];
-      if (stageKey === 'all') {
-        Object.keys(serviceStages).forEach(stage => {
-          servicesToRender = servicesToRender.concat(serviceStages[stage]);
-        });
-      } else {
-        servicesToRender = serviceStages[stageKey] || [];
-      }
-
+      const servicesToRender = serviceStages[stageKey] || [];
       container.innerHTML = '';
 
       servicesToRender.forEach((s) => {
