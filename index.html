@@ -55,15 +55,28 @@
         transform: scale(1) translate(0, 0);
       }
       50% {
-        transform: scale(1.06) translate(-1%, -0.5%);
+        transform: scale(1.12) translate(-1.5%, -1%);
       }
       100% {
-        transform: scale(1) translate(0, 0);
+        transform: scale(1.04) translate(1%, 0.5%);
       }
     }
     .hero-kenburns {
-      animation: heroKenBurns 18s ease-in-out infinite alternate;
+      animation: heroKenBurns 8s ease-in-out infinite alternate !important;
       will-change: transform;
+    }
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-hero-fade {
+      animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
   </style>
 </head>
@@ -135,66 +148,44 @@
 
 
   <!-- ===================================================== -->
-  <!-- HERO SECTION (Light Sky Blue Background with Animated Factory Picture) -->
+  <!-- HERO SECTION (Rich Deep Sky Blue with Visible Animated Picture — Clean Uncluttered) -->
   <!-- ===================================================== -->
-  <section id="home" class="relative pt-20 pb-24 overflow-hidden bg-[#e0f2fe] border-b border-sky-200">
-    <!-- Factory Hero Background Image with Light Sky Blue Atmosphere & Smooth Ken Burns Animation -->
-    <div class="absolute inset-0 z-0 overflow-hidden bg-[#e0f2fe]">
-      <img src="assets/images/hero-factory.jpg" alt="Apparel factory inspection in Pakistan" class="w-full h-full object-cover object-center hero-kenburns opacity-40 mix-blend-multiply filter contrast-105 brightness-105" />
-      <div class="absolute inset-0 bg-gradient-to-r from-[#e0f2fe]/95 via-[#e0f2fe]/80 to-[#bae6fd]/45"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#e0f2fe] via-transparent to-transparent"></div>
+  <section id="home" class="relative pt-24 pb-28 overflow-hidden bg-[#082238] border-b border-[#051829]">
+    <!-- Factory Hero Background Image with Rich Darker Sky Blue Atmosphere & Visible Ken Burns Animation -->
+    <div class="absolute inset-0 z-0 overflow-hidden bg-[#082238]">
+      <img src="assets/images/hero-factory.jpg" alt="Apparel factory inspection in Pakistan" class="w-full h-full object-cover object-center hero-kenburns opacity-60 filter contrast-110 brightness-95" style="animation: heroKenBurns 8s ease-in-out infinite alternate !important; will-change: transform;" />
+      <!-- Rich oceanic sky blue gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#061928]/95 via-[#08253d]/80 to-[#0c3556]/45"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#061928]/90 via-transparent to-transparent"></div>
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="max-w-3xl space-y-7 animate-hero-fade">
         
-        <!-- Left: Hero Headline & CTAs -->
-        <div class="lg:col-span-8 space-y-6">
-          
-          <!-- Eyebrow -->
-          <div class="flex items-center space-x-2 text-xs font-mono-code font-bold tracking-wider text-[#b45309] uppercase">
-            <span class="w-8 h-0.5 bg-[#e88d14]"></span>
-            <span>PAKISTAN • APPAREL & TEXTILE INSPECTION</span>
-          </div>
-
-          <!-- Main Headline -->
-          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.08] max-w-2xl">
-            Your third-party quality control partner in Pakistan
-          </h1>
-
-          <!-- Subtitle -->
-          <p class="text-sm sm:text-base text-slate-700 leading-relaxed max-w-xl font-medium">
-            Zasha.AIS gives global apparel brands one reliable partner for factory evaluation, quality assurance, product development and supplier sourcing — from first sample to final shipment.
-          </p>
-
-          <!-- CTA Buttons -->
-          <div class="pt-2 flex flex-wrap items-center gap-4">
-            <button onclick="goToInspectionBooking()" class="px-6 py-3.5 rounded-lg bg-[#e88d14] hover:bg-[#d97706] text-white font-bold text-xs tracking-wide transition shadow-md hover:shadow-lg">
-              Request an inspection
-            </button>
-            <a href="#services" class="px-6 py-3.5 rounded-lg bg-white/95 hover:bg-white text-slate-800 border border-slate-300 hover:border-slate-400 font-semibold text-xs tracking-wide transition shadow-sm">
-              See our services
-            </a>
-          </div>
+        <!-- Eyebrow -->
+        <div class="flex items-center space-x-2 text-xs font-mono-code font-bold tracking-wider text-[#e88d14] uppercase">
+          <span class="w-8 h-0.5 bg-[#e88d14]"></span>
+          <span>PAKISTAN • APPAREL & TEXTILE INSPECTION</span>
         </div>
 
-        <!-- Right: Floating "Categories we inspect" Card -->
-        <div class="lg:col-span-4 flex justify-end">
-          <div class="w-full max-w-md bg-white/95 backdrop-blur rounded-xl border border-sky-200/90 p-6 shadow-xl space-y-4">
-            <span class="block text-xs font-bold text-slate-800 uppercase tracking-wider">
-              Categories we inspect
-            </span>
-            
-            <!-- Badges -->
-            <div class="flex flex-wrap gap-2 text-xs font-mono-code">
-              <span class="bg-sky-50 text-sky-900 px-3 py-1.5 rounded-md border border-sky-200 font-semibold hover:border-[#e88d14] transition">Knits</span>
-              <span class="bg-sky-50 text-sky-900 px-3 py-1.5 rounded-md border border-sky-200 font-semibold hover:border-[#e88d14] transition">Woven garments</span>
-              <span class="bg-sky-50 text-sky-900 px-3 py-1.5 rounded-md border border-sky-200 font-semibold hover:border-[#e88d14] transition">Sweaters</span>
-              <span class="bg-sky-50 text-sky-900 px-3 py-1.5 rounded-md border border-sky-200 font-semibold hover:border-[#e88d14] transition">Home textiles</span>
-              <span class="bg-sky-50 text-sky-900 px-3 py-1.5 rounded-md border border-sky-200 font-semibold hover:border-[#e88d14] transition">Sports items</span>
-              <span class="bg-sky-50 text-sky-900 px-3 py-1.5 rounded-md border border-sky-200 font-semibold hover:border-[#e88d14] transition">Accessories</span>
-            </div>
-          </div>
+        <!-- Main Headline -->
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.08]">
+          Your third-party quality control partner in Pakistan
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-sm sm:text-base text-slate-200 leading-relaxed font-normal max-w-2xl">
+          Zasha.AIS gives global apparel brands one reliable partner for factory evaluation, quality assurance, product development and supplier sourcing — from first sample to final shipment.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="pt-2 flex flex-wrap items-center gap-4">
+          <button onclick="goToInspectionBooking()" class="px-7 py-4 rounded-lg bg-[#e88d14] hover:bg-[#d97706] text-slate-950 font-bold text-xs tracking-wide transition shadow-lg hover:shadow-xl hover:scale-[1.02] transform">
+            Request an inspection
+          </button>
+          <a href="#services" class="px-7 py-4 rounded-lg bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur font-semibold text-xs tracking-wide transition shadow-sm">
+            See our services
+          </a>
         </div>
 
       </div>
