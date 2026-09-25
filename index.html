@@ -455,29 +455,32 @@
           Our services
         </h2>
         <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-          Our workflow follows your production line — from raw material to loaded container — grouped below by stage. Tap any line to read more.
+          Our workflow follows your production line — from raw material to loaded container — grouped below by stage. Tap any card's "See More" to view complete inspection details.
         </p>
       </div>
 
-      <!-- 4 Service Stage Tabs -->
-      <div class="flex flex-wrap gap-6 border-b border-slate-200 text-xs font-semibold text-slate-500">
-        <button id="tabBtnPreProd" onclick="switchServiceTab('pre-production')" class="pb-3 border-b-2 border-[#2563eb] text-slate-900 font-bold transition">
-          Pre-Production
+      <!-- Service Stage Filter Tabs -->
+      <div class="flex flex-wrap gap-4 sm:gap-6 border-b border-slate-200 text-xs sm:text-sm font-semibold text-slate-500">
+        <button id="tabBtnAll" onclick="switchServiceTab('all')" class="pb-3 border-b-2 border-[#2563eb] text-slate-900 font-bold transition">
+          All Services (21)
+        </button>
+        <button id="tabBtnPreProd" onclick="switchServiceTab('pre-production')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
+          Pre-Production (6)
         </button>
         <button id="tabBtnInProd" onclick="switchServiceTab('in-production')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          In-Production
+          In-Production (6)
         </button>
         <button id="tabBtnFinal" onclick="switchServiceTab('pre-shipment')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Pre-Shipment & Final
+          Pre-Shipment & Final (5)
         </button>
         <button id="tabBtnAssurance" onclick="switchServiceTab('assurance')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Assurance & Partnership
+          Assurance & Partnership (4)
         </button>
       </div>
 
-      <!-- Accordion Rows Container -->
-      <div id="serviceListContainer" class="bg-white rounded-lg border border-slate-200 shadow-sm divide-y divide-slate-100 overflow-hidden">
-        <!-- Rendered dynamically by JavaScript to enable instant search/tab switching -->
+      <!-- Individual Service Cards Grid -->
+      <div id="serviceListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by JavaScript as individual cards -->
       </div>
 
     </div>
@@ -988,7 +991,7 @@
       }
 
       // Render initial services list
-      switchServiceTab('pre-production');
+      switchServiceTab('all');
     });
 
     function logoutUser() {
@@ -1008,117 +1011,180 @@
       m.classList.toggle('hidden');
     }
 
-    // 21 Services Categorized into 4 Production Stages matching Image 1
+    // 21 Services Categorized into 4 Production Stages with Images & Full Scopes
     const serviceStages = {
       'pre-production': [
         {
+          id: 's01',
           name: 'Initial Production Check',
+          image: 'assets/images/service-01.jpg',
+          stageLabel: 'Pre-Production',
           desc: 'First pieces off the line, checked before bulk starts.',
           details: 'Verification of initial output against approved tech packs and size specifications. Identifies machine setup errors and tension irregularities before mass manufacturing gets underway.'
         },
         {
+          id: 's02',
           name: 'Raw Material Verification',
+          image: 'assets/images/service-02.png',
+          stageLabel: 'Pre-Production',
           desc: 'Fabric, trims and accessories checked before they enter production.',
           details: 'Inspection of yarn, greige fabric, zippers, buttons, interlinings, and care labels upon warehouse arrival to verify composition, color match, and count conformity.'
         },
         {
+          id: 's03',
           name: 'Fabric Inspection',
+          image: 'assets/images/service-03.jpg',
+          stageLabel: 'Pre-Production',
           desc: 'Rolls checked for defects using international standards.',
           details: 'ASTM D5430 4-Point System fabric examination covering skewing, bowing, snags, uneven dyeing, and hole count across sampled production rolls.'
         },
         {
+          id: 's04',
           name: 'Spinning & Yarn Formation',
+          image: 'assets/images/service-04.jpg',
+          stageLabel: 'Pre-Production',
           desc: 'Raw fibres checked as they become yarn.',
           details: 'Evaluation of yarn count consistency, twist multiplier, tensile strength, and hairiness index during early spinning mill stages.'
         },
         {
+          id: 's05',
           name: 'Weaving / Knitting Inspection',
+          image: 'assets/images/service-05.jpg',
+          stageLabel: 'Pre-Production',
           desc: 'Fabric construction checked before cutting begins.',
           details: 'Verification of warp/weft density (EPI/PPI), knitting loop balance, GSM tolerance, and dimensional stability prior to fabric release.'
         },
         {
+          id: 's06',
           name: 'Sampling & Testing',
+          image: 'assets/images/service-06.jpg',
+          stageLabel: 'Pre-Production',
           desc: 'Pre-production samples verified against buyer specs.',
           details: 'Dimensional fit evaluation, seam elongation, shrinkage washing tests, and color fastness rubbing crockmeter checks on development samples.'
         }
       ],
       'in-production': [
         {
+          id: 's07',
           name: 'During Production Inspection',
+          image: 'assets/images/service-07.jpg',
+          stageLabel: 'In-Production',
           desc: 'Inline workmanship audit on active sewing lines at 20-60% completion.',
           details: 'Comprehensive in-process audit checking line progression, defect concentration rates, SPI density, and real-time corrective actions.'
         },
         {
+          id: 's08',
           name: 'Seam and Stitching Inspection',
+          image: 'assets/images/service-08.jpg',
+          stageLabel: 'In-Production',
           desc: 'Tension, stitch density SPI, and seam strength audit.',
           details: 'Detailed seam breakdown examining overlock margins, safety stitches, skipped stitches, and stretch recovery across all critical seams.'
         },
         {
+          id: 's09',
           name: 'Finishing Process',
+          image: 'assets/images/service-09.jpg',
+          stageLabel: 'In-Production',
           desc: 'Pressing, ironing, trim cleaning, and aesthetic checking.',
           details: 'Evaluation of thread trimming, pressing shine elimination, label placement accuracy, and fold presentation in finishing department.'
         },
         {
+          id: 's10',
           name: 'Production Process Evaluation',
+          image: 'assets/images/service-10.jpg',
+          stageLabel: 'In-Production',
           desc: 'Factory output rate, operational bottlenecks, and daily pace check.',
           details: 'Daily production volume audit mapped against client purchase order schedule to guarantee shipment timeline compliance.'
         },
         {
+          id: 's11',
           name: 'Dyeing/Printing Inspection',
+          image: 'assets/images/service-11.jpg',
+          stageLabel: 'In-Production',
           desc: 'Color fastness, shade matching, and print registration.',
           details: 'Assessment of screen print adhesion, pigment dispersion, shade continuity between garment panels, and wash durability.'
         },
         {
+          id: 's12',
           name: 'Quality Control Measures',
+          image: 'assets/images/service-12.jpg',
+          stageLabel: 'In-Production',
           desc: 'Defect tracking systems and inline rejection controls.',
           details: 'Evaluation of internal factory QC checkpoints, end-of-line traffic light inspection boards, and rework handling procedures.'
         }
       ],
       'pre-shipment': [
         {
+          id: 's13',
           name: 'Pre-Shipment Inspection',
+          image: 'assets/images/service-13.jpg',
+          stageLabel: 'Pre-Shipment & Final',
           desc: 'Statistical AQL 2.5 audit on 100% finished, 80%+ packed lots.',
           details: 'ISO 2859-1 Level II sampling evaluating critical, major, and minor defects, measurement tables, packing conformity, and release sign-off.'
         },
         {
+          id: 's14',
           name: 'Final Random Inspection',
+          image: 'assets/images/service-14.jpg',
+          stageLabel: 'Pre-Shipment & Final',
           desc: 'Comprehensive export lot release verification.',
           details: 'Final check verifying carton markings, gross/net weights, polybag safety suffocation warnings, barcoding, and overall assortment.'
         },
         {
+          id: 's15',
           name: 'Sample Picking Inspection',
+          image: 'assets/images/service-15.jpg',
+          stageLabel: 'Pre-Shipment & Final',
           desc: 'Impartial random sampling drawn for client or laboratory testing.',
           details: 'Certified inspector witnesses and seals sample cartons from production batches for independent certified lab testing or buyer reference.'
         },
         {
+          id: 's16',
           name: 'Container Loading Check',
+          image: 'assets/images/service-16.jpg',
+          stageLabel: 'Pre-Shipment & Final',
           desc: 'Loading count, container integrity, carton drop test, and seal check.',
           details: 'On-site verification during container stuffing: inspection of dry container cleanliness, cargo stowing security, and container customs seal affixation.'
         },
         {
+          id: 's17',
           name: 'Quality Control Points',
+          image: 'assets/images/service-17.jpg',
+          stageLabel: 'Pre-Shipment & Final',
           desc: 'Critical defect prevention and final export sign-off.',
           details: 'Deep analysis of critical defect parameters (metal needle detection, sharp edge checks, safety pull strength) before container release.'
         }
       ],
       'assurance': [
         {
+          id: 's18',
           name: 'Supplier Assessment',
+          image: 'assets/images/service-18.jpg',
+          stageLabel: 'Assurance & Partnership',
           desc: 'Machine capacity, workforce vetting, and compliance scoring.',
           details: 'Comprehensive factory evaluation auditing machinery count, maintenance records, working conditions, hygiene, and export pedigree.'
         },
         {
+          id: 's19',
           name: 'VOC (Verification of Conformity)',
+          image: 'assets/images/service-19.png',
+          stageLabel: 'Assurance & Partnership',
           desc: 'Standard certificate matching target market regulations.',
           details: 'Confirmation that garments comply with importing country legal specifications (CE, REACH, CPSIA, UKCA, or GSO standards).'
         },
         {
+          id: 's20',
           name: 'Documentation Review',
+          image: 'assets/images/service-20.png',
+          stageLabel: 'Assurance & Partnership',
           desc: 'PO compliance, packing lists, test reports, and customs dossier.',
           details: 'Thorough review of export documentation, certificate of origin, lab test certificates, and commercial invoices to prevent customs clearance delays.'
         },
         {
+          id: 's21',
           name: 'Communication with Partners',
+          image: 'assets/images/service-21.jpg',
+          stageLabel: 'Assurance & Partnership',
           desc: 'Real-time bilingual on-site liaison with factory management.',
           details: 'Direct communication bridge between international buyers and Pakistani manufacturing mills, resolving technical snags in real-time.'
         }
@@ -1127,6 +1193,7 @@
 
     function switchServiceTab(stageKey) {
       const tabs = {
+        'all': document.getElementById('tabBtnAll'),
         'pre-production': document.getElementById('tabBtnPreProd'),
         'in-production': document.getElementById('tabBtnInProd'),
         'pre-shipment': document.getElementById('tabBtnFinal'),
@@ -1146,38 +1213,82 @@
       const container = document.getElementById('serviceListContainer');
       if (!container) return;
 
-      const services = serviceStages[stageKey] || [];
+      let servicesToRender = [];
+      if (stageKey === 'all') {
+        Object.keys(serviceStages).forEach(stage => {
+          servicesToRender = servicesToRender.concat(serviceStages[stage]);
+        });
+      } else {
+        servicesToRender = serviceStages[stageKey] || [];
+      }
+
       container.innerHTML = '';
 
-      services.forEach((s, idx) => {
-        const rowId = `svcRow_${idx}`;
-        const row = document.createElement('div');
-        row.className = 'p-5 hover:bg-slate-50 transition cursor-pointer';
-        row.innerHTML = `
-          <div class="flex items-center justify-between gap-4" onclick="toggleServiceDetail('${rowId}')">
-            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-              <span class="font-bold text-slate-900 text-sm">${s.name}</span>
-              <span class="text-xs text-slate-500">${s.desc}</span>
-            </div>
-            <div class="text-[#2563eb] font-bold text-lg leading-none" id="icon_${rowId}">+</div>
+      servicesToRender.forEach((s) => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group';
+        card.innerHTML = `
+          <!-- Card Image Header -->
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+            <img src="${s.image}" alt="${s.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            <span class="absolute top-3 left-3 bg-[#0d1b2a]/90 backdrop-blur-sm text-[#38bdf8] text-[10px] font-mono-code font-bold uppercase px-2.5 py-1 rounded tracking-wider shadow-sm">
+              ${s.stageLabel}
+            </span>
           </div>
-          <div id="${rowId}" class="hidden mt-3 pt-3 border-t border-slate-100 text-xs text-slate-600 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <p class="max-w-2xl leading-relaxed">${s.details}</p>
-            <button onclick="goToInspectionBooking('${s.name}')" class="shrink-0 px-4 py-2 rounded bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs transition">
-              Book This Service
-            </button>
+
+          <!-- Card Content Body -->
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="font-display text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#2563eb] transition leading-snug">
+                ${s.name}
+              </h3>
+              <p class="text-xs text-slate-600 leading-relaxed mt-2 font-normal">
+                ${s.desc}
+              </p>
+            </div>
+
+            <!-- Complete Information (Expands on "See More") -->
+            <div id="details_${s.id}" class="hidden pt-3 border-t border-slate-100 text-xs text-slate-600 space-y-2">
+              <div class="bg-[#f8fafc] p-3.5 rounded-lg border border-slate-200 text-slate-700 leading-relaxed text-xs">
+                <span class="font-bold text-slate-900 block mb-1">Inspection Scope & Details:</span>
+                ${s.details}
+              </div>
+            </div>
+
+            <!-- Card Bottom Bar: See More & Book Service -->
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+              <button onclick="toggleCardDetail('${s.id}')" id="btn_${s.id}" class="text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] inline-flex items-center gap-1.5 transition py-1">
+                <span id="text_${s.id}">See More</span>
+                <svg id="svg_${s.id}" class="w-3.5 h-3.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+
+              <button onclick="goToInspectionBooking('${s.name}')" class="px-3.5 py-1.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs tracking-wide transition shadow-sm hover:shadow">
+                Book Service
+              </button>
+            </div>
           </div>
         `;
-        container.appendChild(row);
+        container.appendChild(card);
       });
     }
 
-    function toggleServiceDetail(rowId) {
-      const panel = document.getElementById(rowId);
-      const icon = document.getElementById('icon_' + rowId);
-      if (panel) {
-        panel.classList.toggle('hidden');
-        if (icon) icon.innerText = panel.classList.contains('hidden') ? '+' : '−';
+    function toggleCardDetail(cardId) {
+      const details = document.getElementById('details_' + cardId);
+      const text = document.getElementById('text_' + cardId);
+      const svg = document.getElementById('svg_' + cardId);
+      if (!details) return;
+
+      const isHidden = details.classList.contains('hidden');
+      if (isHidden) {
+        details.classList.remove('hidden');
+        if (text) text.innerText = 'See Less';
+        if (svg) svg.classList.add('rotate-180');
+      } else {
+        details.classList.add('hidden');
+        if (text) text.innerText = 'See More';
+        if (svg) svg.classList.remove('rotate-180');
       }
     }
 
