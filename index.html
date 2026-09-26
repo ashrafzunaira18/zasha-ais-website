@@ -490,7 +490,7 @@
       </div>
 
       <!-- Individual Service Cards Grid -->
-      <div id="serviceListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="serviceListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         <!-- Rendered dynamically by JavaScript as individual cards -->
       </div>
 
@@ -1231,7 +1231,7 @@
       servicesToRender.forEach((s) => {
         const cleanDesc = (s.desc || '').replace(/\.+$/, '');
         const card = document.createElement('div');
-        card.className = 'bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group';
+        card.className = 'bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group self-start w-full';
         card.innerHTML = `
           <!-- Card Image Header -->
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
