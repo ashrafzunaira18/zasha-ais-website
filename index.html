@@ -469,30 +469,17 @@
           Our services
         </h2>
         <p class="text-sm sm:text-base text-slate-600 mt-2 font-normal">
-          Our workflow follows your production line — from raw material to loaded container — grouped below by stage. Tap any card's "See More" to view complete inspection details.
+          Our workflow follows your production line — from raw material to loaded container. Tap any card's "See More" to view complete inspection details.
         </p>
       </div>
 
-      <!-- Service Stage Filter Tabs (Existing 4 Categories) -->
-      <div class="flex flex-wrap gap-6 border-b border-slate-200 text-sm sm:text-base font-semibold text-slate-500">
-        <button id="tabBtnPreProd" onclick="switchServiceTab('pre-production')" class="pb-3 border-b-2 border-[#2563eb] text-slate-900 font-bold transition">
-          Pre-Production
-        </button>
-        <button id="tabBtnInProd" onclick="switchServiceTab('in-production')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          In-Production
-        </button>
-        <button id="tabBtnFinal" onclick="switchServiceTab('pre-shipment')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Pre-Shipment & Final
-        </button>
-        <button id="tabBtnAssurance" onclick="switchServiceTab('assurance')" class="pb-3 border-b-2 border-transparent hover:text-slate-900 transition">
-          Assurance & Partnership
-        </button>
+      <!-- Individual Service Cards Grid (Unified 21 Services) -->
+      <div id="serviceListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        <!-- Rendered dynamically by JavaScript as individual cards (9 per page) -->
       </div>
 
-      <!-- Individual Service Cards Grid -->
-      <div id="serviceListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-        <!-- Rendered dynamically by JavaScript as individual cards -->
-      </div>
+      <!-- Pagination Controls (9 cards per page) -->
+      <div id="servicePagination"></div>
 
     </div>
   </section>
@@ -1001,8 +988,8 @@
         } catch(e) {}
       }
 
-      // Render initial services list
-      switchServiceTab('pre-production');
+      // Render unified services list with pagination
+      renderServicesPage(1);
     });
 
     function logoutUser() {
@@ -1202,33 +1189,34 @@
       ]
     };
 
-    function switchServiceTab(stageKey) {
-      if (!serviceStages[stageKey]) stageKey = 'pre-production';
+    // 21 Services in Unified Sequence
+    const allServices = [
+      ...serviceStages['pre-production'],
+      ...serviceStages['in-production'],
+      ...serviceStages['pre-shipment'],
+      ...serviceStages['assurance']
+    ];
 
-      const tabs = {
-        'pre-production': document.getElementById('tabBtnPreProd'),
-        'in-production': document.getElementById('tabBtnInProd'),
-        'pre-shipment': document.getElementById('tabBtnFinal'),
-        'assurance': document.getElementById('tabBtnAssurance')
-      };
+    let currentServicePage = 1;
+    const servicesPerPage = 9;
 
-      Object.keys(tabs).forEach(k => {
-        if (tabs[k]) {
-          if (k === stageKey) {
-            tabs[k].className = 'pb-3 border-b-2 border-[#2563eb] text-slate-900 font-bold transition';
-          } else {
-            tabs[k].className = 'pb-3 border-b-2 border-transparent hover:text-slate-900 transition';
-          }
-        }
-      });
-
+    function renderServicesPage(page = 1) {
+      currentServicePage = page;
       const container = document.getElementById('serviceListContainer');
       if (!container) return;
 
-      const servicesToRender = serviceStages[stageKey] || [];
+      const totalServices = allServices.length;
+      const totalPages = Math.ceil(totalServices / servicesPerPage);
+      if (currentServicePage < 1) currentServicePage = 1;
+      if (currentServicePage > totalPages) currentServicePage = totalPages;
+
+      const startIndex = (currentServicePage - 1) * servicesPerPage;
+      const endIndex = Math.min(startIndex + servicesPerPage, totalServices);
+      const pageServices = allServices.slice(startIndex, endIndex);
+
       container.innerHTML = '';
 
-      servicesToRender.forEach((s) => {
+      pageServices.forEach((s) => {
         const cleanDesc = (s.desc || '').replace(/\.+$/, '');
         const card = document.createElement('div');
         card.className = 'bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group self-start w-full';
@@ -1259,6 +1247,62 @@
         `;
         container.appendChild(card);
       });
+
+      renderPaginationControls(totalPages, startIndex, endIndex, totalServices);
+    }
+
+    function renderPaginationControls(totalPages, startIndex, endIndex, totalServices) {
+      const pagination = document.getElementById('servicePagination');
+      if (!pagination) return;
+
+      let pageButtonsHtml = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const isActive = i === currentServicePage;
+        pageButtonsHtml += `
+          <button type="button" onclick="goToServicePage(${i})" class="w-10 h-10 rounded-lg text-sm sm:text-base font-bold transition flex items-center justify-center ${isActive ? 'bg-[#2563eb] text-white shadow-md' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300'}" aria-label="Page ${i}" ${isActive ? 'aria-current="page"' : ''}>
+            ${i}
+          </button>
+        `;
+      }
+
+      const prevDisabled = currentServicePage <= 1;
+      const nextDisabled = currentServicePage >= totalPages;
+
+      pagination.innerHTML = `
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full pt-8 border-t border-slate-200">
+          <div class="text-sm sm:text-base text-slate-500 font-medium">
+            Showing <span class="font-bold text-slate-900">${startIndex + 1}–${endIndex}</span> of <span class="font-bold text-slate-900">${totalServices}</span> services
+          </div>
+          <div class="flex items-center space-x-2">
+            <button type="button" onclick="goToServicePage(${currentServicePage - 1})" ${prevDisabled ? 'disabled' : ''} class="px-4 py-2 rounded-lg border border-slate-300 text-sm sm:text-base font-bold transition flex items-center gap-1.5 ${prevDisabled ? 'opacity-40 cursor-not-allowed text-slate-400 bg-slate-50' : 'text-slate-700 bg-white hover:bg-slate-100 hover:text-slate-950 shadow-sm'}">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Previous</span>
+            </button>
+
+            <div class="flex items-center space-x-2">
+              ${pageButtonsHtml}
+            </div>
+
+            <button type="button" onclick="goToServicePage(${currentServicePage + 1})" ${nextDisabled ? 'disabled' : ''} class="px-4 py-2 rounded-lg border border-slate-300 text-sm sm:text-base font-bold transition flex items-center gap-1.5 ${nextDisabled ? 'opacity-40 cursor-not-allowed text-slate-400 bg-slate-50' : 'text-slate-700 bg-white hover:bg-slate-100 hover:text-slate-950 shadow-sm'}">
+              <span>Next</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function goToServicePage(page) {
+      renderServicesPage(page);
+      const section = document.getElementById('services');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Fallback for switchServiceTab
+    function switchServiceTab(stageKey) {
+      renderServicesPage(1);
     }
 
     function toggleCardDetail(cardId) {
