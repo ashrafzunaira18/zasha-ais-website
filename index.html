@@ -1493,7 +1493,7 @@
       });
     }
 
-    function navigateToSection(targetId, updateHash = true, smoothScroll = true) {
+    function navigateToSection(targetId, updateHash = true, smoothScroll = false) {
       if (!sectionIds.includes(targetId)) targetId = 'home';
       currentActivePage = targetId;
 
@@ -1514,8 +1514,6 @@
         if (pageViews.reports) pageViews.reports.classList.remove('hidden');
         if (pageViews.contact) pageViews.contact.classList.remove('hidden');
         if (pageViews.gallery) pageViews.gallery.classList.add('hidden');
-
-        window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'instant' });
       } else {
         // Dedicated page view for targetId
         // Display the target section AND the Contact Us section/footer at the bottom of every page/tab
@@ -1528,15 +1526,36 @@
             el.classList.add('hidden');
           }
         });
-
-        window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'instant' });
       }
+
+      // Immediately scroll to the top of the selected page view
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
 
       updateActiveNavLinks(targetId);
 
+      const pageTitles = {
+        home: 'Zasha.AIS | Apparel & Textile Inspection Services Pakistan',
+        about: 'About Us | Zasha.AIS Pakistan',
+        services: 'Our Services | Zasha.AIS Pakistan',
+        gallery: 'Operations Gallery | Zasha.AIS Pakistan',
+        reports: 'Sample Reports & Coverage | Zasha.AIS Pakistan',
+        contact: 'Contact Us | Zasha.AIS Pakistan'
+      };
+      if (pageTitles[targetId]) {
+        document.title = pageTitles[targetId];
+      }
+
       if (updateHash) {
-        if (window.location.hash !== '#' + targetId) {
-          history.pushState(null, '', '#' + targetId);
+        try {
+          if (window.location.hash !== '#' + targetId) {
+            history.pushState(null, '', '#' + targetId);
+          }
+        } catch (e) {
+          try {
+            window.location.hash = '#' + targetId;
+          } catch (e2) {}
         }
       }
     }
@@ -1572,6 +1591,8 @@
 
     window.addEventListener('hashchange', handleRouteFromHash);
     window.addEventListener('DOMContentLoaded', handleRouteFromHash);
+    // Trigger immediately in case DOM is already parsed
+    handleRouteFromHash();
   </script>
 </body>
 </html>
