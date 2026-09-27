@@ -212,9 +212,10 @@
           </div>
         </div>
       </section>
+    </div>
 
-      <!-- ABOUT SECTION (Option 4: Platinum Silver #f4f6f9) -->
-      <div id="page-about">
+    <!-- PAGE VIEW: ABOUT -->
+    <div id="page-about" class="page-view min-h-[calc(100vh-14rem)]">
         <section id="about" class="pt-16 sm:pt-20 pb-16 sm:pb-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200 scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -451,8 +452,8 @@
   </section>
   </div>
 
-  <!-- OUR SERVICES SECTION (Option 4: Platinum Silver #f4f6f9) -->
-  <div id="page-services">
+  <!-- PAGE VIEW: OUR SERVICES -->
+  <div id="page-services" class="page-view min-h-[calc(100vh-14rem)]">
     <section id="services" class="pt-8 sm:pt-10 pb-16 sm:pb-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200 scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
@@ -477,8 +478,8 @@
   </section>
   </div>
 
-  <!-- SAMPLE REPORTS & COVERAGE SECTION (Option 4: Platinum Silver #f4f6f9) -->
-  <div id="page-reports">
+  <!-- PAGE VIEW: SAMPLE REPORTS -->
+  <div id="page-reports" class="page-view min-h-[calc(100vh-14rem)]">
     <!-- ===================================================== -->
     <!-- SAMPLE REPORTS SECTION (Option 4: Platinum Silver #f4f6f9) -->
     <!-- ===================================================== -->
@@ -661,8 +662,8 @@
   </section>
   </div>
 
-  <!-- CONTACT US SECTION (Option 4: Platinum Silver #f4f6f9) -->
-  <div id="page-contact">
+  <!-- PAGE VIEW: CONTACT US -->
+  <div id="page-contact" class="page-view min-h-[calc(100vh-14rem)]">
     <!-- ===================================================== -->
     <!-- CONTACT US SECTION (Option 4: Platinum Silver #f4f6f9) -->
     <!-- ===================================================== -->
@@ -788,7 +789,6 @@
 
     </div>
   </section>
-  </div>
   </div>
 
   <!-- ===================================================== -->
@@ -1463,6 +1463,7 @@
     // Dedicated View Navigation & Hash Routing
     // =====================================================
     const sectionIds = ['home', 'about', 'services', 'gallery', 'reports', 'contact'];
+    let currentActivePage = 'home';
 
     function updateActiveNavLinks(targetId) {
       // 1. Desktop & Mid Navbars
@@ -1494,26 +1495,41 @@
 
     function navigateToSection(targetId, updateHash = true, smoothScroll = true) {
       if (!sectionIds.includes(targetId)) targetId = 'home';
+      currentActivePage = targetId;
 
-      const homeView = document.getElementById('page-home');
-      const galleryView = document.getElementById('page-gallery');
+      const pageViews = {
+        home: document.getElementById('page-home'),
+        about: document.getElementById('page-about'),
+        services: document.getElementById('page-services'),
+        gallery: document.getElementById('page-gallery'),
+        reports: document.getElementById('page-reports'),
+        contact: document.getElementById('page-contact')
+      };
 
-      if (targetId === 'gallery') {
-        if (homeView) homeView.classList.add('hidden');
-        if (galleryView) galleryView.classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'instant' });
+      if (targetId === 'home') {
+        // Home page view: keep all available sections visible, except gallery
+        if (pageViews.home) pageViews.home.classList.remove('hidden');
+        if (pageViews.about) pageViews.about.classList.remove('hidden');
+        if (pageViews.services) pageViews.services.classList.remove('hidden');
+        if (pageViews.reports) pageViews.reports.classList.remove('hidden');
+        if (pageViews.contact) pageViews.contact.classList.remove('hidden');
+        if (pageViews.gallery) pageViews.gallery.classList.add('hidden');
+
+        window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'instant' });
       } else {
-        if (galleryView) galleryView.classList.add('hidden');
-        if (homeView) homeView.classList.remove('hidden');
-
-        if (targetId === 'home') {
-          window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'instant' });
-        } else {
-          const targetEl = document.getElementById(targetId);
-          if (targetEl) {
-            targetEl.scrollIntoView({ behavior: smoothScroll ? 'smooth' : 'instant', block: 'start' });
+        // Dedicated page view for targetId
+        // Display the target section AND the Contact Us section/footer at the bottom of every page/tab
+        Object.keys(pageViews).forEach(key => {
+          const el = pageViews[key];
+          if (!el) return;
+          if (key === targetId || key === 'contact') {
+            el.classList.remove('hidden');
+          } else {
+            el.classList.add('hidden');
           }
-        }
+        });
+
+        window.scrollTo({ top: 0, behavior: smoothScroll ? 'smooth' : 'instant' });
       }
 
       updateActiveNavLinks(targetId);
@@ -1537,17 +1553,14 @@
 
     // ScrollSpy: Automatically highlight active navbar item as user scrolls on Home page
     window.addEventListener('scroll', () => {
-      const galleryView = document.getElementById('page-gallery');
-      if (galleryView && !galleryView.classList.contains('hidden')) {
-        return; // Don't track scroll when in Gallery view
-      }
+      if (currentActivePage !== 'home') return; // Only track when on the full Home page
 
       const scrollPos = window.scrollY + 180; // offset for sticky navbar
       const sections = ['contact', 'reports', 'services', 'about', 'home'];
 
       for (const id of sections) {
         const el = document.getElementById(id);
-        if (el) {
+        if (el && !el.closest('.hidden')) {
           const top = el.offsetTop;
           if (scrollPos >= top) {
             updateActiveNavLinks(id);
