@@ -1626,6 +1626,13 @@
       if (document.documentElement) document.documentElement.scrollTop = 0;
       if (document.body) document.body.scrollTop = 0;
 
+      if (targetId === 'services' || targetId === 'home') {
+        const container = document.getElementById('serviceListContainer');
+        if (container && container.children.length === 0) {
+          try { renderServicesPage(currentServicePage || 1); } catch (e) {}
+        }
+      }
+
       updateActiveNavLinks(targetId);
 
       const pageTitles = {
@@ -1692,6 +1699,11 @@
         }
       }
     }, { passive: true });
+
+    // Render services list immediately so it never waits on event timing
+    try {
+      renderServicesPage(1);
+    } catch (e) {}
 
     window.addEventListener('hashchange', handleRouteFromHash);
     window.addEventListener('DOMContentLoaded', handleRouteFromHash);
