@@ -145,15 +145,175 @@
 
     const params = new URLSearchParams(window.location.search);
     const serviceId = params.get('id') || params.get('service') || 's01';
-    const s = services.find(item => item.id === serviceId || item.name.toLowerCase() === serviceId.toLowerCase()) || services[0];
+    const s = services.find(item => item.id === serviceId || item.name.toLowerCase() === serviceId.toLowerCase() || item.name.toLowerCase().includes(serviceId.toLowerCase())) || services[0];
 
     document.getElementById('sdTitle').innerText = s.name;
-    document.getElementById('sdPlaceholderHeading').innerText = s.name;
     document.getElementById('sdStageBadge').innerText = s.stage;
     document.getElementById('sdShortDesc').innerText = s.desc;
     document.title = s.name + ' | Zasha.AIS Pakistan';
     const bookBtn = document.getElementById('sdBookBtn');
     if (bookBtn) bookBtn.href = 'login.html?service=' + encodeURIComponent(s.name);
+
+    const mainContentEl = document.getElementById('sdMainContent');
+    if (mainContentEl && (s.id === 's07' || s.name.toLowerCase().includes('during production'))) {
+      mainContentEl.className = 'bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm';
+      mainContentEl.innerHTML = `
+        <div class="space-y-10 text-left w-full max-w-5xl mx-auto">
+          
+          <!-- 01: HERO BANNER SECTION -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-10 rounded-2xl border border-[#1b263b] shadow-xl">
+            <div class="lg:col-span-7 space-y-4">
+              <span class="inline-block text-xs font-mono-code font-bold tracking-wider text-[#38bdf8] uppercase">
+                01 • IN-PROCESS QUALITY ASSURANCE
+              </span>
+              <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-snug">
+                Catch Quality Issues Early — Before They Become Costly
+              </h2>
+              <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
+                Early detection is your strongest defense against costly production reworks, factory delays, and export rejections. During Production Inspection (DUPRO) audits work on the active factory floor while your garments are still being stitched.
+              </p>
+              <div class="pt-2 flex flex-wrap items-center gap-4">
+                <a href="login.html?service=During%20Production%20Inspection" class="px-6 py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm tracking-wide transition shadow-md">
+                  Request this inspection
+                </a>
+                <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20need%20During%20Production%20Inspection%20(DUPRO)%20details." target="_blank" class="px-5 py-3 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-bold text-sm transition flex items-center gap-2">
+                  <span>Inquire via WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Inspector Image -->
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-lg border border-[#25364f] bg-slate-900 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-during-production.png" 
+                  alt="Pakistani garment factory floor quality inspector checking production line" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#09121d]/85 via-transparent to-transparent flex items-end p-3 text-xs text-slate-300 font-medium">
+                  Production line inspection on factory floor
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 02: WHAT IS DURING PRODUCTION INSPECTION? -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-4">
+              <span class="text-xs font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 02</span>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+                What Is During Production Inspection?
+              </h2>
+              <p class="text-base sm:text-lg font-semibold text-slate-700 mt-1">
+                An In-Process Quality Check During Manufacturing
+              </p>
+            </div>
+
+            <div class="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
+              <p>
+                During Production Inspection (DPI), also known as DUPRO, is an in-process quality check conducted while production is still underway, typically when approximately 20–60% of the order is in the stitching or finishing stage. At Zasha.AIS, we assess the production line and inspect in-process garments to verify fabric quality, measurements, workmanship, stitching, components, and overall compliance with buyer requirements.
+              </p>
+              <p>
+                Our inspectors compare production against the approved sample, product specifications, purchase order, and other agreed quality requirements to identify defects and process issues at an early stage. This allows corrective action to be taken while production is still ongoing, helping prevent repeated defects, reduce rework, and maintain consistent quality throughout the order.
+              </p>
+            </div>
+          </div>
+
+          <!-- SECTION 03: WHY IS DURING PRODUCTION INSPECTION IMPORTANT? -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+              <span class="text-xs font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 03</span>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+                Why Is During Production Inspection Important?
+              </h2>
+              <p class="text-base sm:text-lg font-semibold text-slate-700 mt-1">
+                Prevent Problems Before They Multiply
+              </p>
+              <p class="text-sm sm:text-base text-slate-600 mt-2 text-justify" style="text-align: justify; text-justify: inter-word;">
+                Identifying defects early prevents widespread quality failure across the entire manufacturing batch. Critical issues caught on the line include:
+              </p>
+            </div>
+
+            <!-- 9 Defect Points Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Incorrect stitching</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Fabric defects</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Measurement deviations</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Skip/broken stitches</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Needle cuts</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Stains</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Shade variation</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Poor workmanship</span>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-sm font-semibold">
+                <span class="w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs font-black shrink-0">!</span>
+                <span>Inconsistent finishing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 05: WHAT DOES ZASHA.AIS CHECK? -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+            <div class="border-b border-slate-100 pb-4">
+              <span class="text-xs font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 05</span>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+                What Does Zasha.AIS Check?
+              </h2>
+              <p class="text-base sm:text-lg font-semibold text-slate-700 mt-1">
+                A Comprehensive In-Process Quality Assessment
+              </p>
+            </div>
+
+            <div class="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
+              <p>
+                During Production Inspection mein Zasha.AIS sirf finished garments ko check nahi karta, balkay production ke dauran product quality aur manufacturing process dono ka assessment karta hai. Our inspectors review the style, purchase order, quantity, factory information, approved sample, product specifications, measurement requirements, and buyer instructions to establish the correct inspection reference before assessing production.
+              </p>
+              <p>
+                During the inspection, we examine workmanship, garment appearance, fabric and material condition, measurements, stitching, finishing, trims, components, and product functionality. Depending on the product and agreed inspection scope, this may include checking buttons, zippers, poppers, prints, embroidery, labels, and other components. Key measurements such as body length, chest, shoulder, sleeve length, waist, hip, and bottom opening are verified against the approved specifications and applicable tolerances.
+              </p>
+              <p>
+                Our inspectors also assess the production line and in-process quality controls, including work methods, operator consistency, material handling, and overall production flow. Any identified defects or deviations are documented with their description, quantity, classification, and photographic evidence, providing buyers with clear visibility of the production condition.
+              </p>
+            </div>
+          </div>
+
+          <!-- BOTTOM ACTION BAR -->
+          <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200">
+            <a href="index.html#services" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 font-bold text-sm transition">
+              ← Back to Our Services
+            </a>
+            <a href="login.html?service=During%20Production%20Inspection" class="px-8 py-3.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm sm:text-base tracking-wide transition shadow-md">
+              Request DUPRO Inspection
+            </a>
+          </div>
+
+        </div>
+      `;
+    }
   </script>
 </body>
 </html>
