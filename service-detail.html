@@ -15,8 +15,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    html {
+      font-size: 14.5px;
+    }
+    @media (min-width: 640px) {
+      html {
+        font-size: 15px;
+      }
+    }
+    @media (min-width: 1024px) {
+      html {
+        font-size: 15.5px;
+      }
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      letter-spacing: -0.011em;
+      font-size: 0.95rem;
+    }
+    h1, h2, h3, h4, h5, h6, .font-display {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      letter-spacing: -0.02em;
+    }
     .font-mono-code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
   </style>
 </head>
@@ -129,22 +149,22 @@
         <div class="space-y-8 text-left w-full max-w-5xl mx-auto">
           
           <!-- 01: HERO BANNER SECTION -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-10 rounded-2xl border border-[#1b263b] shadow-xl">
-            <div class="lg:col-span-7 space-y-4">
-              <span class="inline-block text-xs font-mono-code font-bold tracking-wider text-[#38bdf8] uppercase">
-                01 • IN-PROCESS QUALITY ASSURANCE
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="inline-block text-[11px] font-semibold tracking-wider text-[#38bdf8] uppercase">
+                01 • In-Process Quality Assurance
               </span>
-              <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-snug">
+              <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-white tracking-tight leading-snug">
                 Catch Quality Issues Early — Before They Become Costly
               </h2>
-              <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
                 Early detection is your strongest defense against costly production reworks, factory delays, and export rejections. During Production Inspection (DUPRO) audits work on the active factory floor while your garments are still being stitched.
               </p>
-              <div class="pt-2 flex flex-wrap items-center gap-4">
-                <a href="login.html?service=During%20Production%20Inspection" class="px-6 py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm tracking-wide transition shadow-md">
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a href="login.html?service=During%20Production%20Inspection" class="px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium text-xs sm:text-sm tracking-wide transition shadow-sm">
                   Request this inspection
                 </a>
-                <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20need%20During%20Production%20Inspection%20(DUPRO)%20details." target="_blank" class="px-5 py-3 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-bold text-sm transition flex items-center gap-2">
+                <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20need%20During%20Production%20Inspection%20(DUPRO)%20details." target="_blank" class="px-4 py-2.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-medium text-xs sm:text-sm transition flex items-center gap-2">
                   <span>Inquire via WhatsApp</span>
                 </a>
               </div>
