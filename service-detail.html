@@ -50,59 +50,23 @@
   </header>
 
   <!-- MAIN SERVICE DETAIL CONTAINER -->
-  <main class="min-h-[calc(100vh-14rem)] py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+  <main class="min-h-[calc(100vh-14rem)] pt-4 sm:pt-6 pb-12 sm:pb-16 bg-[#f4f6f9]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
       
       <!-- Back Link -->
       <div>
-        <a href="index.html#services" class="inline-flex items-center gap-2 text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] transition group">
+        <a href="index.html#services" class="inline-flex items-center gap-2 text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] transition group py-1">
           <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
           <span>Back to Our Services</span>
         </a>
       </div>
 
-      <!-- Service Header Banner -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div class="space-y-2">
-          <span id="sdStageBadge" class="inline-block px-3 py-1 rounded bg-blue-100 text-[#2563eb] text-xs font-bold uppercase tracking-wider">
-            Pre-Production
-          </span>
-          <h1 id="sdTitle" class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
-            Initial Production Check
-          </h1>
-          <p id="sdShortDesc" class="text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
-            First pieces off the line, checked before bulk starts. Verification of initial output against approved tech packs and size specifications.
-          </p>
-        </div>
-        <div class="flex items-center gap-3 shrink-0">
-          <a id="sdBookBtn" href="login.html" class="px-6 py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm tracking-wide transition shadow-sm hover:shadow text-center">
-            Book this Service
-          </a>
-        </div>
+      <!-- Blank Page Content Container (Populated dynamically) -->
+      <div id="sdMainContent" class="w-full">
       </div>
 
-      <!-- Blank Page Content Container (Ready for user information) -->
-      <div id="sdMainContent" class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-14 shadow-sm min-h-[420px] flex flex-col items-center justify-center text-center">
-        <div class="max-w-lg space-y-4">
-          <div class="w-16 h-16 mx-auto rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb]">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <h2 id="sdPlaceholderHeading" class="font-display text-xl sm:text-2xl font-bold text-slate-900">
-            Initial Production Check
-          </h2>
-          <p class="text-sm sm:text-base text-slate-500 font-normal leading-relaxed">
-            This is a blank page layout reserved for detailed information on this service. You can provide the specifications, workflow details, criteria, or imagery, and it will be populated right here.
-          </p>
-          <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
-            <a href="index.html#services" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-sm transition">
-              ← Return to Services
-            </a>
-            <a href="index.html#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm transition shadow-sm">
-              Request an inspection
-            </a>
-          </div>
-        </div>
-      </div>
+    </div>
+  </main>
 
     </div>
   </main>
@@ -147,18 +111,22 @@
     const serviceId = params.get('id') || params.get('service') || 's01';
     const s = services.find(item => item.id === serviceId || item.name.toLowerCase() === serviceId.toLowerCase() || item.name.toLowerCase().includes(serviceId.toLowerCase())) || services[0];
 
-    document.getElementById('sdTitle').innerText = s.name;
-    document.getElementById('sdStageBadge').innerText = s.stage;
-    document.getElementById('sdShortDesc').innerText = s.desc;
-    document.title = s.name + ' | Zasha.AIS Pakistan';
+    const titleEl = document.getElementById('sdTitle');
+    const stageEl = document.getElementById('sdStageBadge');
+    const descEl = document.getElementById('sdShortDesc');
     const bookBtn = document.getElementById('sdBookBtn');
+
+    if (titleEl) titleEl.innerText = s.name;
+    if (stageEl) stageEl.innerText = s.stage;
+    if (descEl) descEl.innerText = s.desc;
+    document.title = s.name + ' | Zasha.AIS Pakistan';
     if (bookBtn) bookBtn.href = 'login.html?service=' + encodeURIComponent(s.name);
 
     const mainContentEl = document.getElementById('sdMainContent');
     if (mainContentEl && (s.id === 's07' || s.name.toLowerCase().includes('during production'))) {
-      mainContentEl.className = 'bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm';
+      mainContentEl.className = 'w-full';
       mainContentEl.innerHTML = `
-        <div class="space-y-10 text-left w-full max-w-5xl mx-auto">
+        <div class="space-y-8 text-left w-full max-w-5xl mx-auto">
           
           <!-- 01: HERO BANNER SECTION -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-10 rounded-2xl border border-[#1b263b] shadow-xl">
@@ -906,7 +874,28 @@
               Request DUPRO Inspection
             </a>
           </div>
-
+        </div>
+      `;
+    } else if (mainContentEl) {
+      mainContentEl.className = 'bg-white rounded-2xl border border-slate-200 p-8 sm:p-14 shadow-sm min-h-[420px] flex flex-col items-center justify-center text-center';
+      mainContentEl.innerHTML = `
+        <div class="max-w-xl space-y-4">
+          <span class="inline-block px-3 py-1 rounded bg-blue-100 text-[#2563eb] text-xs font-bold uppercase tracking-wider">${s.stage}</span>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">${s.name}</h1>
+          <p class="text-sm sm:text-base text-slate-600 font-normal leading-relaxed text-justify" style="text-align: justify; text-justify: inter-word;">
+            ${s.desc}
+          </p>
+          <div class="p-6 bg-slate-50 rounded-xl border border-dashed border-slate-300 text-slate-500 text-xs sm:text-sm">
+            Detailed quality standards, specifications, and on-site criteria for <strong>${s.name}</strong> will be populated here.
+          </div>
+          <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+            <a href="index.html#services" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-sm transition">
+              ← Return to Services
+            </a>
+            <a href="login.html?service=${encodeURIComponent(s.name)}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm transition shadow-sm">
+              Request an inspection
+            </a>
+          </div>
         </div>
       `;
     }
