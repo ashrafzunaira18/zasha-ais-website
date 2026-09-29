@@ -374,67 +374,78 @@
   <section class="py-20 bg-[#0d1b2a] text-white border-b border-[#1b263b]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <div class="max-w-2xl">
+      <div class="max-w-3xl">
         <h2 class="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
           How our reporting builds confidence
         </h2>
-        <p class="text-sm sm:text-base text-slate-300 mt-2 font-normal">
-          Every inspection ends with a report designed to be read fast and acted on immediately.
+        <p class="text-sm sm:text-base text-slate-300 mt-2 font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
+          Every inspection ends with a report designed to be read fast and acted on immediately. Clear digital dashboards, photographic evidence, and traceable data keep you in control at every stage.
         </p>
       </div>
 
-      <!-- Horizontal 4-Point Connected Process -->
-      <div class="relative">
-        <!-- Connecting horizontal line -->
-        <div class="hidden md:block absolute top-5 left-8 right-8 h-px bg-[#25364f] z-0"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- 4-Step Process Grid (lg:col-span-7) -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
           
           <!-- Step 1 -->
-          <div class="space-y-4">
+          <div class="bg-[#132238] p-6 rounded-xl border border-[#25364f] space-y-3 shadow-md hover:border-[#38bdf8]/50 transition">
             <div class="w-10 h-10 rounded-full bg-[#0d1b2a] border border-[#2563eb] text-[#38bdf8] font-display text-base font-bold flex items-center justify-center shadow-md">
               1
             </div>
             <h3 class="text-base sm:text-lg font-bold text-white">Effective communication</h3>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            <p class="text-sm text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
               Information delivered in a structured, easy-to-understand format, keeping clients and teams aligned with inspection insights and results.
             </p>
           </div>
 
           <!-- Step 2 -->
-          <div class="space-y-4">
+          <div class="bg-[#132238] p-6 rounded-xl border border-[#25364f] space-y-3 shadow-md hover:border-[#38bdf8]/50 transition">
             <div class="w-10 h-10 rounded-full bg-[#0d1b2a] border border-[#2563eb] text-[#38bdf8] font-display text-base font-bold flex items-center justify-center shadow-md">
               2
             </div>
             <h3 class="text-base sm:text-lg font-bold text-white">Data-driven decisions</h3>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            <p class="text-sm text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
               Insightful, actionable reports equip clients with reliable data to confidently approve product, upgrade quality, or adjust production strategy.
             </p>
           </div>
 
           <!-- Step 3 -->
-          <div class="space-y-4">
+          <div class="bg-[#132238] p-6 rounded-xl border border-[#25364f] space-y-3 shadow-md hover:border-[#38bdf8]/50 transition">
             <div class="w-10 h-10 rounded-full bg-[#0d1b2a] border border-[#2563eb] text-[#38bdf8] font-display text-base font-bold flex items-center justify-center shadow-md">
               3
             </div>
             <h3 class="text-base sm:text-lg font-bold text-white">Performance optimization</h3>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            <p class="text-sm text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
               Evaluating historical patterns and quality trends to identify improvement opportunities and support continuous refinement.
             </p>
           </div>
 
           <!-- Step 4 -->
-          <div class="space-y-4">
+          <div class="bg-[#132238] p-6 rounded-xl border border-[#25364f] space-y-3 shadow-md hover:border-[#38bdf8]/50 transition">
             <div class="w-10 h-10 rounded-full bg-[#0d1b2a] border border-[#2563eb] text-[#38bdf8] font-display text-base font-bold flex items-center justify-center shadow-md">
               4
             </div>
             <h3 class="text-base sm:text-lg font-bold text-white">Client control</h3>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            <p class="text-sm text-slate-300 leading-relaxed font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
               Clarity and information that keep clients in charge of their product's quality journey, building a collaborative, transparent partnership.
             </p>
           </div>
 
         </div>
+
+        <!-- Right: Reporting Dashboard Image (lg:col-span-5) -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-full rounded-2xl overflow-hidden shadow-2xl border border-[#25364f] bg-[#1b263b] group">
+            <img 
+              src="assets/images/about-reporting-process.png" 
+              alt="Auditor evaluating Apparel Quality Inspection report analytics on tablet" 
+              class="w-full h-auto max-h-[500px] object-cover group-hover:scale-[1.02] transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
       </div>
 
     </div>
