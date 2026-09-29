@@ -462,7 +462,7 @@
           Our services
         </h2>
         <p class="text-sm sm:text-base text-slate-600 mt-2 font-normal">
-          Our workflow follows your production line — from raw material to loaded container. Tap any card's "See More" to view complete inspection details.
+          Our workflow follows your production line — from raw material to loaded container. Tap any card's "Show more" to view complete inspection details.
         </p>
       </div>
 
@@ -476,6 +476,68 @@
 
     </div>
   </section>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- PAGE VIEW: SERVICE DETAIL (Blank page template ready for content) -->
+  <!-- ===================================================== -->
+  <div id="page-service-detail" class="page-view hidden min-h-[calc(100vh-14rem)]">
+    <section id="service-detail" class="pt-8 sm:pt-10 pb-16 sm:pb-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200 scroll-mt-16 sm:scroll-mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        
+        <!-- Breadcrumb / Back Link -->
+        <div>
+          <a href="#services" onclick="navigateToSection('services'); return false;" class="inline-flex items-center gap-2 text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] transition group">
+            <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            <span>Back to Our Services</span>
+          </a>
+        </div>
+
+        <!-- Service Header Banner -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <span id="sdStageBadge" class="inline-block px-3 py-1 rounded bg-blue-100 text-[#2563eb] text-xs font-bold uppercase tracking-wider">
+              Pre-Production
+            </span>
+            <h1 id="sdTitle" class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
+              Initial Production Check
+            </h1>
+            <p id="sdShortDesc" class="text-sm sm:text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
+              First pieces off the line, checked before bulk starts. Verification of initial output against approved tech packs and size specifications.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <button id="sdBookServiceBtn" onclick="goToInspectionBooking()" class="px-6 py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm tracking-wide transition shadow-sm hover:shadow text-center">
+              Book this Service
+            </button>
+          </div>
+        </div>
+
+        <!-- Blank Page Content Container (Ready for user information) -->
+        <div id="sdMainContent" class="bg-white rounded-2xl border border-slate-200 p-8 sm:p-14 shadow-sm min-h-[420px] flex flex-col items-center justify-center text-center">
+          <div class="max-w-lg space-y-4">
+            <div class="w-16 h-16 mx-auto rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-[#2563eb]">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h2 id="sdPlaceholderHeading" class="font-display text-xl sm:text-2xl font-bold text-slate-900">
+              Initial Production Check
+            </h2>
+            <p class="text-sm sm:text-base text-slate-500 font-normal leading-relaxed">
+              This is a blank page layout reserved for detailed information on this service. You can provide the specifications, workflow details, criteria, or imagery, and it will be populated right here.
+            </p>
+            <div class="pt-4 flex flex-wrap items-center justify-center gap-3">
+              <a href="#services" onclick="navigateToSection('services'); return false;" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-sm transition">
+                ← Return to Services
+              </a>
+              <button onclick="goToInspectionBooking()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm transition shadow-sm">
+                Request an inspection
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   </div>
 
   <!-- PAGE VIEW: SAMPLE REPORTS -->
@@ -1213,28 +1275,32 @@
 
       pageServices.forEach((s) => {
         const cleanDesc = (s.desc || '').replace(/\.+$/, '');
+        const cleanDetails = (s.details || '').replace(/\.+$/, '');
         const card = document.createElement('div');
         card.className = 'bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between overflow-hidden group self-start w-full';
         card.innerHTML = `
           <!-- Card Image Header -->
-          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100 cursor-pointer" onclick="openServiceDetail('${s.id}')">
             <img src="${s.image}" alt="${s.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
           </div>
 
           <!-- Card Content Body -->
           <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-display text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#2563eb] transition leading-snug">
+              <h3 class="font-display text-lg sm:text-xl font-bold text-slate-900 group-hover:text-[#2563eb] transition leading-snug cursor-pointer" onclick="openServiceDetail('${s.id}')">
                 ${s.name}
               </h3>
-              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mt-2 font-normal">
-                <span>${cleanDesc}</span><span id="details_${s.id}" class="hidden text-slate-800 font-medium">. ${s.details}</span> <button type="button" onclick="toggleCardDetail('${s.id}')" id="btn_${s.id}" class="inline text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] underline hover:no-underline cursor-pointer transition focus:outline-none ml-1"><span id="text_${s.id}">... See more</span></button>
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed mt-2 font-normal text-justify" style="text-align: justify; text-justify: inter-word;">
+                <span>${cleanDesc}. ${cleanDetails}.</span> <button type="button" onclick="openServiceDetail('${s.id}')" class="inline text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] underline hover:no-underline cursor-pointer transition focus:outline-none ml-1 whitespace-nowrap"><span>Show more &rarr;</span></button>
               </p>
             </div>
 
-            <!-- Card Bottom Bar: Book Service -->
-            <div class="pt-3 border-t border-slate-100">
-              <button onclick="goToInspectionBooking('${s.name}')" class="w-full py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm tracking-wide transition shadow-sm hover:shadow text-center">
+            <!-- Card Bottom Bar: Show more & Book Service -->
+            <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+              <button type="button" onclick="openServiceDetail('${s.id}')" class="flex-1 py-2.5 rounded-lg border border-slate-300 hover:border-[#2563eb] text-slate-700 hover:text-[#2563eb] font-bold text-xs sm:text-sm tracking-wide transition text-center bg-white hover:bg-blue-50/50">
+                Show more
+              </button>
+              <button type="button" onclick="goToInspectionBooking('${s.name}')" class="flex-1 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm tracking-wide transition shadow-sm hover:shadow text-center">
                 Book Service
               </button>
             </div>
@@ -1300,19 +1366,42 @@
       renderServicesPage(1);
     }
 
-    function toggleCardDetail(cardId) {
-      const details = document.getElementById('details_' + cardId);
-      const text = document.getElementById('text_' + cardId);
-      if (!details || !text) return;
+    function openServiceDetail(serviceId, updateHash = true) {
+      const service = allServices.find(s => s.id === serviceId) || allServices[0];
+      if (!service) return;
 
-      const isHidden = details.classList.contains('hidden');
-      if (isHidden) {
-        details.classList.remove('hidden');
-        text.innerText = 'See less';
-      } else {
-        details.classList.add('hidden');
-        text.innerText = '... See more';
+      const titleEl = document.getElementById('sdTitle');
+      const stageEl = document.getElementById('sdStageBadge');
+      const descEl = document.getElementById('sdShortDesc');
+      const headingEl = document.getElementById('sdPlaceholderHeading');
+      const bookBtn = document.getElementById('sdBookServiceBtn');
+
+      if (titleEl) titleEl.innerText = service.name;
+      if (stageEl) stageEl.innerText = service.stageLabel;
+      if (descEl) descEl.innerText = (service.desc || '') + ' ' + (service.details || '');
+      if (headingEl) headingEl.innerText = service.name;
+      if (bookBtn) {
+        bookBtn.setAttribute('onclick', `goToInspectionBooking('${service.name}')`);
       }
+
+      navigateToSection('service-detail', false);
+
+      if (updateHash) {
+        try {
+          if (window.location.hash !== '#service-detail?id=' + service.id) {
+            history.pushState(null, '', '#service-detail?id=' + service.id);
+          }
+        } catch (e) {
+          try {
+            window.location.hash = '#service-detail?id=' + service.id;
+          } catch (e2) {}
+        }
+      }
+    }
+
+    // Deprecated alias for backwards compatibility
+    function toggleCardDetail(cardId) {
+      openServiceDetail(cardId);
     }
 
     // Sample Reports Data with Direct PDFs
@@ -1462,15 +1551,17 @@
     // =====================================================
     // Dedicated View Navigation & Hash Routing
     // =====================================================
-    const sectionIds = ['home', 'about', 'services', 'gallery', 'reports', 'contact'];
+    const sectionIds = ['home', 'about', 'services', 'gallery', 'reports', 'contact', 'service-detail'];
     let currentActivePage = 'home';
 
     function updateActiveNavLinks(targetId) {
+      const activeNavKey = targetId === 'service-detail' ? 'services' : targetId;
+
       // 1. Desktop & Mid Navbars
       const desktopAndMidLinks = document.querySelectorAll('#desktopNav a[data-target], #midNav a[data-target]');
       desktopAndMidLinks.forEach(link => {
         const itemTarget = link.getAttribute('data-target');
-        if (itemTarget === targetId) {
+        if (itemTarget === activeNavKey) {
           link.classList.add('border-[#2563eb]', 'text-slate-950', 'font-bold');
           link.classList.remove('border-transparent', 'text-slate-700', 'font-semibold');
         } else {
@@ -1483,7 +1574,7 @@
       const mobileLinks = document.querySelectorAll('#mobileNav a[data-target]');
       mobileLinks.forEach(link => {
         const itemTarget = link.getAttribute('data-target');
-        if (itemTarget === targetId) {
+        if (itemTarget === activeNavKey) {
           link.classList.add('text-[#2563eb]', 'font-bold');
           link.classList.remove('text-slate-700', 'font-semibold');
         } else {
@@ -1501,19 +1592,21 @@
         home: document.getElementById('page-home'),
         about: document.getElementById('page-about'),
         services: document.getElementById('page-services'),
+        'service-detail': document.getElementById('page-service-detail'),
         gallery: document.getElementById('page-gallery'),
         reports: document.getElementById('page-reports'),
         contact: document.getElementById('page-contact')
       };
 
       if (targetId === 'home') {
-        // Home page view: keep all available sections visible, except gallery
+        // Home page view: keep all available sections visible, except gallery and service-detail
         if (pageViews.home) pageViews.home.classList.remove('hidden');
         if (pageViews.about) pageViews.about.classList.remove('hidden');
         if (pageViews.services) pageViews.services.classList.remove('hidden');
         if (pageViews.reports) pageViews.reports.classList.remove('hidden');
         if (pageViews.contact) pageViews.contact.classList.remove('hidden');
         if (pageViews.gallery) pageViews.gallery.classList.add('hidden');
+        if (pageViews['service-detail']) pageViews['service-detail'].classList.add('hidden');
       } else {
         // Dedicated page view for targetId
         // Display the target section AND the Contact Us section/footer at the bottom of every page/tab
@@ -1539,6 +1632,7 @@
         home: 'Zasha.AIS | Apparel & Textile Inspection Services Pakistan',
         about: 'About Us | Zasha.AIS Pakistan',
         services: 'Our Services | Zasha.AIS Pakistan',
+        'service-detail': 'Service Details | Zasha.AIS Pakistan',
         gallery: 'Operations Gallery | Zasha.AIS Pakistan',
         reports: 'Sample Reports & Coverage | Zasha.AIS Pakistan',
         contact: 'Contact Us | Zasha.AIS Pakistan'
@@ -1562,9 +1656,19 @@
 
     // Hash route listener for initial page load and browser back/forward buttons
     function handleRouteFromHash() {
-      const hash = window.location.hash.replace('#', '').trim().toLowerCase();
-      if (sectionIds.includes(hash)) {
-        navigateToSection(hash, false, false);
+      const fullHash = window.location.hash.replace('#', '').trim();
+      const [hash, queryString] = fullHash.split('?');
+      const cleanHash = (hash || '').toLowerCase();
+
+      if (cleanHash === 'service-detail') {
+        let serviceId = 's01';
+        if (queryString) {
+          const params = new URLSearchParams(queryString);
+          if (params.get('id')) serviceId = params.get('id');
+        }
+        openServiceDetail(serviceId, false);
+      } else if (sectionIds.includes(cleanHash)) {
+        navigateToSection(cleanHash, false, false);
       } else {
         navigateToSection('home', false, false);
       }
