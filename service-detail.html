@@ -103,7 +103,7 @@
 
   <!-- BREADCRUMB BAR -->
   <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
       <div class="flex items-center gap-2 text-slate-500">
         <a href="index.html#home" class="hover:text-slate-900 transition">Home</a>
         <span>/</span>
@@ -120,7 +120,7 @@
 
   <!-- MAIN SERVICE DETAIL CONTAINER (Expanded cards) -->
   <main class="min-h-[calc(100vh-14rem)] py-8 sm:py-12 bg-[#f8fafc]">
-    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Main Content Container (Populated dynamically) -->
       <div id="sdMainContent" class="w-full">
@@ -131,7 +131,7 @@
 
   <!-- CONTACT US SECTION (Consistent across all pages) -->
   <section id="contact" class="pt-10 sm:pt-14 pb-14 sm:pb-20 bg-[#f4f6f9] text-slate-800 border-t border-b border-slate-200 scroll-mt-16 sm:scroll-mt-20">
-    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto space-y-2">
@@ -344,7 +344,7 @@
 
   <!-- FOOTER -->
   <footer class="bg-[#070e17] text-slate-400 py-9 text-sm sm:text-base border-t border-[#1b263b]">
-    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <span class="font-display font-bold text-base sm:text-lg text-white tracking-wider">ZASHA<span class="text-[#2563eb]">.AIS</span></span>
         <span class="text-slate-600">|</span>
@@ -479,48 +479,58 @@
         <div class="space-y-8 text-left w-full mx-auto">
           
           <!-- 01: HERO BANNER SECTION -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm">
-            <div class="lg:col-span-7 space-y-3.5">
-              <span class="inline-block text-[11px] font-semibold tracking-wider text-[#38bdf8] uppercase">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0d1b2a] via-[#112235] to-[#1b263b] text-white p-7 sm:p-10 rounded-2xl border border-[#1e293b] shadow-xl relative overflow-hidden">
+            <div class="lg:col-span-7 space-y-4">
+              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-[#38bdf8] text-xs font-mono font-bold tracking-wider uppercase">
                 01 • In-Process Quality Assurance
               </span>
-              <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-white tracking-tight leading-snug">
+              <h1 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold text-white tracking-tight leading-tight">
+                During Production Inspection
+              </h1>
+              <p class="text-base sm:text-lg text-blue-200 font-semibold leading-snug">
                 Catch Quality Issues Early — Before They Become Costly
-              </h2>
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal " >
-                Early detection is your strongest defense against costly production reworks, factory delays, and export rejections. During Production Inspection (DUPRO) audits work on the active factory floor while your garments are still being stitched.
               </p>
-              <div class="pt-2 flex flex-wrap items-center gap-3">
-                <a href="login.html?service=During%20Production%20Inspection" class="px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium text-xs sm:text-sm tracking-wide transition shadow-sm">
-                  Request this inspection
+              <div class="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed font-normal pt-1">
+                <p>
+                  Early detection is your strongest defense against costly production reworks, factory delays, and export rejections. During Production Inspection (DUPRO) audits work on the active factory floor while your garments are still being stitched.
+                </p>
+                <p>
+                  Our certified quality inspectors evaluate sewing lines, stitch density (SPI), measurement tolerances, fabric handling, and inline workmanship at 20% to 60% completion.
+                </p>
+              </div>
+              <div class="pt-3 flex flex-wrap items-center gap-3.5">
+                <a href="login.html?service=During%20Production%20Inspection" class="px-6 py-3.5 rounded-xl bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-sm sm:text-base tracking-wide transition shadow-lg hover:shadow-blue-500/25 flex items-center gap-2 transform hover:-translate-y-0.5">
+                  <span>Book an Inspection</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
-                <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20need%20During%20Production%20Inspection%20(DUPRO)%20details." target="_blank" class="px-4 py-2.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-medium text-xs sm:text-sm transition flex items-center gap-2">
-                  <span>Inquire via WhatsApp</span>
+                <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20need%20During%20Production%20Inspection%20(DUPRO)%20details." target="_blank" class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base transition shadow-lg flex items-center gap-2 transform hover:-translate-y-0.5">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
+                  <span>Request Inspection Details</span>
                 </a>
               </div>
             </div>
 
             <!-- Inspector Image -->
             <div class="lg:col-span-5">
-              <div class="relative rounded-xl overflow-hidden shadow-lg border border-[#25364f] bg-slate-900 aspect-[4/3] group">
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-900 aspect-[4/3] group">
                 <img 
                   src="assets/images/dpi-section-1.png" 
                   alt="Garment factory quality inspection checkpoint with tech pack and Golden sample" 
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#09121d]/85 via-transparent to-transparent flex items-end p-3 text-xs text-slate-300 font-medium">
-                  Garment inspection checkpoint & tech pack review
+                <div class="absolute inset-0 bg-gradient-to-t from-[#09121d]/90 via-transparent to-transparent flex items-end p-4 text-xs text-slate-300 font-medium">
+                  Active sewing floor inline audit & tech pack conformance
                 </div>
               </div>
             </div>
           </div>
 
           <!-- SECTION 02: WHAT IS DURING PRODUCTION INSPECTION? -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+          <div class="bg-white rounded-2xl border border-slate-200 p-7 sm:p-10 shadow-sm space-y-6">
             <div class="border-b border-slate-100 pb-4">
-              <span class="text-xs font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 02</span>
-              <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
+              <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#2563eb] text-xs font-mono font-bold uppercase tracking-wider">SECTION 02</span>
+              <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-2">
                 What Is During Production Inspection?
               </h2>
               <p class="text-base sm:text-lg font-semibold text-slate-700 mt-1">
@@ -529,23 +539,48 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div class="lg:col-span-7 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal " >
+              <div class="lg:col-span-7 space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
                   During Production Inspection (DPI), also known as DUPRO, is an in-process quality check conducted while production is still underway, typically when approximately 20–60% of the order is in the stitching or finishing stage. At Zasha.AIS, we assess the production line and inspect in-process garments to verify fabric quality, measurements, workmanship, stitching, components, and overall compliance with buyer requirements.
                 </p>
                 <p>
                   Our inspectors compare production against the approved sample, product specifications, purchase order, and other agreed quality requirements to identify defects and process issues at an early stage. This allows corrective action to be taken while production is still ongoing, helping prevent repeated defects, reduce rework, and maintain consistent quality throughout the order.
                 </p>
+
+                <!-- Key Highlights Grid (Balances the card and fills empty whitespace) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>Timing: 20%–60% Production Stage</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>Audits Active Sewing Lines & Assemblies</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>Compares with Approved Golden Sample</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>Enables Real-Time Floor Corrective Actions</span>
+                  </div>
+                </div>
+
+                <div class="p-4 bg-blue-50/80 rounded-xl border border-blue-200 text-xs sm:text-sm text-slate-800 font-medium">
+                  <span class="font-bold text-[#2563eb]">Core Objective:</span> Catching faults early prevents widespread quality failures across the entire order before garments are washed, packed, or boxed for export.
+                </div>
               </div>
+
               <div class="lg:col-span-5">
-                <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 aspect-[4/3] group">
+                <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 aspect-[4/3] group">
                   <img 
                     src="assets/images/dpi-section-2.png" 
                     alt="Pakistani garment factory floor quality inspector checking active sewing line" 
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3 text-xs text-white font-medium">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4 text-xs text-white font-medium">
                     On-floor production line inspection during manufacturing
                   </div>
                 </div>
@@ -1305,6 +1340,27 @@
                 <p>
                   Our inspection reports provide documented findings, inspection results, remarks, and photographic evidence to give buyers clear visibility of the inspected shipment.
                 </p>
+
+                <!-- Key Highlights Grid (Balances the card and fills empty whitespace) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>100% Finished & 80%+ Packed Order</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>ANSI / ASQ Z1.4 (ISO 2859-1) AQL Sampling</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>Packaging, Barcodes & Carton Assortment</span>
+                  </div>
+                  <div class="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50/70 border border-blue-200/80 text-xs sm:text-sm font-semibold text-slate-800">
+                    <span class="w-6 h-6 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-bold shrink-0">✓</span>
+                    <span>24-Hour Final Export Release Sign-Off</span>
+                  </div>
+                </div>
+
                 <div class="p-4 bg-blue-50/80 rounded-xl border border-blue-200 text-xs sm:text-sm text-slate-800 font-medium">
                   <span class="font-bold text-[#2563eb]">Reference Data:</span> Your actual reports use approved samples, product specifications and copies of the PO as reference data.
                 </div>
