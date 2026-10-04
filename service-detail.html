@@ -103,7 +103,7 @@
 
   <!-- BREADCRUMB BAR -->
   <div class="bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
       <div class="flex items-center gap-2 text-slate-500">
         <a href="index.html#home" class="hover:text-slate-900 transition">Home</a>
         <span>/</span>
@@ -118,9 +118,9 @@
     </div>
   </div>
 
-  <!-- MAIN SERVICE DETAIL CONTAINER -->
+  <!-- MAIN SERVICE DETAIL CONTAINER (Expanded cards) -->
   <main class="min-h-[calc(100vh-14rem)] py-8 sm:py-12 bg-[#f8fafc]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Main Content Container (Populated dynamically) -->
       <div id="sdMainContent" class="w-full">
@@ -131,7 +131,7 @@
 
   <!-- CONTACT US SECTION (Consistent across all pages) -->
   <section id="contact" class="pt-10 sm:pt-14 pb-14 sm:pb-20 bg-[#f4f6f9] text-slate-800 border-t border-b border-slate-200 scroll-mt-16 sm:scroll-mt-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto space-y-2">
@@ -344,7 +344,7 @@
 
   <!-- FOOTER -->
   <footer class="bg-[#070e17] text-slate-400 py-9 text-sm sm:text-base border-t border-[#1b263b]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="max-w-7xl xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center space-x-2">
         <span class="font-display font-bold text-base sm:text-lg text-white tracking-wider">ZASHA<span class="text-[#2563eb]">.AIS</span></span>
         <span class="text-slate-600">|</span>
@@ -476,7 +476,7 @@
     if (mainContentEl && (s.id === 's07' || s.name.toLowerCase().includes('during production'))) {
       mainContentEl.className = 'w-full';
       mainContentEl.innerHTML = `
-        <div class="space-y-8 text-left w-full max-w-5xl mx-auto">
+        <div class="space-y-8 text-left w-full mx-auto">
           
           <!-- 01: HERO BANNER SECTION -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm">
@@ -613,8 +613,8 @@
               </div>
 
               <!-- In-line Detection & Correction Workflow Image -->
-              <div class="lg:col-span-5 flex flex-col items-center">
-                <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full max-w-sm group">
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full aspect-[4/3] group">
                   <img 
                     src="assets/images/dpi-section-3.png" 
                     alt="Defect detection, corrective action, and quality verification during production" 
@@ -683,7 +683,7 @@
               </div>
             </div>
             <div class="lg:col-span-5 flex justify-center">
-              <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full max-w-sm group">
+              <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full aspect-[4/3] group">
                 <img 
                   src="assets/images/dpi-section-6.png" 
                   alt="Quality inspector comparing garment with approved sample and specification sheet on factory floor" 
@@ -766,7 +766,7 @@
               </div>
 
               <div class="lg:col-span-5 flex justify-center">
-                <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full max-w-sm group">
+                <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full aspect-[4/3] group">
                   <img 
                     src="assets/images/dpi-section-7.png" 
                     alt="Quality inspector auditing garment workmanship, seams, and stitches" 
@@ -808,7 +808,7 @@
               </div>
 
               <div class="lg:col-span-5 flex justify-center">
-                <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full max-w-sm group">
+                <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full aspect-[4/3] group">
                   <img 
                     src="assets/images/dpi-section-8.png" 
                     alt="Inspector checking garment measurements against approved specification sheet" 
@@ -1229,7 +1229,7 @@
     } else if (mainContentEl && (s.id === 's13' || s.name.toLowerCase().includes('pre-shipment'))) {
       mainContentEl.className = 'w-full';
       mainContentEl.innerHTML = `
-        <div class="space-y-8 text-left w-full max-w-5xl mx-auto">
+        <div class="space-y-8 text-left w-full mx-auto">
           
           <!-- 01: HERO BANNER SECTION -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0d1b2a] via-[#112235] to-[#1b263b] text-white p-7 sm:p-10 rounded-2xl border border-[#1e293b] shadow-xl relative overflow-hidden">
@@ -1405,8 +1405,8 @@
               </div>
 
               <!-- Visual Card -->
-              <div class="lg:col-span-5 flex flex-col items-center">
-                <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full max-w-sm group">
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 w-full aspect-[4/3] group">
                   <img 
                     src="assets/images/service-sample-picking.png" 
                     alt="Statistical random sample picking and defect assessment" 
@@ -2060,7 +2060,7 @@
     } else if (mainContentEl) {
       mainContentEl.className = 'bg-white rounded-2xl border border-slate-200 p-8 sm:p-14 shadow-sm min-h-[420px] flex flex-col items-center justify-center text-center';
       mainContentEl.innerHTML = `
-        <div class="max-w-xl space-y-4">
+        <div class="max-w-3xl space-y-4">
           <span class="inline-block px-3 py-1 rounded bg-blue-100 text-[#2563eb] text-xs font-bold uppercase tracking-wider">${s.stage}</span>
           <h1 class="font-display text-2xl sm:text-3xl font-bold text-slate-900">${s.name}</h1>
           <p class="text-sm sm:text-base text-slate-600 font-normal leading-relaxed " >
