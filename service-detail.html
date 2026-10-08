@@ -45,7 +45,7 @@
   <!-- ===================================================== -->
   <!-- NAVIGATION BAR (Crisp White Background matching index.html) -->
   <!-- ===================================================== -->
-  <header class="site-header sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm" style="background-color: #ffffff !important; border-bottom: 1px solid #e2e8f0 !important;">
+  <header class="site-header sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm" style="background-color: rgba(255, 255, 255, 0.96) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border-bottom: 1px solid #e2e8f0 !important;">
     <div class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[4.25rem] relative flex items-center justify-between">
       
       <!-- Brand Logo (Left) -->
@@ -117,6 +117,26 @@
       </a>
     </div>
   </div>
+
+  <!-- STICKY QUICK-JUMP SECTION BAR -->
+  <nav aria-label="Technical Section Jumps" class="sticky top-16 sm:top-[4.25rem] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between gap-3 overflow-x-auto no-scrollbar">
+      <div class="flex items-center gap-1.5 shrink-0 text-xs font-medium text-slate-600">
+        <span class="text-slate-400 hidden lg:inline text-[11px] uppercase font-mono-code font-bold mr-1">Section Jump:</span>
+        <a href="#sec-overview" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">01 Overview</a>
+        <a href="#sec-importance" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">03 Defect Types</a>
+        <a href="#sec-checks" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">05 Checkpoints</a>
+        <a href="#sec-measurements" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">08 Dimensions</a>
+        <a href="#sec-aql" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">14 AQL Sampling</a>
+        <a href="#sec-classification" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">15 Defect Matrix</a>
+        <a href="#sec-photos" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#2563eb] text-slate-700 transition font-medium">16 Photo Evidence</a>
+      </div>
+      <a href="login.html?service=Inspection" class="shrink-0 px-3.5 py-1 rounded-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs transition shadow-xs hidden sm:inline-flex items-center gap-1.5">
+        <span>Book Audit</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+  </nav>
 
   <!-- MAIN SERVICE DETAIL CONTAINER (Expanded cards) -->
   <main class="min-h-[calc(100vh-14rem)] py-8 sm:py-12 bg-[#f8fafc]">
@@ -479,7 +499,7 @@
         <div class="space-y-8 text-left w-full mx-auto">
           
           <!-- 01: HERO BANNER SECTION -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0d1b2a] via-[#112235] to-[#1b263b] text-white p-7 sm:p-10 rounded-2xl border border-[#1e293b] shadow-xl relative overflow-hidden">
+          <div id="sec-overview" class="scroll-mt-28 sm:scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0d1b2a] via-[#112235] to-[#1b263b] text-white p-7 sm:p-10 rounded-2xl border border-[#1e293b] shadow-xl relative overflow-hidden">
             <div class="lg:col-span-7 space-y-4">
               <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-400/30 text-[#38bdf8] text-xs font-mono font-bold tracking-wider uppercase">
                 01 • In-Process Quality Assurance
@@ -588,7 +608,8 @@
           </div>
 
           <!-- SECTION 03: WHY IS DURING PRODUCTION INSPECTION IMPORTANT? -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+          <div class="
+          <div id="sec-importance" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
             <div class="border-b border-slate-100 pb-4">
               <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
                 Why Is During Production Inspection Important?
@@ -663,7 +684,8 @@
           </div>
 
           <!-- SECTION 05: WHAT DOES ZASHA.AIS CHECK? -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+          <div class="
+          <div id="sec-checks" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
             <div class="border-b border-slate-100 pb-4">
               <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
                 What Does Zasha.AIS Check?
@@ -812,7 +834,8 @@
           </div>
 
           <!-- SECTION 08: MEASUREMENT VERIFICATION -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
+          <div class="
+          <div id="sec-measurements" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm space-y-6">
             <div class="border-b border-slate-100 pb-4">
               <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
                 Measurement Verification
@@ -979,7 +1002,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             <!-- SECTION 13: AQL SAMPLING -->
-            <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4 flex flex-col justify-between">
+            <div id="sec-aql" class="scroll-mt-28 sm:scroll-mt-32 lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4 flex flex-col justify-between">
               <div class="space-y-3">
                 <h2 class="font-display text-2xl font-bold text-slate-900">
                   AQL Sampling
@@ -1011,7 +1034,7 @@
             </div>
 
             <!-- SECTION 14: DEFECT CLASSIFICATION -->
-            <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4 flex flex-col justify-between">
+            <div id="sec-classification" class="scroll-mt-28 sm:scroll-mt-32 lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4 flex flex-col justify-between">
               <div class="space-y-3">
                 <h2 class="font-display text-2xl font-bold text-slate-900">
                   Defect Classification
@@ -1058,7 +1081,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             <!-- SECTION 15: PHOTOGRAPHIC EVIDENCE -->
-            <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+            <div id="sec-photos" class="scroll-mt-28 sm:scroll-mt-32 lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
               <h2 class="font-display text-2xl font-bold text-slate-900">
                 Photographic Evidence
               </h2>
@@ -1251,7 +1274,7 @@
         <div class="space-y-8 text-left w-full mx-auto max-w-5xl">
           
           <!-- 01: HERO BANNER SECTION -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm relative overflow-hidden">
+          <div id="sec-overview" class="scroll-mt-28 sm:scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm relative overflow-hidden">
             <div class="lg:col-span-7 space-y-3.5">
               <span class="inline-block text-[11px] font-semibold tracking-wider text-[#38bdf8] uppercase">
                 01 • Pre-Shipment & Final Quality Check
@@ -1327,7 +1350,8 @@
           </div>
 
           <!-- SECTION 03: WHY IS PRE-SHIPMENT INSPECTION IMPORTANT? -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="
+          <div id="sec-importance" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 03</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -1451,7 +1475,8 @@
           </div>
 
           <!-- SECTION 05: WHAT DOES ZASHA.AIS CHECK? (7-CARD VISUAL GRID) -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="
+          <div id="sec-checks" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 05</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -1671,7 +1696,8 @@
           </div>
 
           <!-- SECTION 08: MEASUREMENT & PRODUCT DIMENSION VERIFICATION -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="
+          <div id="sec-measurements" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 08</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -1928,7 +1954,7 @@
           </div>
 
           <!-- SECTION 14: AQL SAMPLING -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div id="sec-aql" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 14</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -1975,7 +2001,7 @@
           </div>
 
           <!-- SECTION 15: DEFECT CLASSIFICATION -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div id="sec-classification" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 15</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2020,7 +2046,7 @@
           </div>
 
           <!-- SECTION 16: PHOTOGRAPHIC EVIDENCE -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div id="sec-photos" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 16</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2085,7 +2111,7 @@
         <div class="space-y-8 text-left w-full mx-auto max-w-5xl">
           
           <!-- 01: HERO BANNER SECTION -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm relative overflow-hidden">
+          <div id="sec-overview" class="scroll-mt-28 sm:scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm relative overflow-hidden">
             <div class="lg:col-span-7 space-y-3.5">
               <span class="inline-block text-[11px] font-semibold tracking-wider text-[#38bdf8] uppercase">
                 01 • Pre-Shipment & Final Quality Gate
@@ -2180,7 +2206,8 @@
           </div>
 
           <!-- SECTION 03: WHY IS FINAL RANDOM INSPECTION IMPORTANT? -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="
+          <div id="sec-importance" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 03</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2313,7 +2340,8 @@
           </div>
 
           <!-- SECTION 05: WHAT DOES ZASHA.AIS CHECK? -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div class="
+          <div id="sec-checks" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 05</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2496,7 +2524,8 @@
           </div>
 
           <!-- SECTION 08: MEASUREMENT & PRODUCT DIMENSION -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+          <div class="
+          <div id="sec-measurements" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 08</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2607,7 +2636,7 @@
           </div>
 
           <!-- SECTION 14: AQL SAMPLING -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div id="sec-aql" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 14 • STATISTICAL SAMPLING</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2658,7 +2687,7 @@
           </div>
 
           <!-- SECTION 15: DEFECT CLASSIFICATION -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div id="sec-classification" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 15 • DEFECT CLASSIFICATION</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2713,7 +2742,7 @@
           </div>
 
           <!-- SECTION 16: PHOTOGRAPHIC EVIDENCE -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+          <div id="sec-photos" class="scroll-mt-28 sm:scroll-mt-32 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
             <div class="border-b border-slate-100 pb-3">
               <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 16 • PHOTOGRAPHIC EVIDENCE</span>
               <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
@@ -2797,5 +2826,23 @@
       `;
     }
   </script>
+
+  <!-- Floating WhatsApp QC Desk Quick Action Pill -->
+  <aside aria-label="Quick WhatsApp QC Desk" class="fixed bottom-5 right-5 z-40 print:hidden">
+    <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS%20QC%20Desk,%20I%20have%20an%20inquiry%20regarding%20apparel%20inspection%20in%20Pakistan." target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#0d1b2a]/95 text-white border border-emerald-500/40 shadow-xl hover:shadow-2xl hover:border-emerald-400 backdrop-blur-md transition-all duration-300 hover:scale-[1.02]">
+      <div class="relative flex items-center justify-center w-7 h-7 rounded-full bg-emerald-600 text-white shrink-0">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-[#0d1b2a] animate-ping"></span>
+      </div>
+      <div class="text-left hidden sm:block">
+        <div class="text-[10px] uppercase font-mono-code font-bold tracking-wider text-emerald-400 flex items-center gap-1.5">
+          <span>QC On-Call</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+        </div>
+        <div class="text-xs font-semibold text-slate-100 group-hover:text-white transition">Chat with Inspector Desk</div>
+      </div>
+      <span class="sm:hidden text-xs font-bold text-white pr-1">QC Desk</span>
+    </a>
+  </aside>
 </body>
 </html>
