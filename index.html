@@ -559,114 +559,285 @@
     <section id="reports" class="pt-16 sm:pt-20 pb-16 sm:pb-20 bg-[#f4f6f9] text-slate-800 border-b border-slate-200 scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <div class="max-w-2xl">
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-          Sample reports
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 mt-2 font-normal">
-          Every job ends with one clear PDF — delivered within 24 hours — built around four things: what we checked, what we found, what it means, and what happens next.
-        </p>
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="max-w-2xl space-y-2">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-blue-100/70 text-[#2563eb] text-[11px] font-mono-code font-bold uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+            <span>24-Hour Digital Inspection Dossiers</span>
+          </div>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            Sample Quality Reports
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+            Every job ends with one uncompromising, buyer-ready PDF delivered within 24 hours. Explore our authentic sample reports below with verified AQL sampling, calibrated defect logs, and actionable pass/fail verdicts.
+          </p>
+        </div>
+
+        <!-- Trust Badges Strip -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-slate-600">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-xs">
+            <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="font-medium">24h PDF Delivery</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-xs">
+            <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="font-medium">ISO 2859-1 &amp; ANSI/ASQ</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 shadow-xs">
+            <svg class="w-3.5 h-3.5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.5L19 7.5V19a2 2 0 01-2 2z"/></svg>
+            <span class="font-medium">Interactive PDF Previews</span>
+          </span>
+        </div>
       </div>
 
-      <!-- 2-Column Mockup & Points Layout -->
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <!-- 3-Card Dossier Showcase -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
         
-        <!-- Left Column: Realistic Inspection Report Sheet Card -->
-        <div class="lg:col-span-5 space-y-4">
-          <div class="bg-white rounded-md border border-slate-300 p-6 sm:p-7 shadow-lg space-y-4 text-xs font-mono-code text-slate-800">
-            
-            <div class="flex items-center justify-between border-b-2 border-slate-900 pb-3">
-              <span class="font-display font-bold text-lg text-slate-900 tracking-wider">ZASHA.AIS</span>
-              <span class="text-[10px] uppercase font-bold text-slate-500">INSPECTION REPORT</span>
+        <!-- CARD 1: Final Random Inspection (FRI) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Card Top Tag & Verdict -->
+            <div class="flex items-start justify-between gap-2">
+              <span class="text-[10px] font-mono-code font-bold uppercase tracking-wider text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
+                AQL 2.5 Level II &bull; FRI
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                <span>PASS</span>
+              </span>
             </div>
 
-            <div class="space-y-2 text-[11px] sm:text-xs">
-              <div class="flex justify-between">
-                <span class="text-slate-400">PO NUMBER</span>
-                <span class="font-bold">PO-2026-0417</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">STYLE</span>
-                <span class="font-bold">WVN-JKT-118</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">INSPECTION TYPE</span>
-                <span class="font-bold">FINAL RANDOM (AQL 2.5)</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">QTY OFFERED</span>
-                <span class="font-bold">4,800 PCS</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">SAMPLE SIZE</span>
-                <span class="font-bold">200 PCS</span>
-              </div>
+            <!-- Title & Brief -->
+            <div>
+              <h3 class="font-display font-bold text-lg text-slate-900">Pre-Shipment Inspection (FRI)</h3>
+              <p class="text-xs text-slate-500 mt-1">Final gate check of packed apparel before factory release.</p>
             </div>
 
-            <div class="border-b border-dashed border-slate-200"></div>
-
-            <!-- Mini Defect Histogram Graphic -->
-            <div class="space-y-2">
-              <div class="flex items-end gap-1.5 h-10 pt-2">
-                <div class="w-3 bg-[#2563eb] h-5 rounded-t"></div>
-                <div class="w-3 bg-[#2563eb] h-8 rounded-t"></div>
-                <div class="w-3 bg-[#2563eb] h-3 rounded-t"></div>
-                <div class="w-3 bg-[#2563eb] h-6 rounded-t"></div>
-                <div class="w-3 bg-[#2563eb] h-4 rounded-t"></div>
+            <!-- Data Grid -->
+            <div class="bg-slate-50 rounded-lg p-3.5 border border-slate-200 text-xs font-mono-code space-y-1.5">
+              <div class="flex justify-between">
+                <span class="text-slate-400">PO &amp; STYLE:</span>
+                <span class="font-bold text-slate-800">PO-8921-EU / Hoodie</span>
               </div>
-              
-              <div class="inline-block px-3 py-1 bg-emerald-700 text-white font-bold text-[10px] tracking-wider uppercase rounded">
-                PASS — WITHIN AQL LIMIT
+              <div class="flex justify-between">
+                <span class="text-slate-400">ORDER / SAMPLE:</span>
+                <span class="font-bold text-slate-800">5,000 / 200 Pcs (24 Ctn)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">LOCATION:</span>
+                <span class="font-bold text-slate-800">Lahore Ops Hub</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">DEFECT LOG:</span>
+                <span class="font-bold text-emerald-700">Crit: 0 | Maj: 3 | Min: 6</span>
               </div>
             </div>
 
+            <!-- Checkpoints list -->
+            <div class="space-y-1 text-xs text-slate-600">
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Full POM dimensional tolerance (+/- 0.5&quot;)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>ISTA 1A carton drop &amp; 1.0mm metal scan</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Barcode optical verification &amp; label seal</span>
+              </div>
+            </div>
           </div>
 
-          <!-- Action Trigger -->
-          <div class="flex flex-wrap gap-3 pt-2">
-            <a href="assets/reports/sample-pre-shipment-inspection-fri.pdf" download="Zasha-AIS-Sample-FRI-Report.pdf" class="px-5 py-2.5 rounded bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-semibold text-xs sm:text-sm transition flex items-center gap-2 shadow-sm">
-              <svg class="w-4 h-4 text-[#2563eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-              <span>Download Sample PDF</span>
-            </a>
-            <button onclick="openReportModal('fri')" class="px-4 py-2.5 rounded bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs sm:text-sm transition">
-              Preview Summary
+          <!-- Actions -->
+          <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openReportModal('fri')" class="flex-1 px-3.5 py-2 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-xs">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Preview PDF</span>
             </button>
+            <a href="assets/reports/sample-pre-shipment-inspection-fri.pdf" download="Zasha-AIS-Sample-FRI-Report.pdf" class="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 transition" title="Download FRI Sample PDF">
+              <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            </a>
           </div>
         </div>
 
-        <!-- Right Column: 4 Numbered Breakdown Points -->
-        <div class="lg:col-span-7 space-y-6">
-          
-          <div class="space-y-1">
-            <div class="text-sm sm:text-base font-display font-bold text-[#2563eb]">01 &nbsp; Order & sampling details</div>
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              PO, style, quantity offered and the AQL sample size used, so every figure is traceable.
-            </p>
+        <!-- CARD 2: During Production Inspection (DUPRO) -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Card Top Tag & Verdict -->
+            <div class="flex items-start justify-between gap-2">
+              <span class="text-[10px] font-mono-code font-bold uppercase tracking-wider text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
+                In-Process QC &bull; DUPRO
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                <span>MONITORED</span>
+              </span>
+            </div>
+
+            <!-- Title & Brief -->
+            <div>
+              <h3 class="font-display font-bold text-lg text-slate-900">During Production (DUPRO)</h3>
+              <p class="text-xs text-slate-500 mt-1">Mid-run floor audit at 20% to 60% completion.</p>
+            </div>
+
+            <!-- Data Grid -->
+            <div class="bg-slate-50 rounded-lg p-3.5 border border-slate-200 text-xs font-mono-code space-y-1.5">
+              <div class="flex justify-between">
+                <span class="text-slate-400">PRODUCT:</span>
+                <span class="font-bold text-slate-800">12k Pcs Running Shorts</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">PROGRESS:</span>
+                <span class="font-bold text-slate-800">45% Assembled, 20% Pack</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">LOCATION:</span>
+                <span class="font-bold text-slate-800">Sialkot Activewear Hub</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">DAILY PACE:</span>
+                <span class="font-bold text-blue-700">1,150 pcs/day (On Track)</span>
+              </div>
+            </div>
+
+            <!-- Checkpoints list -->
+            <div class="space-y-1 text-xs text-slate-600">
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Live sewing line SPI &amp; tension balance check</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Heat-transfer 50N logo peel test (0 defects)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>2 On-site Corrective Action Requests (CAR) issued</span>
+              </div>
+            </div>
           </div>
 
-          <div class="space-y-1">
-            <div class="text-sm sm:text-base font-display font-bold text-[#2563eb]">02 &nbsp; Findings by category</div>
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              Measurements, workmanship, fabric, trims, labeling and packing, each scored against the buyer's spec.
-            </p>
+          <!-- Actions -->
+          <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openReportModal('dupro')" class="flex-1 px-3.5 py-2 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-xs">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Preview PDF</span>
+            </button>
+            <a href="assets/reports/sample-during-production-dupro.pdf" download="Zasha-AIS-Sample-DUPRO-Report.pdf" class="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 transition" title="Download DUPRO Sample PDF">
+              <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            </a>
           </div>
-
-          <div class="space-y-1">
-            <div class="text-sm sm:text-base font-display font-bold text-[#2563eb]">03 &nbsp; Photo evidence</div>
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              Time-stamped photos of defects and of correctly executed details, side by side.
-            </p>
-          </div>
-
-          <div class="space-y-1">
-            <div class="text-sm sm:text-base font-display font-bold text-[#2563eb]">04 &nbsp; Pass / fail verdict</div>
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              A clear AQL-based result with recommended next action, so you can decide in minutes, not days.
-            </p>
-          </div>
-
         </div>
 
+        <!-- CARD 3: Factory Evaluation & QMS Audit -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-200 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <!-- Card Top Tag & Verdict -->
+            <div class="flex items-start justify-between gap-2">
+              <span class="text-[10px] font-mono-code font-bold uppercase tracking-wider text-purple-700 bg-purple-50 px-2.5 py-1 rounded border border-purple-200">
+                Supplier Vetting &bull; QMS
+              </span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-purple-50 text-purple-700 border border-purple-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+                <span>QUALIFIED</span>
+              </span>
+            </div>
+
+            <!-- Title & Brief -->
+            <div>
+              <h3 class="font-display font-bold text-lg text-slate-900">Factory Evaluation &amp; QMS Audit</h3>
+              <p class="text-xs text-slate-500 mt-1">Capacity, machinery, safety, and ISO compliance.</p>
+            </div>
+
+            <!-- Data Grid -->
+            <div class="bg-slate-50 rounded-lg p-3.5 border border-slate-200 text-xs font-mono-code space-y-1.5">
+              <div class="flex justify-between">
+                <span class="text-slate-400">FACILITY:</span>
+                <span class="font-bold text-slate-800">Crescent Weaving &amp; Garments</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">SCALE:</span>
+                <span class="font-bold text-slate-800">145k sq ft / 620 Workers</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">LOCATION:</span>
+                <span class="font-bold text-slate-800">Faisalabad Textile Hub</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">AUDIT SCORE:</span>
+                <span class="font-bold text-purple-700">88.5% (Grade A Approved)</span>
+              </div>
+            </div>
+
+            <!-- Checkpoints list -->
+            <div class="space-y-1 text-xs text-slate-600">
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Machinery profile: 350k/mo capacity verified</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>4-point fabric inspection &amp; in-house lab check</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-purple-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Dual emergency exits, fire alarms &amp; PPE audit</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pt-3 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openReportModal('audit')" class="flex-1 px-3.5 py-2 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-xs">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Preview PDF</span>
+            </button>
+            <a href="assets/reports/sample-factory-audit-qms.pdf" download="Zasha-AIS-Sample-Factory-Audit.pdf" class="p-2 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 transition" title="Download QMS Sample PDF">
+              <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 4 Numbered Breakdown Points Grid -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-xs">
+        <h4 class="font-display font-bold text-slate-900 text-sm sm:text-base mb-6 tracking-wide">
+          Standard Anatomy of a Zasha.AIS Inspection Dossier:
+        </h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="space-y-1.5">
+            <div class="text-xs font-mono-code font-bold text-[#2563eb]">01 &bull; Order Traceability</div>
+            <h5 class="text-xs font-bold text-slate-800">Verified PO &amp; Sampling Plan</h5>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal">
+              Exact style number, purchase order, total units offered, and AQL sample code letter recorded before unboxing.
+            </p>
+          </div>
+          <div class="space-y-1.5">
+            <div class="text-xs font-mono-code font-bold text-[#2563eb]">02 &bull; Categorized Defects</div>
+            <h5 class="text-xs font-bold text-slate-800">Critical, Major &amp; Minor Limits</h5>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal">
+              Defects classified per international standard and scored against buyer tolerance limit thresholds.
+            </p>
+          </div>
+          <div class="space-y-1.5">
+            <div class="text-xs font-mono-code font-bold text-[#2563eb]">03 &bull; Calibrated Photo Proof</div>
+            <h5 class="text-xs font-bold text-slate-800">Macro Evidence with Rulers</h5>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal">
+              Time-stamped photos of defects and approved benchmark references captured on factory floor.
+            </p>
+          </div>
+          <div class="space-y-1.5">
+            <div class="text-xs font-mono-code font-bold text-[#2563eb]">04 &bull; Executive Sign-Off</div>
+            <h5 class="text-xs font-bold text-slate-800">Uncompromising Pass / Fail</h5>
+            <p class="text-xs text-slate-500 leading-relaxed font-normal">
+              Senior lead auditor conclusion with immediate dispatch recommendation, delivered in 24 hours.
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1164,67 +1335,183 @@
 
 
   <!-- ===================================================== -->
-  <!-- MODAL: SAMPLE REPORT PREVIEW -->
+  <!-- MODAL: INTERACTIVE SAMPLE REPORT PDF PREVIEW -->
   <!-- ===================================================== -->
-  <div id="reportModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
-    <div class="bg-white rounded-xl max-w-3xl lg:max-w-4xl w-full border border-slate-200 shadow-2xl overflow-hidden text-slate-800 my-8">
+  <div id="reportModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="bg-white rounded-2xl max-w-6xl w-full border border-slate-300 shadow-2xl overflow-hidden text-slate-800 my-4 flex flex-col max-h-[92vh]">
       
-      <!-- Modal Header (Inline layout) -->
-      <div class="px-8 py-5 sm:px-10 sm:py-6 border-b border-slate-200 bg-slate-50 flex items-center gap-3 sm:gap-4 flex-wrap">
-        <span id="modalCategory" class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded border border-blue-200 shrink-0">Standard Inspection</span>
-        <h3 id="modalTitle" class="font-display text-xl sm:text-2xl font-bold text-slate-900 tracking-wide">Pre-Shipment Inspection (FRI)</h3>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="p-8 sm:p-10 space-y-6 text-sm text-slate-600">
-        <!-- 4-Stat Strip (Inline Key & Value) -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200 text-xs sm:text-[13px]">
-          <div class="flex items-baseline gap-2">
-            <span class="text-slate-400 font-medium whitespace-nowrap">Standard:</span>
-            <span class="font-bold text-slate-900 text-sm sm:text-base whitespace-nowrap" id="modalStandard">AQL 2.5 Normal</span>
+      <!-- Modal Header (Compact & Navigable) -->
+      <div class="px-5 py-3.5 sm:px-6 sm:py-4 border-b border-slate-200 bg-slate-50 flex flex-wrap items-center justify-between gap-3 shrink-0">
+        <!-- Left: Badge & Title -->
+        <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+          <span id="modalCategory" class="text-[10px] font-mono-code font-bold uppercase tracking-wider text-[#2563eb] bg-blue-50 px-2 py-0.5 rounded border border-blue-200 shrink-0">AQL 2.5 Standard</span>
+          <div class="min-w-0">
+            <h3 id="modalTitle" class="font-display text-base sm:text-lg font-bold text-slate-900 truncate">Pre-Shipment Inspection (FRI)</h3>
           </div>
-          <div class="flex items-baseline gap-2">
-            <span class="text-slate-400 font-medium whitespace-nowrap">Turnaround:</span>
-            <span class="font-bold text-slate-900 text-sm sm:text-base whitespace-nowrap">24h PDF Report</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span class="text-slate-400 font-medium whitespace-nowrap">Verification:</span>
-            <span class="font-bold text-slate-900 text-sm sm:text-base whitespace-nowrap">Digital Audit Trail</span>
-          </div>
-          <div class="flex items-baseline gap-2">
-            <span class="text-slate-400 font-medium whitespace-nowrap">Audit Result:</span>
-            <span class="font-bold text-emerald-600 text-sm sm:text-base whitespace-nowrap" id="modalStatus">PASSED</span>
-          </div>
+          <span id="modalStatusBadge" class="text-[10px] font-mono-code font-bold uppercase tracking-wider px-2 py-0.5 rounded border bg-emerald-50 text-emerald-700 border-emerald-200 shrink-0">PASSED</span>
         </div>
 
-        <!-- Contents Breakdown -->
-        <div>
-          <h4 class="font-display font-bold text-slate-900 text-base sm:text-lg mb-3 tracking-wide">Key Report Contents:</h4>
-          <ul id="modalPoints" class="space-y-2.5 list-disc list-inside text-xs sm:text-sm text-slate-600 leading-relaxed">
-            <!-- Filled dynamically -->
-          </ul>
+        <!-- Middle: In-Modal Report Switcher Pills -->
+        <div class="flex items-center bg-slate-200/80 p-0.5 rounded-lg text-xs font-semibold">
+          <button id="modalTabFri" onclick="switchModalReport('fri')" class="px-3 py-1 rounded-md transition text-slate-700 bg-white shadow-xs">
+            FRI Pre-Shipment
+          </button>
+          <button id="modalTabDupro" onclick="switchModalReport('dupro')" class="px-3 py-1 rounded-md transition text-slate-600 hover:text-slate-900">
+            DUPRO In-Process
+          </button>
+          <button id="modalTabAudit" onclick="switchModalReport('audit')" class="px-3 py-1 rounded-md transition text-slate-600 hover:text-slate-900">
+            Factory QMS Audit
+          </button>
         </div>
 
-        <!-- High-res Note -->
-        <div class="p-4 sm:p-5 bg-blue-50/80 rounded-xl border border-blue-200 text-xs sm:text-sm text-slate-800 leading-relaxed">
-          <span class="font-bold text-[#2563eb]">Note:</span> All reports feature high-resolution defect logs, calibrated measurement charts, and digital timestamps from the factory floor.
+        <!-- Right: Actions & Close -->
+        <div class="flex items-center gap-2">
+          <a id="modalNewTabBtn" href="#" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold flex items-center gap-1.5 transition" title="Open PDF in Fullscreen Tab">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span class="hidden sm:inline">Fullscreen</span>
+          </a>
+          <a id="modalDownloadBtn" href="#" download class="px-3 py-1.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-semibold flex items-center gap-1.5 transition shadow-xs" title="Download Official PDF">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span class="hidden sm:inline">Download PDF</span>
+          </a>
+          <button onclick="closeReportModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition" aria-label="Close modal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
         </div>
       </div>
 
-      <!-- Modal Actions Footer -->
-      <div class="px-8 py-5 sm:px-10 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-end gap-3.5">
-        <button onclick="closeReportModal()" class="px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 font-bold text-xs sm:text-sm hover:bg-slate-100 transition">
-          Close
-        </button>
-        <a id="modalWhatsAppBtn" href="#" target="_blank" class="px-4 sm:px-5 py-2.5 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-bold text-xs sm:text-sm transition flex items-center gap-2">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
-          <span>Request on WhatsApp</span>
-        </a>
-        <a id="modalDownloadBtn" href="#" download class="px-5 sm:px-6 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 shadow-sm">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-          <span>Download Sample PDF</span>
-        </a>
+      <!-- Modal Body (Split Screen Layout) -->
+      <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 min-h-0 overflow-y-auto lg:overflow-hidden divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+        
+        <!-- Left Column: Executive Audit Intelligence & Spec Breakdown -->
+        <div class="lg:col-span-5 p-5 sm:p-6 overflow-y-auto bg-slate-50/70 space-y-5 flex flex-col justify-between">
+          <div class="space-y-4">
+            <!-- Inspection Quick Specs Box -->
+            <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-xs space-y-2.5 text-xs font-mono-code">
+              <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span class="text-slate-400">PO / REFERENCE</span>
+                <span id="modalPoRef" class="font-bold text-slate-900">PO-8921-EU</span>
+              </div>
+              <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span class="text-slate-400">PRODUCT / STYLE</span>
+                <span id="modalScope" class="font-bold text-slate-900">ST-2026-Fleece-Hoodie</span>
+              </div>
+              <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span class="text-slate-400">STANDARD / AQL</span>
+                <span id="modalStandard" class="font-bold text-slate-900">ISO 2859-1 Level II (AQL 2.5)</span>
+              </div>
+              <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span class="text-slate-400">LOT / SAMPLE SIZE</span>
+                <span id="modalSampleSize" class="font-bold text-slate-900">5,000 Pcs / 200 Pcs (24 Ctn)</span>
+              </div>
+              <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                <span class="text-slate-400">OPERATIONS HUB</span>
+                <span id="modalHub" class="font-bold text-slate-900">Lahore Hub &bull; Pakistan</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400">LEAD AUDITOR</span>
+                <span id="modalAuditor" class="font-bold text-slate-900">M. Tariq (Senior QC)</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Defect Matrix / Benchmark Box -->
+            <div id="modalDefectContainer" class="bg-white rounded-xl p-4 border border-slate-200 shadow-xs space-y-3">
+              <div class="flex items-center justify-between">
+                <h4 class="font-display text-xs font-bold uppercase tracking-wider text-slate-700">AQL Tolerance Limit Matrix</h4>
+                <span id="modalAqlVerdict" class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">CONFORMING</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                <div class="p-2 rounded bg-slate-50 border border-slate-100">
+                  <span class="block text-[10px] text-slate-400 uppercase font-mono-code">Critical</span>
+                  <span id="modalCritCount" class="font-bold text-slate-900 text-sm">0 / 0</span>
+                  <span class="block text-[9px] text-emerald-600 font-medium">Passed</span>
+                </div>
+                <div class="p-2 rounded bg-slate-50 border border-slate-100">
+                  <span class="block text-[10px] text-slate-400 uppercase font-mono-code">Major</span>
+                  <span id="modalMajCount" class="font-bold text-slate-900 text-sm">3 / 10</span>
+                  <span class="block text-[9px] text-emerald-600 font-medium">Within Limit</span>
+                </div>
+                <div class="p-2 rounded bg-slate-50 border border-slate-100">
+                  <span class="block text-[10px] text-slate-400 uppercase font-mono-code">Minor</span>
+                  <span id="modalMinCount" class="font-bold text-slate-900 text-sm">6 / 14</span>
+                  <span class="block text-[9px] text-emerald-600 font-medium">Within Limit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Checkpoints Verified -->
+            <div class="space-y-2">
+              <h4 class="font-display font-bold text-slate-900 text-xs sm:text-sm tracking-wide">Key Audit Scope Verified:</h4>
+              <ul id="modalPoints" class="space-y-1.5 text-xs text-slate-600">
+                <!-- Dynamically populated -->
+              </ul>
+            </div>
+
+            <!-- Inspector Remarks Excerpt -->
+            <div class="p-3 bg-blue-50/70 rounded-xl border border-blue-200 text-xs text-slate-700 space-y-1">
+              <div class="flex items-center gap-1.5 font-bold text-[#2563eb]">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <span>Lead Inspector Sign-Off:</span>
+              </div>
+              <p id="modalRemarks" class="text-slate-600 leading-relaxed font-normal">
+                All 24 cartons sampled from 100% finished goods. Measurement variances within +/- 0.5&quot; tolerance. Shipment approved for export release.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <div class="pt-4 border-t border-slate-200 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-500">
+              <span>Ready to book this inspection?</span>
+              <span class="font-semibold text-slate-700">Dispatch in 24-48h</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <a href="#contact" onclick="closeReportModal()" class="flex-1 px-4 py-2 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold text-xs transition text-center shadow-xs">
+                Book This Inspection
+              </a>
+              <a id="modalWhatsAppBtn" href="https://wa.me/923151467673" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-lg border border-emerald-600 text-emerald-700 hover:bg-emerald-50 font-semibold text-xs transition flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
+                <span>WhatsApp QC</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Embedded PDF Document Viewer -->
+        <div class="lg:col-span-7 flex flex-col bg-slate-900 min-h-[460px] sm:min-h-[580px] lg:min-h-[640px] relative">
+          <!-- Viewer Top Toolbar -->
+          <div class="px-4 py-2.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between text-xs text-slate-300">
+            <div class="flex items-center gap-2 truncate">
+              <svg class="w-4 h-4 text-rose-500 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M11.363 2c4.155 0 2.637 6 2.637 6s6-1.65 6 2.457v11.543h-16v-20h7.363zm.82 2h-6.183v16h12v-8.877c-2.484-.528-4.576-1.62-5.817-7.123z"/></svg>
+              <span id="modalPdfFileName" class="font-mono-code text-[11px] text-slate-300 truncate">sample-pre-shipment-inspection-fri.pdf</span>
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+              <span class="inline-flex items-center gap-1.5 text-[10px] text-emerald-400 font-semibold font-mono-code">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>LIVE PDF PREVIEW</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Embedded PDF Iframe -->
+          <div class="flex-1 w-full relative bg-slate-100 flex flex-col">
+            <iframe id="modalPdfFrame" src="" class="w-full flex-1 border-0" title="Authentic Inspection Report PDF Viewer"></iframe>
+          </div>
+
+          <!-- Bottom Viewer Helper Strip -->
+          <div class="px-4 py-2 bg-slate-950 border-t border-slate-800 text-[11px] text-slate-400 flex flex-wrap items-center justify-between gap-2">
+            <span>Scroll &amp; zoom supported. 100% authentic vector PDF report.</span>
+            <div class="flex items-center gap-3">
+              <a id="modalBottomOpenBtn" href="#" target="_blank" rel="noopener noreferrer" class="text-[#38bdf8] hover:underline flex items-center gap-1">
+                <span>Open in native browser reader</span>
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
 
@@ -3905,86 +4192,240 @@
       openServiceDetail(cardId);
     }
 
-    // Sample Reports Data with Direct PDFs
+    // Sample Reports Data with Direct PDFs & Verified Technical Specs
     const reportData = {
       fri: {
+        id: 'fri',
         category: 'AQL 2.5 Standard',
-        title: 'Pre-Shipment Inspection (FRI) Sample Report',
-        standard: 'ISO 2859-1 Level II',
-        status: 'PASSED',
+        title: 'Pre-Shipment Inspection (FRI) Official Report',
+        badge: 'PASSED',
+        badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+        po: 'PO-8921-EU',
+        scope: 'ST-2026-Fleece-Hoodie (5,000 Pcs)',
+        standard: 'ISO 2859-1 Level II (AQL 2.5)',
+        sampleSize: '200 Pcs Sampled across 24 Cartons',
+        hub: 'Lahore Ops Hub • Pakistan',
+        auditor: 'Muhammad Tariq (Senior QC Inspector)',
+        aqlVerdict: 'CONFORMING',
+        aqlVerdictClass: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+        critText: '0 / 0',
+        critSub: 'Passed (0 Allowed)',
+        majText: '3 / 10',
+        majSub: 'Within Limit (Max 10)',
+        minText: '6 / 14',
+        minSub: 'Within Limit (Max 14)',
         points: [
-          'Statistical AQL Sampling: Critical: 0, Major: 2 (allowed 14), Minor: 5 (allowed 21)',
-          'Complete dimensional tolerance measurement table across S, M, L, XL sizes',
-          'Barcoding, carton drop test, polybag suffocation warnings, and packing check',
-          'High-resolution defect gallery with macro zoom on loose threads and seam alignment',
-          'Final export release conclusion and inspector on-site signature verification'
+          'Statistical AQL 2.5 Normal Sampling verified across 24 cartons (200 finished garments).',
+          'Complete POM dimensional tolerance table: Chest, length, sleeve within +/- 0.5".',
+          'Carton drop test performed per ISTA 1A standard with zero structural damage.',
+          '100% optical readability on EAN-13 barcodes & care label suffocation warnings.',
+          '9-point calibrated metal detection test passed (1.0mm ferrous sphere sensitivity).'
         ],
+        remarks: 'All 24 cartons sampled from 100% packed production. Workmanship defect levels remain strictly within AQL 2.5 Major / 4.0 Minor tolerance limits. Shipment released for export.',
         pdf: 'assets/reports/sample-pre-shipment-inspection-fri.pdf',
-        pdfName: 'Zasha-AIS-Sample-Report-FRI.pdf',
-        whatsapp: 'https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20please%20send%20me%20a%20Sample%20Pre-Shipment%20Inspection%20Report%20PDF.'
+        pdfName: 'Zasha-AIS-Sample-Pre-Shipment-FRI-Report.pdf',
+        whatsapp: 'https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20would%20like%20to%20inquire%20about%20booking%20a%20Pre-Shipment%20Inspection%20(FRI).'
       },
       dupro: {
+        id: 'dupro',
         category: 'In-Process QA',
-        title: 'During Production (DUPRO) Sample Report',
-        standard: 'Inline QC 20-60%',
-        status: 'MONITORED',
+        title: 'During Production (DUPRO) In-Line Audit Report',
+        badge: 'MONITORED',
+        badgeClass: 'bg-blue-50 text-blue-700 border-blue-200',
+        po: 'PO-2026-0892',
+        scope: 'Running Shorts (12,000 Pairs Total)',
+        standard: 'Inline QC 20-60% (Daily Pace Audit)',
+        sampleSize: '125 Pcs Active Floor Line Audit',
+        hub: 'Sialkot Activewear Complex',
+        auditor: 'Khurram Shehzad (Technical QC Lead)',
+        aqlVerdict: 'CAR ISSUED',
+        aqlVerdictClass: 'text-blue-700 bg-blue-50 border-blue-200',
+        critText: '0 / 0',
+        critSub: 'Passed',
+        majText: '2 / 5',
+        majSub: 'Corrective Action',
+        minText: '4 / 10',
+        minSub: 'Monitored',
         points: [
-          'Workmanship audit on active sewing lines (stitching density SPI, tension balance)',
-          'Fabric cutting accuracy and panel alignment evaluation',
-          'Daily production pace calculation vs buyer scheduled shipment date',
-          'Identification of recurring inline defects and real-time factory corrective action request',
-          'Unfinished vs finished inventory audit at sewing and pressing stages'
+          'Workmanship audit conducted on active sewing lines 2, 3, and 6 at 45% assembly stage.',
+          'SPI density verified at 10-12 stitches per inch with consistent thread tension.',
+          'Heat-transfer logo peeling test: 15 samples tested under 50N tensile pull with zero peeling.',
+          'Daily production pace calculated at 1,150 pcs/day against buyer ETD requirement of 1,000 pcs/day.',
+          '2 On-site Corrective Action Requests (CAR) issued for needle replacement and iron plate calibration.'
         ],
+        remarks: 'Production output rate is on schedule to meet the vessel sailing deadline. The factory GM signed the CAR undertaking to replace sewing needles every 4 operating hours.',
         pdf: 'assets/reports/sample-during-production-dupro.pdf',
-        pdfName: 'Zasha-AIS-Sample-Report-DUPRO.pdf',
-        whatsapp: 'https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20please%20send%20me%20a%20Sample%20DUPRO%20Report%20PDF.'
+        pdfName: 'Zasha-AIS-Sample-During-Production-DUPRO-Report.pdf',
+        whatsapp: 'https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20would%20like%20to%20inquire%20about%20booking%20a%20During%20Production%20Inspection%20(DUPRO).'
       },
       audit: {
+        id: 'audit',
         category: 'Supplier Vetting',
-        title: 'Factory Evaluation & Audit Sample Report',
-        standard: 'Technical & Social Vetting',
-        status: 'QUALIFIED',
+        title: 'Factory Evaluation & QMS Facility Audit Report',
+        badge: 'QUALIFIED',
+        badgeClass: 'bg-purple-50 text-purple-700 border-purple-200',
+        po: 'AUD-PK-2026-1180',
+        scope: 'Crescent Weaving & Garments Pvt Ltd',
+        standard: 'ISO 9001:2015 & Social Safety Audit',
+        sampleSize: '145k sq ft Facility / 620 Workers',
+        hub: 'Faisalabad Industrial Zone',
+        auditor: 'Engr. Haris Mansoor (Lead QMS Auditor)',
+        aqlVerdict: 'GRADE A (88.5%)',
+        aqlVerdictClass: 'text-purple-700 bg-purple-50 border-purple-200',
+        critText: '0 / 0',
+        critSub: 'No Safety Breaches',
+        majText: '88.5%',
+        majSub: 'Overall Score (Req 75%)',
+        minText: '350k',
+        minSub: 'Pcs/Mo Capacity',
         points: [
-          'Machinery profile: count, age, maintenance logs of sewing, washing, and finishing equipment',
-          'Monthly production capacity verification and active order load analysis',
-          'Quality management systems (QMS) and internal defect rejection tracking review',
-          'Workplace health, fire exits, emergency lighting, and worker hygiene compliance check',
-          'Executive scoring breakdown with detailed recommendation roadmap for buyers'
+          'Complete equipment inventory profile: 420 automated Juki and Brother sewing machines verified.',
+          'Monthly production capacity confirmed at 350,000 garments with ~110,000 units available for new buyers.',
+          '4-Point fabric inspection system active with calibrated lightbox and digital shrinkage wash test.',
+          'Occupational safety: Dual unblocked emergency exits, pressurized fire hydrants, and PPE compliance verified.',
+          'Executive scoring breakdown: QMS (89%), Machinery (87.5%), Raw Materials (89%), Workplace Safety (86.5%).'
         ],
+        remarks: 'Vendor meets all stringent international tier-1 buyer compliance requirements. Approved for export order placement. Semi-annual surveillance audit scheduled in 6 months.',
         pdf: 'assets/reports/sample-factory-audit-qms.pdf',
-        pdfName: 'Zasha-AIS-Sample-Report-Factory-Audit.pdf',
-        whatsapp: 'https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20please%20send%20me%20a%20Sample%20Factory%20Audit%20Report%20PDF.'
+        pdfName: 'Zasha-AIS-Sample-Factory-Audit-QMS-Report.pdf',
+        whatsapp: 'https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20would%20like%20to%20inquire%20about%20booking%20a%20Factory%20Evaluation%20Audit.'
       }
     };
 
+    let activeModalReport = 'fri';
+
     function openReportModal(type) {
+      if (!type || !reportData[type]) type = 'fri';
+      activeModalReport = type;
       const data = reportData[type];
-      if (!data) return;
-      document.getElementById('modalCategory').innerText = data.category;
-      document.getElementById('modalTitle').innerText = data.title;
-      document.getElementById('modalStandard').innerText = data.standard;
-      document.getElementById('modalStatus').innerText = data.status;
-      
+
+      // Update Header Text & Badges
+      const catEl = document.getElementById('modalCategory');
+      if (catEl) catEl.innerText = data.category;
+
+      const titleEl = document.getElementById('modalTitle');
+      if (titleEl) titleEl.innerText = data.title;
+
+      const badgeEl = document.getElementById('modalStatusBadge');
+      if (badgeEl) {
+        badgeEl.innerText = data.badge;
+        badgeEl.className = 'text-[10px] font-mono-code font-bold uppercase tracking-wider px-2 py-0.5 rounded border ' + data.badgeClass;
+      }
+
+      // Update Spec Grid
+      const poEl = document.getElementById('modalPoRef');
+      if (poEl) poEl.innerText = data.po;
+
+      const scopeEl = document.getElementById('modalScope');
+      if (scopeEl) scopeEl.innerText = data.scope;
+
+      const stdEl = document.getElementById('modalStandard');
+      if (stdEl) stdEl.innerText = data.standard;
+
+      const sizeEl = document.getElementById('modalSampleSize');
+      if (sizeEl) sizeEl.innerText = data.sampleSize;
+
+      const hubEl = document.getElementById('modalHub');
+      if (hubEl) hubEl.innerText = data.hub;
+
+      const audEl = document.getElementById('modalAuditor');
+      if (audEl) audEl.innerText = data.auditor;
+
+      // Update Defect / Benchmark Box
+      const verdictEl = document.getElementById('modalAqlVerdict');
+      if (verdictEl) {
+        verdictEl.innerText = data.aqlVerdict;
+        verdictEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded border ' + data.aqlVerdictClass;
+      }
+
+      const critEl = document.getElementById('modalCritCount');
+      if (critEl) critEl.innerText = data.critText;
+
+      const majEl = document.getElementById('modalMajCount');
+      if (majEl) majEl.innerText = data.majText;
+
+      const minEl = document.getElementById('modalMinCount');
+      if (minEl) minEl.innerText = data.minText;
+
+      // Update Points
       const ul = document.getElementById('modalPoints');
-      ul.innerHTML = '';
-      data.points.forEach(pt => {
-        const li = document.createElement('li');
-        li.innerText = pt;
-        ul.appendChild(li);
-      });
+      if (ul) {
+        ul.innerHTML = '';
+        data.points.forEach(pt => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-2';
+          li.innerHTML = '<svg class="w-3.5 h-3.5 text-[#2563eb] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span>' + pt + '</span>';
+          ul.appendChild(li);
+        });
+      }
+
+      // Update Remarks
+      const remEl = document.getElementById('modalRemarks');
+      if (remEl) remEl.innerText = data.remarks;
+
+      // Update Iframe PDF
+      const pdfFrame = document.getElementById('modalPdfFrame');
+      if (pdfFrame) {
+        pdfFrame.src = data.pdf + '#toolbar=1&view=FitH';
+      }
+
+      // Update Filename & External Links
+      const fileNameEl = document.getElementById('modalPdfFileName');
+      if (fileNameEl) {
+        const parts = data.pdf.split('/');
+        fileNameEl.innerText = parts[parts.length - 1];
+      }
+
+      const newTabBtn = document.getElementById('modalNewTabBtn');
+      if (newTabBtn) newTabBtn.href = data.pdf;
+
+      const bottomOpenBtn = document.getElementById('modalBottomOpenBtn');
+      if (bottomOpenBtn) bottomOpenBtn.href = data.pdf;
 
       const dlBtn = document.getElementById('modalDownloadBtn');
-      dlBtn.href = data.pdf;
-      dlBtn.download = data.pdfName;
+      if (dlBtn) {
+        dlBtn.href = data.pdf;
+        dlBtn.download = data.pdfName;
+      }
 
       const waBtn = document.getElementById('modalWhatsAppBtn');
       if (waBtn) waBtn.href = data.whatsapp;
 
-      document.getElementById('reportModal').classList.remove('hidden');
+      // Update Header Tab Pill Active States
+      ['fri', 'dupro', 'audit'].forEach(key => {
+        const tabKey = 'modalTab' + key.charAt(0).toUpperCase() + key.slice(1);
+        const tabEl = document.getElementById(tabKey);
+        if (tabEl) {
+          if (key === type) {
+            tabEl.className = 'px-3 py-1 rounded-md transition text-[#2563eb] bg-white shadow-xs font-bold';
+          } else {
+            tabEl.className = 'px-3 py-1 rounded-md transition text-slate-600 hover:text-slate-900 font-semibold';
+          }
+        }
+      });
+
+      // Show Modal & Prevent Body Scroll
+      const modal = document.getElementById('reportModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+    }
+
+    function switchModalReport(type) {
+      openReportModal(type);
     }
 
     function closeReportModal() {
-      document.getElementById('reportModal').classList.add('hidden');
+      const modal = document.getElementById('reportModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+      const pdfFrame = document.getElementById('modalPdfFrame');
+      if (pdfFrame) {
+        pdfFrame.src = 'about:blank';
+      }
     }
 
     window.addEventListener('keydown', (e) => {
