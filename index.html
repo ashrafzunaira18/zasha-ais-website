@@ -2175,6 +2175,840 @@
 
             </div>
           `;
+        } else if (mainContentEl && (service.id === 's13' || service.name.toLowerCase().includes('pre-shipment') || service.name.toLowerCase().includes('psi'))) {
+      mainContentEl.className = 'w-full';
+      mainContentEl.innerHTML = `
+        <div class="space-y-8 text-left w-full mx-auto max-w-5xl">
+          
+          <!-- 01: HERO BANNER SECTION -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1b2a] text-white p-6 sm:p-8 rounded-2xl border border-[#1b263b] shadow-sm relative overflow-hidden">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="inline-block text-[11px] font-semibold tracking-wider text-[#38bdf8] uppercase">
+                01 • Pre-Shipment & Final Quality Check
+              </span>
+              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight leading-snug">
+                Pre-Shipment Inspection
+              </h1>
+              <p class="text-xs sm:text-sm font-medium text-blue-200">
+                The Final Quality Check Before Your Goods Leave the Factory
+              </p>
+              <div class="space-y-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                <p>
+                  Before your apparel shipment leaves the factory, Zasha.AIS conducts an independent inspection of finished goods to assess product quality, workmanship, appearance, function, packaging, quantity, and other agreed requirements.
+                </p>
+                <p>
+                  Our inspection combines random sampling, AQL-based quality assessment, defect identification, measurement and product checks, packaging verification, physical checks, and photographic documentation to provide buyers with a clear view of the shipment condition before dispatch.
+                </p>
+              </div>
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a href="login.html?service=Pre-Shipment%20Inspection" class="px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium text-xs sm:text-sm tracking-wide transition shadow-sm flex items-center gap-2">
+                  <span>Book an Inspection</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+                <a href="https://wa.me/923151467673?text=Hello%20Zasha.AIS,%20I%20would%20like%20to%20request%20Pre-Shipment%20Inspection%20(PSI)%20details." target="_blank" class="px-4 py-2.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 font-medium text-xs sm:text-sm transition flex items-center gap-2">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
+                  <span>Request Inspection Details</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Inspector Image -->
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-md border border-slate-700 bg-slate-900 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-pre-shipment.png" 
+                  alt="Pre-shipment apparel inspection and export verification in Pakistan" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#09121d]/90 via-transparent to-transparent flex items-end p-3 text-xs text-slate-300 font-medium">
+                  Pre-shipment finished garment verification & export release in Pakistan
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 02: WHAT IS PRE-SHIPMENT INSPECTION? -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 02</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                What Is Pre-Shipment Inspection?
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                A Final Check Before Shipment
+              </p>
+            </div>
+
+            <div class="space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              <p>
+                Pre-Shipment Inspection (PSI) is a final quality-control inspection carried out on finished goods before shipment.
+              </p>
+              <p>
+                At Zasha.AIS, we inspect selected samples from the available production and compare them with the relevant reference information, such as the approved sample, product specifications, purchase order, and buyer requirements.
+              </p>
+              <p>
+                The inspection is designed to identify quality issues, workmanship defects, appearance problems, packaging concerns, and other non-conformities before the goods leave the factory.
+              </p>
+              <p>
+                Our inspection reports provide documented findings, inspection results, remarks, and photographic evidence to give buyers clear visibility of the inspected shipment.
+              </p>
+            </div>
+          </div>
+
+          <!-- SECTION 03: WHY IS PRE-SHIPMENT INSPECTION IMPORTANT? -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 03</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                Why Is Pre-Shipment Inspection Important?
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                Know the Condition of Your Shipment Before Dispatch
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Finished garments can contain defects or inconsistencies that may not be identified through production completion alone. A final inspection helps identify issues such as:
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Stitching defects</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Fabric holes</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Uncut threads</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Stains</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Print damage</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Unsecured prints</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Broken stitches</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Color stains</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Fly yarn</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Needle cuts</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Appearance issues</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Measurement deviations</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Packaging issues</span>
+              </div>
+              <div class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/70 border border-red-200/80 text-slate-800 text-xs sm:text-sm font-medium sm:col-span-2 lg:col-span-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                <span>Carton / shipment discrepancies</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 04: WHEN SHOULD PRE-SHIPMENT INSPECTION BE CONDUCTED? -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 04</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                When Should Pre-Shipment Inspection Be Conducted?
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                Inspect Before the Shipment Leaves the Factory
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              <p>
+                Pre-Shipment Inspection should be arranged when the goods are sufficiently completed and available for inspection.
+              </p>
+              <p>
+                For an effective inspection, Zasha.AIS reviews the available production and packing status before conducting the inspection.
+              </p>
+            </div>
+
+            <div class="space-y-2.5 pt-1">
+              <span class="text-[11px] font-mono-code font-bold uppercase tracking-wider text-slate-500">Inspection Information May Include</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-[#2563eb] uppercase">01 • Status</span>
+                  <h4 class="font-semibold text-slate-900 text-xs sm:text-sm">Production Status</h4>
+                  <p class="text-xs text-slate-600">Availability of finished goods for inspection.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-[#2563eb] uppercase">02 • Packing</span>
+                  <h4 class="font-semibold text-slate-900 text-xs sm:text-sm">Packing Status</h4>
+                  <p class="text-xs text-slate-600">Percentage of goods already packed and available.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-[#2563eb] uppercase">03 • Location</span>
+                  <h4 class="font-semibold text-slate-900 text-xs sm:text-sm">Inspection Location</h4>
+                  <p class="text-xs text-slate-600">Factory or designated inspection location.</p>
+                </div>
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-[#2563eb] uppercase">04 • Shipment</span>
+                  <h4 class="font-semibold text-slate-900 text-xs sm:text-sm">Shipment Information</h4>
+                  <p class="text-xs text-slate-600">Order quantity, carton information and related shipment details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 05: WHAT DOES ZASHA.AIS CHECK? (7-CARD VISUAL GRID) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 05</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                What Does Zasha.AIS Check?
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                Our Pre-Shipment Inspection Covers
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Zasha.AIS assesses the finished goods according to the agreed inspection scope and available buyer requirements.
+            </p>
+
+            <!-- 7-Card Visual Grid (Clean minimal cards, no bulky single image) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              
+              <!-- Card 1 -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">01</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Product & Order Information</h3>
+                </div>
+                <ul class="space-y-1 text-xs text-slate-600">
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Product name</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Style number</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Product code</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> PO number</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Order quantity</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Factory information</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Customer / reference info</li>
+                </ul>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">02</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Reference & Specification</h3>
+                </div>
+                <ul class="space-y-1 text-xs text-slate-600">
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Approved sample</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Product specification</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Purchase order</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Buyer-provided requirements</li>
+                </ul>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">03</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Workmanship & Appearance</h3>
+                </div>
+                <ul class="space-y-1 text-xs text-slate-600">
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Stitching</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Fabric condition</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Visible defects</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Construction</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Overall appearance</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Finishing</li>
+                </ul>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">04</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Product Function</h3>
+                </div>
+                <ul class="space-y-1 text-xs text-slate-600">
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Component security</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Functional components</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Closures where applicable</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Product-specific function checks</li>
+                </ul>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">05</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Packaging</h3>
+                </div>
+                <ul class="space-y-1 text-xs text-slate-600">
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Polybags</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Cartons</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Carton markings</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Warning text</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Packing arrangement</li>
+                </ul>
+              </div>
+
+              <!-- Card 6 -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">06</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Physical Checks</h3>
+                </div>
+                <ul class="space-y-1 text-xs text-slate-600">
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Sewing / seam strength</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Stitches per inch (SPI) where applicable</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Print / embroidery</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Function checks</li>
+                  <li class="flex items-center gap-1.5"><span class="text-[#2563eb] font-bold">•</span> Other agreed physical checks</li>
+                </ul>
+              </div>
+
+              <!-- Card 7 -->
+              <div class="p-4 rounded-xl bg-blue-50/60 border border-blue-200 space-y-2.5 md:col-span-2 lg:col-span-3">
+                <div class="flex items-center gap-2">
+                  <span class="w-5 h-5 rounded-md bg-[#2563eb] text-white flex items-center justify-center text-[10px] font-bold shrink-0">07</span>
+                  <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Defect Documentation</h3>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 pt-0.5">
+                  <div class="p-2 bg-white rounded-lg border border-blue-100 text-xs font-medium text-slate-700 text-center">✓ Defect description</div>
+                  <div class="p-2 bg-white rounded-lg border border-blue-100 text-xs font-medium text-slate-700 text-center">✓ Defect quantity</div>
+                  <div class="p-2 bg-white rounded-lg border border-blue-100 text-xs font-medium text-slate-700 text-center">✓ Defect classification</div>
+                  <div class="p-2 bg-white rounded-lg border border-blue-100 text-xs font-medium text-slate-700 text-center">✓ Defect photographs</div>
+                  <div class="p-2 bg-white rounded-lg border border-blue-100 text-xs font-medium text-slate-700 text-center col-span-2 sm:col-span-1">✓ Inspector remarks</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SECTION 06: REFERENCE DOCUMENTS & APPROVED SAMPLE -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 06</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
+                Reference Documents & Approved Sample
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb]">
+                Inspection Against the Right Reference
+              </p>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                An inspection is only meaningful when the inspector has a clear reference for what the finished product should be. Zasha.AIS can use buyer-provided reference information such as:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">✓</span> Approved Sample
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">✓</span> Product Specification
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">✓</span> Purchase Order
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">✓</span> Measurement requirements
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2 sm:col-span-2">
+                  <span class="text-[#2563eb] font-bold">✓</span> Other buyer instructions
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-sampling-and-testing.png" 
+                  alt="Inspector comparing garment with approved sample and specification sheet" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3 text-xs text-white font-medium">
+                  Inspector comparing garment with approved sample & specification sheet
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 07: WORKMANSHIP & APPEARANCE INSPECTION -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 07</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
+                Workmanship & Appearance Inspection
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb]">
+                Every Detail Matters
+              </p>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Zasha.AIS examines sampled garments for visible workmanship and appearance defects. Depending on the product and agreed inspection requirements, checks may include:
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Stitching quality</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Skip stitches</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Broken stitches</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Uncut threads</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Needle cuts</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Fabric holes</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Stains</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Color stains</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Fly yarn</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Print damage</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Unsecured prints</span>
+                <span class="px-2.5 py-1 bg-slate-100 rounded-lg text-xs font-medium text-slate-700 border border-slate-200">Other visible defects</span>
+              </div>
+              <p class="text-xs text-slate-500 italic pt-1">
+                Our inspectors document identified defects and record their quantity within the inspection report.
+              </p>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-seam-and-stitching.png" 
+                  alt="Workmanship, seam, and appearance inspection" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3 text-xs text-white font-medium">
+                  Detailed workmanship, seam & appearance audit
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 08: MEASUREMENT & PRODUCT DIMENSION VERIFICATION -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 08</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                Measurement & Product Dimension Verification
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                Does the Product Match the Required Specification?
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Where measurement specifications are provided, Zasha.AIS can assess selected products against the applicable requirements. Depending on the product, checks may include relevant dimensions such as:
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Body length</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Chest</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Shoulder</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Sleeve length</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Waist</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Hip</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Bottom opening</div>
+              <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Other buyer measurements</div>
+            </div>
+
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700">
+              <span class="font-semibold text-slate-900">Tolerance Compliance:</span> The inspection result is recorded against the applicable specification and tolerance.
+            </div>
+          </div>
+
+          <!-- SECTION 09: FABRIC & MATERIAL APPEARANCE -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 09</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
+                Fabric & Material Appearance
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb]">
+                Checking the Material Behind the Finished Product
+              </p>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Where included in the inspection scope, our inspectors assess visible fabric and material conditions of sampled garments. Checks may include:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Fabric holes
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Stains
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Color / shade appearance
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Surface defects
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Yarn-related defects
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-700 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Other visible material issues
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 italic pt-1">
+                The exact inspection points depend on the product and the buyer's requirements.
+              </p>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-fabric-inspection.png" 
+                  alt="Fabric material and surface condition check" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3 text-xs text-white font-medium">
+                  Fabric and material surface examination
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 10: TRIMS, COMPONENTS & PRODUCT FUNCTION -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 10</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
+                Trims, Components & Product Function
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb]">
+                Checking Components and Functionality
+              </p>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Where applicable, Zasha.AIS checks whether product components are present, properly secured and functioning according to the agreed requirements. Depending on the product, this may include:
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Buttons</div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Zippers</div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Poppers</div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Prints</div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Embroidery</div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Labels & Trims</div>
+              </div>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-finishing-process.png" 
+                  alt="Trims and components functionality verification" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3 text-xs text-white font-medium">
+                  Components security and function verification
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 11: LABELING & PRODUCT IDENTIFICATION -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 11</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                Labeling & Product Identification
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                The Right Product with the Right Information
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Where included in the inspection scope, Zasha.AIS can check applicable product identification and labeling requirements against the buyer's supplied specifications. This may include:
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Brand labels</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Size labels</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Care labels</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Hangtags</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Barcodes</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center">Product codes</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 text-center sm:col-span-2">Other specified details</div>
+            </div>
+
+            <p class="text-xs text-slate-500 italic">
+              The applicable requirements should be provided by the buyer so that the inspection can be performed against the correct reference.
+            </p>
+          </div>
+
+          <!-- SECTION 12: PACKAGING INSPECTION -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 12</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                Packaging Inspection
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                Quality Does Not End with the Garment
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Zasha.AIS checks relevant packaging requirements to help ensure that finished goods are packed according to the agreed instructions. Depending on the order, checks may include:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Polybags
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Warning text
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Folding / packing arrangement
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Carton markings
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Shipping marks
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Carton identification
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Units per carton
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Packing consistency
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs sm:text-sm font-medium text-slate-800 flex items-center gap-2">
+                <span class="text-[#2563eb] font-bold">✓</span> Carton condition
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 13: CARTON & SHIPMENT INFORMATION -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+            <div class="lg:col-span-7 space-y-3.5">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 13</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">
+                Carton & Shipment Information
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb]">
+                From Individual Garments to Export Cartons
+              </p>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                Our inspection records can include relevant carton and shipment information, such as:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Carton quantity
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Carton dimensions
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Inner carton information
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Outer carton information
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Net weight
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Gross weight
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Packing quantity
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 flex items-center gap-2">
+                  <span class="text-[#2563eb] font-bold">•</span> Carton identification
+                </div>
+              </div>
+              <p class="text-xs text-slate-500 italic pt-1">
+                This information helps connect the physical inspection with the shipment and packing details.
+              </p>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="relative rounded-xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 aspect-[4/3] group">
+                <img 
+                  src="assets/images/service-container-loading.png" 
+                  alt="Carton packing, gross weight, and export shipment verification" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-3 text-xs text-white font-medium">
+                  Export cartons, packing quantity & shipment information
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 14: AQL SAMPLING -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 14</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                AQL Sampling
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                How Do We Select the Samples?
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              <p>
+                Pre-Shipment Inspection is generally conducted using a defined sampling approach rather than checking every garment individually.
+              </p>
+              <p>
+                Zasha.AIS records the applicable inspection standard, sample size and defect acceptance criteria according to the agreed inspection requirements.
+              </p>
+            </div>
+
+            <div class="space-y-2 pt-1">
+              <span class="text-[11px] font-mono-code font-bold uppercase tracking-wider text-slate-500">Defect Acceptance Criteria</span>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-slate-700 uppercase">Critical</span>
+                  <div class="text-2xl font-bold text-slate-900">0%</div>
+                  <p class="text-xs text-slate-500">Zero tolerance</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-slate-700 uppercase">Major</span>
+                  <div class="text-2xl font-bold text-slate-900">2.5%</div>
+                  <p class="text-xs text-slate-500">AQL 2.5 standard</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-center space-y-1">
+                  <span class="text-[10px] font-mono-code font-bold text-slate-700 uppercase">Minor</span>
+                  <div class="text-2xl font-bold text-slate-900">4%</div>
+                  <p class="text-xs text-slate-500">AQL 4.0 standard</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed">
+              <span class="font-semibold text-slate-900">Important Note:</span> AQL should not be presented simply as “a percentage of defective garments allowed.” The applicable sampling plan, inspection level, sample size and acceptance/rejection criteria should be established according to the buyer's agreed quality requirements.
+            </div>
+          </div>
+
+          <!-- SECTION 15: DEFECT CLASSIFICATION -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 15</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                Defect Classification
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                How Are Defects Recorded?
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              Identified defects are documented according to the applicable inspection criteria. The inspection report can distinguish between:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <span class="text-[10px] font-mono-code font-bold text-red-600 uppercase">Level 1</span>
+                <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Critical Defects</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Issues classified as critical under the agreed quality standard.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <span class="text-[10px] font-mono-code font-bold text-amber-600 uppercase">Level 2</span>
+                <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Major Defects</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Defects that materially affect the product's appearance, function, construction or acceptance.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <span class="text-[10px] font-mono-code font-bold text-blue-600 uppercase">Level 3</span>
+                <h3 class="font-semibold text-slate-900 text-xs sm:text-sm">Minor Defects</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Less significant deviations that do not normally have the same impact as a major defect.
+                </p>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 italic">
+              Zasha.AIS records the applicable Critical, Major and Minor acceptance/rejection criteria within the inspection report. The exact classification should always follow the buyer's agreed inspection standard.
+            </p>
+          </div>
+
+          <!-- SECTION 16: PHOTOGRAPHIC EVIDENCE -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-5">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-[11px] font-mono-code font-bold tracking-wider text-[#2563eb] uppercase">SECTION 16</span>
+              <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 mt-1 tracking-tight">
+                Photographic Evidence
+              </h2>
+              <p class="text-xs sm:text-sm font-medium text-[#2563eb] mt-0.5">
+                See the Finding, Not Just the Result
+              </p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              At Zasha.AIS, inspection findings can be supported with photographic evidence. Photographs may be used to document:
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center">Product condition</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center">Identified defects</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center">Defect location</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center">Packaging</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center">Cartons</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center">Relevant inspection points</div>
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs font-medium text-slate-800 text-center sm:col-span-2">Other observations</div>
+            </div>
+
+            <p class="text-xs text-slate-600">
+              This gives buyers visual evidence alongside the written inspection findings.
+            </p>
+
+            <!-- 4-Step Process Flow -->
+            <div class="p-4 sm:p-5 rounded-xl bg-[#0d1b2a] text-white space-y-2.5">
+              <span class="text-[11px] font-mono-code font-bold text-[#38bdf8] uppercase tracking-wider">Our Reporting Approach</span>
+              <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-semibold">
+                <span class="px-2.5 py-1 rounded-lg bg-blue-600 text-white">Finding</span>
+                <span class="text-slate-400">→</span>
+                <span class="px-2.5 py-1 rounded-lg bg-blue-600 text-white">Photograph</span>
+                <span class="text-slate-400">→</span>
+                <span class="px-2.5 py-1 rounded-lg bg-blue-600 text-white">Documentation</span>
+                <span class="text-slate-400">→</span>
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-600 text-white">Communication</span>
+              </div>
+              <p class="text-xs text-slate-300 font-normal pt-1">
+                This makes the inspection report more practical for communication between buyers, suppliers and production teams.
+              </p>
+            </div>
+          </div>
+
+          <!-- BOTTOM ACTION BAR -->
+          <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200">
+            <a href="index.html#services" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold text-xs sm:text-sm transition">
+              ← Back to Our Services
+            </a>
+            <a href="login.html?service=Pre-Shipment%20Inspection" class="px-6 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-medium text-xs sm:text-sm tracking-wide transition shadow-sm hover:shadow">
+              Book an Inspection
+            </a>
+          </div>
+
+        </div>
+      `;
         } else if (service.id === 's14' || service.name.toLowerCase().includes('final random') || service.name.toLowerCase().includes('fri')) {
           mainContentEl.className = 'w-full';
           mainContentEl.innerHTML = `
