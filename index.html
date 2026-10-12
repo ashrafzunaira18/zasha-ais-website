@@ -251,15 +251,15 @@
     <div id="page-home" class="page-view min-h-[calc(100vh-14rem)]">
 
       <!-- ===================================================== -->
-      <!-- 2. HERO SECTION WITH FLOATING GLASSMORPHISM BADGES -->
+      <!-- 2. HERO SECTION (WARM SKIN BACKGROUND #F5ECE1) -->
       <!-- ===================================================== -->
-      <section id="home" class="relative pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-28 overflow-hidden bg-gradient-to-b from-white via-[#FAF4EC]/70 to-white text-slate-900 border-b border-[#DECBB8]/40">
+      <section id="home" class="relative pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-28 overflow-hidden bg-[#F5ECE1] text-slate-900 border-b border-[#DECBB8]">
         
         <!-- Factory Hero Background Image with Soft Translucent Blend -->
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <img src="assets/images/hero-factory.jpg" alt="Apparel factory inspection in Pakistan" class="w-full h-full object-cover object-center hero-kenburns opacity-15 filter contrast-125" />
-          <div class="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+          <img src="assets/images/hero-factory.jpg" alt="Apparel factory inspection in Pakistan" class="w-full h-full object-cover object-center hero-kenburns opacity-15 filter contrast-125 mix-blend-multiply" />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#F5ECE1] via-[#F5ECE1]/90 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#F5ECE1] via-transparent to-transparent"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -268,8 +268,8 @@
             <!-- Left Headline & CTAs (7 cols) -->
             <div class="lg:col-span-8 space-y-7">
               
-              <!-- Eyebrow Pill (Skin color #F5ECE1) -->
-              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5ECE1] border border-[#DECBB8] text-slate-800 text-xs font-mono-code font-bold tracking-wider uppercase">
+              <!-- Eyebrow Pill -->
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#DECBB8] text-slate-800 text-xs font-mono-code font-bold tracking-wider uppercase shadow-xs">
                 <span class="w-2 h-2 rounded-full bg-[#1D4ED8] animate-ping"></span>
                 <span>PAKISTAN • APPAREL &amp; TEXTILE QUALITY CONTROL</span>
               </div>
@@ -280,36 +280,36 @@
               </h1>
 
               <!-- Subtitle -->
-              <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl">
+              <p class="text-base sm:text-lg text-slate-700 leading-relaxed font-normal max-w-2xl">
                 Zasha.AIS gives international apparel brands and buyers one trustworthy partner for factory audits, in-line DUPRO, final random inspections (FRI), and supplier sourcing — protecting your brand integrity across Pakistan.
               </p>
 
-              <!-- Call to Action Buttons (Blue #1D4ED8 Button) -->
+              <!-- Call to Action Buttons (Blue #1D4ED8 Button & White Pill) -->
               <div class="pt-2 flex flex-wrap items-center gap-4">
                 <button onclick="goToInspectionBooking()" class="px-8 py-3.5 rounded-full bg-[#1D4ED8] hover:bg-[#1E40AF] text-white font-bold text-sm tracking-wide transition-all duration-300 shadow-xl shadow-blue-600/20 hover:scale-[1.02] flex items-center gap-2">
                   <span>Request an inspection</span>
                   <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </button>
-                <a href="#services" onclick="navigateToSection('services'); return false;" class="px-7 py-3.5 rounded-full bg-[#F5ECE1] hover:bg-[#EFE3D5] text-[#1D4ED8] border border-[#DECBB8] font-bold text-sm tracking-wide transition hover:scale-[1.02]">
+                <a href="#services" onclick="navigateToSection('services'); return false;" class="px-7 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-900 border border-[#DECBB8] font-bold text-sm tracking-wide transition hover:scale-[1.02] shadow-xs">
                   Explore 21 Services
                 </a>
               </div>
 
               <!-- Executive Authority Ribbon (Trust Dock) -->
               <div class="pt-8 border-t border-[#DECBB8]/60 mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3.5">
-                <div class="p-3.5 rounded-2xl bg-white/90 border border-[#DECBB8] shadow-xs">
+                <div class="p-3.5 rounded-2xl bg-white border border-[#DECBB8] shadow-xs">
                   <div class="text-lg font-bold text-[#1D4ED8] tracking-tight">48 Hours</div>
                   <div class="text-[11px] text-slate-500 font-medium">Nationwide Dispatch</div>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white/90 border border-[#DECBB8] shadow-xs">
+                <div class="p-3.5 rounded-2xl bg-white border border-[#DECBB8] shadow-xs">
                   <div class="text-lg font-bold text-[#1D4ED8] tracking-tight">24 Hours</div>
                   <div class="text-[11px] text-slate-500 font-medium">Formal PDF Dossier</div>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white/90 border border-[#DECBB8] shadow-xs">
+                <div class="p-3.5 rounded-2xl bg-white border border-[#DECBB8] shadow-xs">
                   <div class="text-lg font-bold text-[#1D4ED8] tracking-tight">AQL 2.5 / 4.0</div>
                   <div class="text-[11px] text-slate-500 font-medium">ISO 2859-1 Standards</div>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white/90 border border-[#DECBB8] shadow-xs">
+                <div class="p-3.5 rounded-2xl bg-white border border-[#DECBB8] shadow-xs">
                   <div class="text-lg font-bold text-emerald-600 tracking-tight flex items-center gap-1.5">
                     <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                     <span>100% Impartial</span>
@@ -324,7 +324,7 @@
             <div class="lg:col-span-4 relative flex flex-col gap-5 items-center lg:items-end">
               
               <!-- Floating Badge 1 (Dispatch Speed) -->
-              <div class="animate-float w-full max-w-sm p-4 rounded-3xl bg-white/95 backdrop-blur-xl border border-[#DECBB8] shadow-xl space-y-2 hover:bg-white transition">
+              <div class="animate-float w-full max-w-sm p-4 rounded-3xl bg-white border border-[#DECBB8] shadow-lg space-y-2 hover:bg-white transition">
                 <div class="flex items-center justify-between">
                   <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -339,9 +339,9 @@
               </div>
 
               <!-- Floating Badge 2 (Defect Precision) -->
-              <div class="animate-float-delayed w-full max-w-sm p-4 rounded-3xl bg-white/95 backdrop-blur-xl border border-[#DECBB8] shadow-xl space-y-2 hover:bg-white transition">
+              <div class="animate-float-delayed w-full max-w-sm p-4 rounded-3xl bg-white border border-[#DECBB8] shadow-lg space-y-2 hover:bg-white transition">
                 <div class="flex items-center justify-between">
-                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#F5ECE1] text-[#1D4ED8] border border-[#DECBB8]">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#FAF4EC] text-[#1D4ED8] border border-[#DECBB8]">
                     ★ 99.4% CATCH RATE
                   </span>
                   <span class="text-xs font-bold text-slate-600">ISO 2859-1 Level II</span>
@@ -361,7 +361,7 @@
       <!-- ===================================================== -->
       <!-- 3. TRUST BAR: INFINITE SMOOTH HORIZONTAL SCROLLING MARQUEE -->
       <!-- ===================================================== -->
-      <section class="bg-[#F5ECE1] border-y border-[#DECBB8] py-4 overflow-hidden relative shadow-xs">
+      <section class="bg-white border-b border-[#DECBB8] py-4 overflow-hidden relative shadow-xs">
         <div class="marquee-track flex items-center space-x-10 text-xs sm:text-sm font-bold text-slate-800 tracking-wide uppercase font-mono-code">
           
           <div class="flex items-center gap-3 shrink-0">
