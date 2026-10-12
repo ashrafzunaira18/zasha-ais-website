@@ -69,38 +69,37 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-[#2563eb] selection:text-white">
+<body class="bg-[#F8FAFC] text-slate-800 min-h-screen flex flex-col antialiased selection:bg-[#1D4ED8] selection:text-white">
 
-  <!-- Portal Top Bar -->
-  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md text-slate-800 border-b border-slate-200/90 shadow-sm" style="background-color: rgba(255, 255, 255, 0.96) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border-bottom: 1px solid #e2e8f0 !important;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- Portal Top Bar with Frosted Glass -->
+  <div class="sticky top-0 z-30 pt-3 pb-2 px-4 sm:px-6 lg:px-8">
+    <header class="max-w-7xl mx-auto rounded-full bg-white/90 backdrop-blur-xl border border-slate-200 shadow-md px-6 py-3 flex items-center justify-between">
       
       <!-- Brand Logo + Verified Badge -->
       <div class="flex items-center space-x-4">
         <a href="index.html" class="flex items-center space-x-1 group">
-          <span class="font-display font-bold text-2xl tracking-wider text-slate-900">ZASHA<span class="text-[#2563eb]">.AIS</span></span>
-          
+          <span class="font-extrabold text-2xl tracking-wider text-[#0A1128]">ZASHA<span class="text-[#1D4ED8]">.AIS</span></span>
         </a>
 
         <div class="hidden sm:block h-5 w-px bg-slate-200"></div>
 
         <div class="hidden sm:flex items-center gap-2">
           <span class="text-xs text-slate-700 font-semibold" id="clientCompanyDisplay">Client Portal</span>
-          <span class="bg-teal-50 text-teal-700 text-[10px] font-semibold px-2 py-0.5 rounded border border-teal-200">Verified Client</span>
+          <span class="bg-blue-50 text-[#1D4ED8] text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-blue-200">Verified Client</span>
         </div>
       </div>
 
       <!-- Center Nav Tabs -->
-      <nav class="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg text-xs font-semibold border border-slate-200">
-        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm">
+      <nav class="flex items-center space-x-1 bg-slate-100 p-1 rounded-full text-xs font-semibold border border-slate-200">
+        <button id="tabBtnBooking" onclick="switchPortalSection('booking')" class="px-4 py-1.5 rounded-full bg-[#1D4ED8] text-white transition flex items-center gap-1.5 font-semibold shadow-sm">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           <span>Book Inspection</span>
         </button>
-        <button id="tabBtnHistory" onclick="switchPortalSection('history')" class="px-3.5 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
+        <button id="tabBtnHistory" onclick="switchPortalSection('history')" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           <span>My Bookings (<span id="historyCountBadge">0</span>)</span>
         </button>
-        <button id="tabBtnPricing" onclick="switchPortalSection('pricing')" class="px-3.5 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
+        <button id="tabBtnPricing" onclick="switchPortalSection('pricing')" class="px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
           <span>Fee Estimator</span>
         </button>
@@ -108,7 +107,7 @@
 
       <!-- Right Exit Links -->
       <div class="flex items-center space-x-4 text-xs">
-        <a href="index.html" class="hidden md:flex items-center gap-1 text-slate-600 hover:text-slate-900 transition font-medium">
+        <a href="index.html" class="hidden md:flex items-center gap-1 text-slate-600 hover:text-[#1D4ED8] transition font-semibold">
           <span>Website</span>
         </a>
         <button onclick="logoutPortal()" class="text-slate-500 hover:text-red-600 transition font-medium">
@@ -116,8 +115,8 @@
         </button>
       </div>
 
-    </div>
-  </header>
+    </header>
+  </div>
 
 
   <!-- Main Dashboard Container -->
@@ -499,9 +498,9 @@
             <div>
               <div class="flex justify-between text-slate-700 mb-1">
                 <span>3. Total Order Quantity (Pieces)</span>
-                <span id="calcQtyVal" class="text-[#2563eb] font-mono font-bold text-sm">3,000 Pcs</span>
+                <span id="calcQtyVal" class="text-[#1D4ED8] font-mono font-bold text-sm">3,000 Pcs</span>
               </div>
-              <input id="calcQtySlider" type="range" min="500" max="25000" step="500" value="3000" oninput="updateCalcSlider(this.value)" class="w-full accent-[#2563eb] cursor-pointer" />
+              <input id="calcQtySlider" type="range" min="500" max="25000" step="500" value="3000" oninput="updateCalcSlider(this.value)" class="w-full accent-[#1D4ED8] cursor-pointer" />
               <div class="flex justify-between text-[11px] text-slate-400 font-mono mt-1">
                 <span>500 pcs</span>
                 <span>5,000 pcs</span>
@@ -511,15 +510,15 @@
             </div>
           </div>
 
-          <div class="md:col-span-5 bg-[#0d1b2a] text-white rounded-xl p-6 flex flex-col justify-between shadow-sm border border-[#1b263b]">
+          <div class="md:col-span-5 bg-[#0A1128] text-white rounded-2xl p-6 flex flex-col justify-between shadow-sm border border-slate-800">
             <div>
-              <span class="text-[10px] uppercase font-bold text-[#38bdf8] tracking-wider">Estimated Fee</span>
+              <span class="text-[10px] uppercase font-bold text-sky-400 tracking-wider font-mono">Estimated Fee</span>
               <div class="flex items-baseline gap-2 mt-1">
-                <span class="text-4xl font-black text-[#38bdf8]" id="calcPriceDisplay">$199</span>
+                <span class="text-4xl font-black text-sky-400" id="calcPriceDisplay">$199</span>
                 <span class="text-xs text-slate-300 font-medium">USD all-inclusive</span>
               </div>
               
-              <div class="mt-5 pt-5 border-t border-[#1b263b] space-y-2.5 text-xs text-slate-200">
+              <div class="mt-5 pt-5 border-t border-slate-800 space-y-2.5 text-xs text-slate-200">
                 <div class="flex justify-between">
                   <span class="text-slate-400">Required Man-Days:</span>
                   <strong id="calcMandays" class="text-white">1 Man-Day</strong>
@@ -534,13 +533,13 @@
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">PDF Report Turnaround:</span>
-                  <strong class="text-[#38bdf8]">Within 24 Hours</strong>
+                  <strong class="text-sky-400">Within 24 Hours</strong>
                 </div>
               </div>
             </div>
 
             <div class="pt-5">
-              <button onclick="applyEstimateToBooking()" class="w-full py-3 rounded-lg bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold text-xs transition shadow-sm">
+              <button onclick="applyEstimateToBooking()" class="w-full py-3 rounded-full bg-[#1D4ED8] hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider transition shadow-sm">
                 Apply to Booking Form
               </button>
             </div>
@@ -618,18 +617,18 @@
       const secH = document.getElementById('sectionHistory');
       const secP = document.getElementById('sectionPricing');
 
-      [btnB, btnH, btnP].forEach(b => b.className = 'px-3.5 py-1.5 rounded-md text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5');
+      [btnB, btnH, btnP].forEach(b => b.className = 'px-4 py-1.5 rounded-full text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5');
       [secB, secH, secP].forEach(s => s.classList.add('hidden'));
 
       if (section === 'booking') {
-        btnB.className = 'px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
+        btnB.className = 'px-4 py-1.5 rounded-full bg-[#1D4ED8] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
         secB.classList.remove('hidden');
       } else if (section === 'history') {
-        btnH.className = 'px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
+        btnH.className = 'px-4 py-1.5 rounded-full bg-[#1D4ED8] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
         secH.classList.remove('hidden');
         renderBookingsHistory();
       } else if (section === 'pricing') {
-        btnP.className = 'px-3.5 py-1.5 rounded-md bg-[#2563eb] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
+        btnP.className = 'px-4 py-1.5 rounded-full bg-[#1D4ED8] text-white transition flex items-center gap-1.5 font-semibold shadow-sm';
         secP.classList.remove('hidden');
       }
     }

@@ -4,8 +4,8 @@
   "description": "Zasha.AIS - Third-Party Apparel Inspection & Quality Control Agency in Pakistan",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve ."
+    "start": "node serve.js",
+    "dev": "node serve.js"
   },
   "keywords": [
     "apparel",
