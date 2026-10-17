@@ -1,0 +1,9 @@
+{
+  "name": "zasha-api",
+  "version": "1.0.0",
+  "description": "Zasha.AIS Serverless Email & Dispatch API for Azure",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {}
+}
