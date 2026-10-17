@@ -142,203 +142,297 @@
         </div>
       </div>
 
-      <!-- 9-PART COMPREHENSIVE BOOKING FORM -->
-      <form id="inspectionBookingForm" onsubmit="handleInspectionFormSubmit(event)" class="space-y-6">
+      <!-- 4-STEP SEQUENTIAL BOOKING FORM WIZARD -->
+      <form id="inspectionBookingForm" onsubmit="handleInspectionFormSubmit(event)" class="space-y-6" novalidate>
         
-        <!-- Part 1: Service Type, Location & Factory Schedule -->
-        <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
-          <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 1: Service Type, Location & Factory Schedule</span>
-          
-          <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
+        <!-- MULTI-STEP PROGRESS INDICATOR (Step X of 4) -->
+        <div class="bg-white p-5 sm:p-6 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
             <div>
-              <label class="block text-slate-700 mb-1">1. Inspection Service Workflow *</label>
-              <select id="fService" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="1. Pre-Shipment Inspection">1. Pre-Shipment Inspection</option>
-<option value="2. Final Random Inspection">2. Final Random Inspection</option>
-<option value="3. During Production Inspection">3. During Production Inspection</option>
-<option value="4. Initial Production Check">4. Initial Production Check</option>
-<option value="5. Sample Picking Inspection">5. Sample Picking Inspection</option>
-<option value="6. Container Loading Check">6. Container Loading Check</option>
-<option value="7. Seam and Stitching Inspection">7. Seam and Stitching Inspection</option>
-<option value="8. Finishing Process">8. Finishing Process</option>
-<option value="9. Fabric Inspection">9. Fabric Inspection</option>
-<option value="10. Sampling and Testing">10. Sampling and Testing</option>
-<option value="11. Quality Control Measures">11. Quality Control Measures</option>
-<option value="12. Raw Material Verification">12. Raw Material Verification</option>
-<option value="13. Production Process Evaluation">13. Production Process Evaluation</option>
-<option value="14. Dyeing/Printing Inspection">14. Dyeing/Printing Inspection</option>
-<option value="15. Weaving/Knitting Inspection">15. Weaving/Knitting Inspection</option>
-<option value="16. Spinning and Yarn Formation">16. Spinning and Yarn Formation</option>
-<option value="17. Communication with Partners">17. Communication with Partners</option>
-<option value="18. Supplier Assessment">18. Supplier Assessment</option>
-<option value="19. VOC (Verification of Conformity)">19. VOC (Verification of Conformity)</option>
-<option value="20. Documentation Review">20. Documentation Review</option>
-<option value="21. Quality Control Points">21. Quality Control Points</option>
-
-              </select>
+              <span id="stepCounterBadge" class="text-[10px] font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 1 of 4</span>
+              <h3 id="stepTitleHeader" class="text-base font-bold text-slate-900">Part 1: Service Type, Location & Factory Schedule</h3>
             </div>
-            <div>
-              <label class="block text-slate-700 mb-1">2. Target Inspection Date *</label>
-              <input id="fDate" type="date" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
-            </div>
+            <span id="stepSubtitleBadge" class="px-3 py-1 rounded-full text-[11px] font-semibold bg-[#FAF4EC] text-[#2C365A] border border-[#DECBB8]">
+              Deployment Parameters
+            </span>
           </div>
 
-          <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
-            <div>
-              <label class="block text-slate-700 mb-1">3. Factory City (Pakistan) *</label>
-              <select id="fCity" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="Lahore" selected>Lahore (Knitwear, Denim & Wovens)</option>
-                <option value="Sialkot">Sialkot (Sportswear, Gloves & Leather)</option>
-                <option value="Faisalabad">Faisalabad (Textile Capital & Home Textiles)</option>
-                <option value="Karachi">Karachi (Port Hub & Denim Mills)</option>
-                <option value="Multan">Multan (Yarn & Processing)</option>
-                <option value="Islamabad">Islamabad & Northern Cluster</option>
-              </select>
+          <!-- Progress Bar & Stepper Pills -->
+          <div class="space-y-2">
+            <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
+              <div id="formProgressBar" class="h-full bg-gradient-to-r from-[#2C365A] to-blue-600 transition-all duration-300 rounded-full" style="width: 25%;"></div>
             </div>
-            <div>
-              <label class="block text-slate-700 mb-1">4. Factory / Mill Name *</label>
-              <input id="fFactoryName" type="text" required placeholder="e.g. Master Textile Mills Ltd" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">5. Factory On-site Contact Person & Mobile *</label>
-              <input id="fFactoryContact" type="text" required placeholder="e.g. Tariq Mehmood (GM Quality, +92 300 1234567)" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
-            </div>
-          </div>
-
-          <div class="text-xs font-semibold">
-            <label class="block text-slate-700 mb-1">6. Factory Full Physical Address & Location *</label>
-            <input id="fFactoryAddress" type="text" required placeholder="Plot / Street number, Industrial Estate, Sector, City" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
-          </div>
-        </div>
-
-        <!-- Part 2: Client Information (Auto-Populated) -->
-        <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 2: Client & Brand Profile (Auto-Populated from Account)</span>
-            <span class="text-[11px] text-slate-400">Verified Client Record</span>
-          </div>
-
-          <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
-            <div>
-              <label class="block text-slate-500 mb-1">Client / Brand Company</label>
-              <input id="fClientCompany" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
-            </div>
-            <div>
-              <label class="block text-slate-500 mb-1">Authorized Contact</label>
-              <input id="fContactPerson" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
-            </div>
-            <div>
-              <label class="block text-slate-500 mb-1">Report Email Destination</label>
-              <input id="fEmail" type="email" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
-            </div>
-            <div>
-              <label class="block text-slate-500 mb-1">WhatsApp / Phone</label>
-              <input id="fPhone" type="tel" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+            <div class="grid grid-cols-4 gap-2 text-center pt-1">
+              <button type="button" onclick="goToFormStep(1)" id="stepPill1" class="py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-[#2C365A] text-white shadow-sm flex items-center justify-center gap-1.5 border border-[#2C365A]">
+                <span class="w-4 h-4 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px]">1</span>
+                <span class="hidden sm:inline">Service & Location</span>
+                <span class="sm:hidden">Part 1</span>
+              </button>
+              <button type="button" onclick="goToFormStep(2)" id="stepPill2" class="py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-slate-100 text-slate-500 border border-slate-200 flex items-center justify-center gap-1.5">
+                <span class="w-4 h-4 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[10px]">2</span>
+                <span class="hidden sm:inline">Client Profile</span>
+                <span class="sm:hidden">Part 2</span>
+              </button>
+              <button type="button" onclick="goToFormStep(3)" id="stepPill3" class="py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-slate-100 text-slate-500 border border-slate-200 flex items-center justify-center gap-1.5">
+                <span class="w-4 h-4 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[10px]">3</span>
+                <span class="hidden sm:inline">Order Specs</span>
+                <span class="sm:hidden">Part 3</span>
+              </button>
+              <button type="button" onclick="goToFormStep(4)" id="stepPill4" class="py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-slate-100 text-slate-500 border border-slate-200 flex items-center justify-center gap-1.5">
+                <span class="w-4 h-4 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[10px]">4</span>
+                <span class="hidden sm:inline">Billing & Review</span>
+                <span class="sm:hidden">Part 4</span>
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Part 3: Purchase Order & Garment Specifications -->
-        <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
-          <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 3: Purchase Order & Garment Specifications</span>
-          
-          <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
-            <div>
-              <label class="block text-slate-700 mb-1">Product Category *</label>
-              <select id="fCategory" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="Knitwear (T-shirts, Hoodies, Polos)">Knitwear (T-shirts, Hoodies, Polos)</option>
-                <option value="Wovens & Denim (Jeans, Shirts)">Wovens & Denim (Jeans, Shirts)</option>
-                <option value="Sportswear & Activewear">Sportswear & Activewear</option>
-                <option value="Home Textiles (Towels, Bedding)">Home Textiles (Towels, Bedding)</option>
-                <option value="Leather & Motorbike Garments">Leather & Motorbike Garments</option>
-                <option value="Apparel Accessories">Apparel Accessories</option>
-              </select>
+        <!-- ========================================================= -->
+        <!-- PART 1: SERVICE TYPE, LOCATION & FACTORY SCHEDULE -->
+        <!-- ========================================================= -->
+        <div id="formStep1" class="form-step-panel space-y-6">
+          <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
+            <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 1: Service Type, Location & Factory Schedule</span>
+            
+            <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
+              <div>
+                <label class="block text-slate-700 mb-1">1. Inspection Service Workflow *</label>
+                <select id="fService" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="1. Pre-Shipment Inspection">1. Pre-Shipment Inspection</option>
+                  <option value="2. Final Random Inspection">2. Final Random Inspection</option>
+                  <option value="3. During Production Inspection">3. During Production Inspection</option>
+                  <option value="4. Initial Production Check">4. Initial Production Check</option>
+                  <option value="5. Sample Picking Inspection">5. Sample Picking Inspection</option>
+                  <option value="6. Container Loading Check">6. Container Loading Check</option>
+                  <option value="7. Seam and Stitching Inspection">7. Seam and Stitching Inspection</option>
+                  <option value="8. Finishing Process">8. Finishing Process</option>
+                  <option value="9. Fabric Inspection">9. Fabric Inspection</option>
+                  <option value="10. Sampling and Testing">10. Sampling and Testing</option>
+                  <option value="11. Quality Control Measures">11. Quality Control Measures</option>
+                  <option value="12. Raw Material Verification">12. Raw Material Verification</option>
+                  <option value="13. Production Process Evaluation">13. Production Process Evaluation</option>
+                  <option value="14. Dyeing/Printing Inspection">14. Dyeing/Printing Inspection</option>
+                  <option value="15. Weaving/Knitting Inspection">15. Weaving/Knitting Inspection</option>
+                  <option value="16. Spinning and Yarn Formation">16. Spinning and Yarn Formation</option>
+                  <option value="17. Communication with Partners">17. Communication with Partners</option>
+                  <option value="18. Supplier Assessment">18. Supplier Assessment</option>
+                  <option value="19. VOC (Verification of Conformity)">19. VOC (Verification of Conformity)</option>
+                  <option value="20. Documentation Review">20. Documentation Review</option>
+                  <option value="21. Quality Control Points">21. Quality Control Points</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">2. Target Inspection Date *</label>
+                <input id="fDate" type="date" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
             </div>
-            <div>
-              <label class="block text-slate-700 mb-1">Garment Item Description *</label>
-              <input id="fGarmentType" type="text" required placeholder="e.g. Heavyweight Fleece Hoodie" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+
+            <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
+              <div>
+                <label class="block text-slate-700 mb-1">3. Factory City (Pakistan) *</label>
+                <select id="fCity" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="Lahore" selected>Lahore (Knitwear, Denim & Wovens)</option>
+                  <option value="Sialkot">Sialkot (Sportswear, Gloves & Leather)</option>
+                  <option value="Faisalabad">Faisalabad (Textile Capital & Home Textiles)</option>
+                  <option value="Karachi">Karachi (Port Hub & Denim Mills)</option>
+                  <option value="Multan">Multan (Yarn & Processing)</option>
+                  <option value="Islamabad">Islamabad & Northern Cluster</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">4. Factory / Mill Name *</label>
+                <input id="fFactoryName" type="text" required placeholder="e.g. Master Textile Mills Ltd" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">5. Factory On-site Contact Person & Mobile *</label>
+                <input id="fFactoryContact" type="text" required placeholder="e.g. Tariq Mehmood (GM Quality, +92 300 1234567)" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
             </div>
-            <div>
-              <label class="block text-slate-700 mb-1">PO Number *</label>
-              <input id="fPoNumber" type="text" required placeholder="e.g. PO-8921-EU" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">Style / Article No *</label>
-              <input id="fStyleNumber" type="text" required placeholder="e.g. ST-2026-X" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+
+            <div class="text-xs font-semibold">
+              <label class="block text-slate-700 mb-1">6. Factory Full Physical Address & Location *</label>
+              <input id="fFactoryAddress" type="text" required placeholder="Plot / Street number, Industrial Estate, Sector, City" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
             </div>
           </div>
 
-          <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
-            <div>
-              <label class="block text-slate-700 mb-1">Total Order Quantity (Pieces) *</label>
-              <input id="fTotalQty" type="number" required min="100" placeholder="e.g. 5000" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">Production Status / Ready % *</label>
-              <select id="fPackedQty" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="100% finished & 80%+ packed (Ready for FRI)">100% finished & 80%+ packed (Ready for FRI)</option>
-                <option value="50-80% in sewing/finishing (Ready for DUPRO)">50-80% in sewing/finishing (Ready for DUPRO)</option>
-                <option value="Initial batch ready (Ready for IPC)">Initial batch ready (Ready for IPC)</option>
-                <option value="Pre-production / Fabric rolls ready">Pre-production / Fabric rolls ready</option>
-                <option value="Packed & ready for container stuffing">Packed & ready for container stuffing</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">AQL Sampling Standard *</label>
-              <select id="fAqlLevel" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="ISO 2859-1 Level II (Critical: 0, Major: 2.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 2.5 Normal) - Standard</option>
-                <option value="ISO 2859-1 Level II (Critical: 0, Major: 1.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 1.5 Strict)</option>
-                <option value="ISO 2859-1 Level I (Reduced Sampling)">ISO 2859-1 Level I (Reduced Sampling)</option>
-                <option value="100% Full Piece-by-Piece Inspection">100% Full Piece-by-Piece Inspection</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <!-- Part 4: Billing Preferences & Specific Instructions -->
-        <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
-          <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 4: Billing Preferences & Specific Instructions</span>
-          
-          <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
-            <div>
-              <label class="block text-slate-700 mb-1">Invoicing Currency</label>
-              <select id="fCurrency" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="USD ($)">USD ($) - Standard International</option>
-                <option value="EUR (€)">EUR (€) - European Union</option>
-                <option value="GBP (£)">GBP (£) - United Kingdom</option>
-                <option value="PKR (₨)">PKR (₨) - Local Pakistan</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-slate-700 mb-1">Payment Method Preference</label>
-              <select id="fPayment" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
-                <option value="International Wire Transfer (SWIFT)">International Wire Transfer (SWIFT)</option>
-                <option value="Online Credit Card / Debit Card">Online Credit Card / Debit Card</option>
-                <option value="Corporate Account Invoicing (Net 15)">Corporate Account Invoicing (Net 15)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="text-xs font-semibold">
-            <label class="block text-slate-700 mb-1">Special Inspection Requirements / Auditor Notes</label>
-            <textarea id="fNotes" rows="3" placeholder="Specific measurement tolerance specs, high-risk points (e.g. zipper pull test, barcoding scannability, shade banding, carton drop test)..." class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition"></textarea>
-          </div>
-
-          <div class="pt-2">
-            <label class="flex items-start gap-2 text-xs text-slate-600 font-normal cursor-pointer">
-              <input type="checkbox" required checked class="mt-0.5 rounded accent-[#2C365A]" />
-              <span>I confirm that the factory location and PO details provided are accurate for auditor dispatch. Standard 48h deployment SLA applies upon booking confirmation.</span>
-            </label>
-          </div>
-
-          <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
-            <div class="text-xs text-slate-500">
-              Standard inspection day rate: <strong class="text-slate-800 font-bold">$199 USD</strong> / man-day within city limits.
-            </div>
-            <button type="submit" class="px-8 py-3.5 rounded-full bg-[#2C365A] hover:bg-[#1E2540] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-slate-900/15 flex items-center gap-2">
-              <span>Submit Inspection Booking & Generate Dossier</span>
+          <!-- Step 1 Navigation Buttons -->
+          <div class="flex items-center justify-between pt-2">
+            <span class="text-xs text-slate-400">Step 1 of 4 • Factory Deployment</span>
+            <button type="button" onclick="goToFormStep(2)" class="px-7 py-3 rounded-full bg-[#2C365A] hover:bg-[#1E2540] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-slate-900/15 flex items-center gap-2">
+              <span>Next: Client Profile (Part 2)</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- PART 2: CLIENT INFORMATION (AUTO-POPULATED) -->
+        <!-- ========================================================= -->
+        <div id="formStep2" class="form-step-panel space-y-6 hidden">
+          <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 2: Client & Brand Profile (Auto-Populated from Account)</span>
+              <span class="text-[11px] text-slate-400">Verified Client Record</span>
+            </div>
+
+            <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
+              <div>
+                <label class="block text-slate-500 mb-1">Client / Brand Company</label>
+                <input id="fClientCompany" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+              </div>
+              <div>
+                <label class="block text-slate-500 mb-1">Authorized Contact</label>
+                <input id="fContactPerson" type="text" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+              </div>
+              <div>
+                <label class="block text-slate-500 mb-1">Report Email Destination</label>
+                <input id="fEmail" type="email" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+              </div>
+              <div>
+                <label class="block text-slate-500 mb-1">WhatsApp / Phone</label>
+                <input id="fPhone" type="tel" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-slate-700 font-medium" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 Navigation Buttons -->
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" onclick="goToFormStep(1)" class="px-5 py-2.5 rounded-full border border-[#DECBB8] bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs transition flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              <span>Back to Part 1</span>
+            </button>
+            <button type="button" onclick="goToFormStep(3)" class="px-7 py-3 rounded-full bg-[#2C365A] hover:bg-[#1E2540] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-slate-900/15 flex items-center gap-2">
+              <span>Next: Order Specs (Part 3)</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- PART 3: PURCHASE ORDER & GARMENT SPECIFICATIONS -->
+        <!-- ========================================================= -->
+        <div id="formStep3" class="form-step-panel space-y-6 hidden">
+          <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
+            <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 3: Purchase Order & Garment Specifications</span>
+            
+            <div class="grid sm:grid-cols-4 gap-4 text-xs font-semibold">
+              <div>
+                <label class="block text-slate-700 mb-1">Product Category *</label>
+                <select id="fCategory" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="Knitwear (T-shirts, Hoodies, Polos)">Knitwear (T-shirts, Hoodies, Polos)</option>
+                  <option value="Wovens & Denim (Jeans, Shirts)">Wovens & Denim (Jeans, Shirts)</option>
+                  <option value="Sportswear & Activewear">Sportswear & Activewear</option>
+                  <option value="Home Textiles (Towels, Bedding)">Home Textiles (Towels, Bedding)</option>
+                  <option value="Leather & Motorbike Garments">Leather & Motorbike Garments</option>
+                  <option value="Apparel Accessories">Apparel Accessories</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">Garment Item Description *</label>
+                <input id="fGarmentType" type="text" required placeholder="e.g. Heavyweight Fleece Hoodie" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">PO Number *</label>
+                <input id="fPoNumber" type="text" required placeholder="e.g. PO-8921-EU" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">Style / Article No *</label>
+                <input id="fStyleNumber" type="text" required placeholder="e.g. ST-2026-X" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4 text-xs font-semibold">
+              <div>
+                <label class="block text-slate-700 mb-1">Total Order Quantity (Pieces) *</label>
+                <input id="fTotalQty" type="number" required min="100" placeholder="e.g. 5000" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition" />
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">Production Status / Ready % *</label>
+                <select id="fPackedQty" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="100% finished & 80%+ packed (Ready for FRI)">100% finished & 80%+ packed (Ready for FRI)</option>
+                  <option value="50-80% in sewing/finishing (Ready for DUPRO)">50-80% in sewing/finishing (Ready for DUPRO)</option>
+                  <option value="Initial batch ready (Ready for IPC)">Initial batch ready (Ready for IPC)</option>
+                  <option value="Pre-production / Fabric rolls ready">Pre-production / Fabric rolls ready</option>
+                  <option value="Packed & ready for container stuffing">Packed & ready for container stuffing</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">AQL Sampling Standard *</label>
+                <select id="fAqlLevel" required class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="ISO 2859-1 Level II (Critical: 0, Major: 2.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 2.5 Normal) - Standard</option>
+                  <option value="ISO 2859-1 Level II (Critical: 0, Major: 1.5, Minor: 4.0)">ISO 2859-1 Level II (AQL 1.5 Strict)</option>
+                  <option value="ISO 2859-1 Level I (Reduced Sampling)">ISO 2859-1 Level I (Reduced Sampling)</option>
+                  <option value="100% Full Piece-by-Piece Inspection">100% Full Piece-by-Piece Inspection</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 Navigation Buttons -->
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" onclick="goToFormStep(2)" class="px-5 py-2.5 rounded-full border border-[#DECBB8] bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs transition flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              <span>Back to Part 2</span>
+            </button>
+            <button type="button" onclick="goToFormStep(4)" class="px-7 py-3 rounded-full bg-[#2C365A] hover:bg-[#1E2540] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-slate-900/15 flex items-center gap-2">
+              <span>Next: Billing & Instructions (Part 4)</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- PART 4: BILLING PREFERENCES & AUDITOR INSTRUCTIONS -->
+        <!-- ========================================================= -->
+        <div id="formStep4" class="form-step-panel space-y-6 hidden">
+          <div class="bg-white p-6 sm:p-7 rounded-3xl border border-[#DECBB8] shadow-sm space-y-4">
+            <span class="text-xs font-mono-code font-bold uppercase tracking-wider text-[#2C365A] block">Part 4: Billing Preferences & Specific Instructions</span>
+            
+            <div class="grid sm:grid-cols-2 gap-4 text-xs font-semibold">
+              <div>
+                <label class="block text-slate-700 mb-1">Invoicing Currency</label>
+                <select id="fCurrency" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="USD ($)">USD ($) - Standard International</option>
+                  <option value="EUR (€)">EUR (€) - European Union</option>
+                  <option value="GBP (£)">GBP (£) - United Kingdom</option>
+                  <option value="PKR (₨)">PKR (₨) - Local Pakistan</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-700 mb-1">Payment Method Preference</label>
+                <select id="fPayment" class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition">
+                  <option value="International Wire Transfer (SWIFT)">International Wire Transfer (SWIFT)</option>
+                  <option value="Online Credit Card / Debit Card">Online Credit Card / Debit Card</option>
+                  <option value="Corporate Account Invoicing (Net 15)">Corporate Account Invoicing (Net 15)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="text-xs font-semibold">
+              <label class="block text-slate-700 mb-1">Special Inspection Requirements / Auditor Notes</label>
+              <textarea id="fNotes" rows="3" placeholder="Specific measurement tolerance specs, high-risk points (e.g. zipper pull test, barcoding scannability, shade banding, carton drop test)..." class="w-full bg-[#FAF4EC] border border-[#DECBB8] rounded-xl p-2.5 text-slate-900 font-normal focus:bg-white focus:outline-none focus:border-[#2C365A] focus:ring-2 focus:ring-[#2C365A]/10 text-sm transition"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <label class="flex items-start gap-2 text-xs text-slate-600 font-normal cursor-pointer">
+                <input id="fTermsConfirm" type="checkbox" required checked class="mt-0.5 rounded accent-[#2C365A]" />
+                <span>I confirm that the factory location and PO details provided are accurate for auditor dispatch. Standard 48h deployment SLA applies upon booking confirmation.</span>
+              </label>
+            </div>
+
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100">
+              <button type="button" onclick="goToFormStep(3)" class="px-5 py-2.5 rounded-full border border-[#DECBB8] bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs transition flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                <span>Back to Part 3</span>
+              </button>
+              <div class="text-xs text-slate-500">
+                Standard inspection day rate: <strong class="text-slate-800 font-bold">$199 USD</strong> / man-day within city limits.
+              </div>
+              <button type="submit" class="px-8 py-3.5 rounded-full bg-[#2C365A] hover:bg-[#1E2540] text-white font-bold text-xs uppercase tracking-wider transition shadow-md hover:shadow-slate-900/15 flex items-center gap-2">
+                <span>Submit Inspection Booking & Generate Dossier</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </form>
@@ -661,6 +755,14 @@
 
       renderBookingsHistory();
       runCostEstimator();
+
+      // Initialize step 1 and dynamic validation clearing
+      goToFormStep(1);
+      const formInputs = document.querySelectorAll('#inspectionBookingForm input, #inspectionBookingForm select, #inspectionBookingForm textarea');
+      formInputs.forEach(input => {
+        input.addEventListener('input', () => clearFieldError(input));
+        input.addEventListener('change', () => clearFieldError(input));
+      });
     });
 
     function logoutPortal() {
@@ -683,6 +785,11 @@
       if (section === 'booking') {
         btnB.className = 'px-4 py-1.5 rounded-full bg-[#2C365A] text-white transition flex items-center gap-1.5 font-bold shadow-md';
         secB.classList.remove('hidden');
+        const bForm = document.getElementById('inspectionBookingForm');
+        const bCard = document.getElementById('bookingConfirmationCard');
+        if (bForm) bForm.classList.remove('hidden');
+        if (bCard) bCard.classList.add('hidden');
+        goToFormStep(1);
       } else if (section === 'history') {
         btnH.className = 'px-4 py-1.5 rounded-full bg-[#2C365A] text-white transition flex items-center gap-1.5 font-bold shadow-md';
         secH.classList.remove('hidden');
@@ -693,8 +800,193 @@
       }
     }
 
+    // =========================================================
+    // MULTI-STEP BOOKING FORM WIZARD (4 SEQUENTIAL STEPS)
+    // =========================================================
+    let currentFormStep = 1;
+
+    const stepMetadata = {
+      1: { title: "Part 1: Service Type, Location & Factory Schedule", subtitle: "Deployment Parameters", percent: "25%" },
+      2: { title: "Part 2: Client & Brand Profile", subtitle: "Verified Account Record", percent: "50%" },
+      3: { title: "Part 3: Purchase Order & Garment Specifications", subtitle: "AQL & Order Scope", percent: "75%" },
+      4: { title: "Part 4: Billing Preferences & Auditor Instructions", subtitle: "Final Review & Dispatch", percent: "100%" }
+    };
+
+    function updateStepIndicator(step) {
+      currentFormStep = step;
+      const meta = stepMetadata[step] || stepMetadata[1];
+
+      // Update text
+      const badge = document.getElementById('stepCounterBadge');
+      const title = document.getElementById('stepTitleHeader');
+      const subBadge = document.getElementById('stepSubtitleBadge');
+      const progressBar = document.getElementById('formProgressBar');
+
+      if (badge) badge.innerText = `Part ${step} of 4`;
+      if (title) title.innerText = meta.title;
+      if (subBadge) subBadge.innerText = meta.subtitle;
+      if (progressBar) progressBar.style.width = meta.percent;
+
+      // Update stepper pills
+      for (let i = 1; i <= 4; i++) {
+        const pill = document.getElementById(`stepPill${i}`);
+        if (!pill) continue;
+        if (i === step) {
+          pill.className = "py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-[#2C365A] text-white shadow-sm flex items-center justify-center gap-1.5 border border-[#2C365A]";
+        } else if (i < step) {
+          pill.className = "py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-emerald-50 text-emerald-800 border border-emerald-300 flex items-center justify-center gap-1.5 cursor-pointer";
+        } else {
+          pill.className = "py-2 px-2.5 rounded-xl text-[11px] font-bold transition bg-slate-100 text-slate-500 border border-slate-200 flex items-center justify-center gap-1.5";
+        }
+      }
+    }
+
+    function clearFieldError(input) {
+      if (!input) return;
+      input.classList.remove('border-red-500', 'bg-red-50/20', 'ring-2', 'ring-red-200');
+      let parent = input.parentElement;
+      if (input.type === 'checkbox') {
+        parent = input.closest('label') || parent;
+      }
+      if (parent) {
+        const err = parent.querySelector('.field-validation-error');
+        if (err) err.remove();
+      }
+    }
+
+    function setFieldError(input, message) {
+      if (!input) return;
+      clearFieldError(input);
+      input.classList.add('border-red-500', 'bg-red-50/20', 'ring-2', 'ring-red-200');
+      let parent = input.parentElement;
+      if (input.type === 'checkbox') {
+        parent = input.closest('label') || parent;
+      }
+      if (parent) {
+        const p = document.createElement('p');
+        p.className = 'field-validation-error text-red-600 text-[11px] font-semibold mt-1.5 flex items-center gap-1 animate-fadeIn';
+        p.innerHTML = `<svg class="w-3.5 h-3.5 shrink-0 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg> <span>${message}</span>`;
+        parent.appendChild(p);
+      }
+    }
+
+    function validateFormStep(step) {
+      let isValid = true;
+      let firstInvalid = null;
+
+      if (step === 1) {
+        const fields = [
+          { id: 'fService', msg: 'Please select an inspection service workflow.' },
+          { id: 'fDate', msg: 'Please select a valid inspection date.' },
+          { id: 'fCity', msg: 'Please select the factory manufacturing city.' },
+          { id: 'fFactoryName', msg: 'Factory / Mill name is required.' },
+          { id: 'fFactoryContact', msg: 'On-site contact person and mobile are required.' },
+          { id: 'fFactoryAddress', msg: 'Full factory physical address is required for auditor deployment.' }
+        ];
+
+        fields.forEach(f => {
+          const el = document.getElementById(f.id);
+          if (!el || !el.value || !el.value.trim()) {
+            setFieldError(el, f.msg);
+            isValid = false;
+            if (!firstInvalid) firstInvalid = el;
+          } else {
+            clearFieldError(el);
+          }
+        });
+      } else if (step === 2) {
+        // Client profile is auto-populated; verify user session
+        if (!currentUser || !currentUser.email) {
+          alert('Please sign in with a valid client account.');
+          isValid = false;
+        }
+      } else if (step === 3) {
+        const fields = [
+          { id: 'fCategory', msg: 'Please select a product category.' },
+          { id: 'fGarmentType', msg: 'Garment item description is required.' },
+          { id: 'fPoNumber', msg: 'PO number is required for audit trail.' },
+          { id: 'fStyleNumber', msg: 'Style / Article number is required.' },
+          { id: 'fPackedQty', msg: 'Please select the production status / ready %.' },
+          { id: 'fAqlLevel', msg: 'Please select an AQL sampling standard.' }
+        ];
+
+        fields.forEach(f => {
+          const el = document.getElementById(f.id);
+          if (!el || !el.value || !el.value.trim()) {
+            setFieldError(el, f.msg);
+            isValid = false;
+            if (!firstInvalid) firstInvalid = el;
+          } else {
+            clearFieldError(el);
+          }
+        });
+
+        // Validate Quantity
+        const qtyEl = document.getElementById('fTotalQty');
+        const qtyVal = parseInt(qtyEl.value, 10);
+        if (!qtyEl || !qtyEl.value || isNaN(qtyVal) || qtyVal < 100) {
+          setFieldError(qtyEl, 'Please enter a valid order quantity (minimum 100 pieces).');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = qtyEl;
+        } else {
+          clearFieldError(qtyEl);
+        }
+      } else if (step === 4) {
+        const terms = document.getElementById('fTermsConfirm');
+        if (terms && !terms.checked) {
+          setFieldError(terms, 'You must confirm the SLA deployment terms to proceed.');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = terms;
+        } else if (terms) {
+          clearFieldError(terms);
+        }
+      }
+
+      if (!isValid && firstInvalid) {
+        firstInvalid.focus();
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      return isValid;
+    }
+
+    function goToFormStep(targetStep) {
+      if (targetStep > currentFormStep) {
+        // Validate each step in between before advancing
+        for (let s = currentFormStep; s < targetStep; s++) {
+          if (!validateFormStep(s)) {
+            return;
+          }
+        }
+      }
+
+      // Hide all steps
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`formStep${i}`);
+        if (el) el.classList.add('hidden');
+      }
+
+      // Show target step
+      const targetEl = document.getElementById(`formStep${targetStep}`);
+      if (targetEl) targetEl.classList.remove('hidden');
+
+      updateStepIndicator(targetStep);
+
+      // Scroll smoothly to form top
+      const form = document.getElementById('inspectionBookingForm');
+      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     function handleInspectionFormSubmit(e) {
       e.preventDefault();
+
+      // Ensure all 4 steps are completely validated before final submission
+      for (let s = 1; s <= 4; s++) {
+        if (!validateFormStep(s)) {
+          goToFormStep(s);
+          return;
+        }
+      }
 
       const refId = 'ZA-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
 
