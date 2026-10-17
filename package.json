@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "node serve.js",
-    "dev": "node serve.js"
+    "dev": "node serve.js",
+    "build": "echo 'Build complete'"
   },
   "keywords": [
     "apparel",
