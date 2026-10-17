@@ -438,58 +438,88 @@
       </form>
 
       <!-- CONFIRMATION DOSSIER CARD (Displayed on the page after submission) -->
-      <div id="bookingConfirmationCard" class="hidden bg-white p-6 sm:p-8 rounded-xl border-2 border-[#2C365A] rounded-3xl shadow-sm space-y-6">
+      <div id="bookingConfirmationCard" class="hidden bg-white p-6 sm:p-9 rounded-3xl border border-[#DECBB8] shadow-xl space-y-6 animate-fadeIn">
         
         <div id="printableSlip" class="space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-4">
-            <div class="flex items-center space-x-3">
-              <div class="h-10 w-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">
-                ✓
+          <!-- Card Header -->
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-5">
+            <div class="flex items-center space-x-3.5">
+              <div class="h-11 w-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-200 shadow-sm shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
               </div>
               <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block">Inspection Dossier Created</span>
-                <h3 class="text-lg font-bold text-slate-900">Official Booking Confirmation Slip</h3>
+                <span class="text-[10px] font-mono-code font-bold uppercase tracking-wider text-emerald-700 block">Inspection Dossier Created & Verified</span>
+                <h3 class="text-xl font-bold text-slate-900 tracking-tight">Official Booking Confirmation Slip</h3>
               </div>
             </div>
             <div class="text-right">
-              <span class="text-xs text-slate-400 block font-mono">Dossier Reference ID</span>
-              <span id="resRefId" class="text-base sm:text-lg font-mono-code font-bold text-[#2C365A] bg-[#FAF4EC] px-3 py-1 rounded-full border border-[#DECBB8]">
+              <span class="text-[10px] font-mono-code uppercase font-semibold text-slate-400 block mb-0.5">Dossier Reference ID</span>
+              <span id="resRefId" class="text-base sm:text-lg font-mono-code font-bold text-[#2C365A] bg-[#FAF4EC] px-4 py-1.5 rounded-full border border-[#DECBB8] inline-block shadow-2xs">
                 ZA-2026-0000
               </span>
             </div>
           </div>
 
-          <!-- Summary Table -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-lg border border-slate-200 text-xs">
-            <div>
-              <span class="text-slate-400 block font-medium">Service Workflow</span>
-              <strong id="resService" class="text-slate-800">Pre-Shipment Inspection</strong>
+          <!-- Summary Cards Grid (4 Columns) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <div class="bg-gradient-to-br from-[#FAF4EC]/80 to-white p-4 rounded-2xl border border-[#DECBB8]/80 shadow-2xs space-y-1">
+              <div class="flex items-center gap-1.5 text-slate-400 text-[10px] font-mono-code uppercase font-bold">
+                <svg class="w-3.5 h-3.5 text-[#2C365A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                <span>Service Workflow</span>
+              </div>
+              <strong id="resService" class="text-slate-900 text-xs sm:text-sm font-bold block leading-snug">Pre-Shipment Inspection</strong>
             </div>
-            <div>
-              <span class="text-slate-400 block font-medium">Factory Location</span>
-              <strong id="resLocation" class="text-slate-800">Lahore, Pakistan</strong>
+
+            <div class="bg-gradient-to-br from-[#FAF4EC]/80 to-white p-4 rounded-2xl border border-[#DECBB8]/80 shadow-2xs space-y-1">
+              <div class="flex items-center gap-1.5 text-slate-400 text-[10px] font-mono-code uppercase font-bold">
+                <svg class="w-3.5 h-3.5 text-[#2C365A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>Factory Location</span>
+              </div>
+              <strong id="resLocation" class="text-slate-900 text-xs sm:text-sm font-bold block leading-snug">Lahore, Pakistan</strong>
             </div>
-            <div>
-              <span class="text-slate-400 block font-medium">PO & Quantity</span>
-              <strong id="resPoQty" class="text-slate-800">PO-12345 (5,000 Pcs)</strong>
+
+            <div class="bg-gradient-to-br from-[#FAF4EC]/80 to-white p-4 rounded-2xl border border-[#DECBB8]/80 shadow-2xs space-y-1">
+              <div class="flex items-center gap-1.5 text-slate-400 text-[10px] font-mono-code uppercase font-bold">
+                <svg class="w-3.5 h-3.5 text-[#2C365A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 10h.01M7 13h.01M10 7h.01M10 10h.01M10 13h.01M13 7h.01M13 10h.01M13 13h.01M16 7h.01M16 10h.01M16 13h.01M3 3h18v18H3V3z"/></svg>
+                <span>PO & Quantity</span>
+              </div>
+              <strong id="resPoQty" class="text-slate-900 text-xs sm:text-sm font-bold font-mono block leading-snug">PO-12345 (5,000 Pcs)</strong>
             </div>
-            <div>
-              <span class="text-slate-400 block font-medium">Target Date</span>
-              <strong id="resDate" class="text-emerald-700">2026-10-15</strong>
+
+            <div class="bg-gradient-to-br from-emerald-50/50 to-white p-4 rounded-2xl border border-emerald-200/80 shadow-2xs space-y-1">
+              <div class="flex items-center gap-1.5 text-emerald-700 text-[10px] font-mono-code uppercase font-bold">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span>Target Date</span>
+              </div>
+              <strong id="resDate" class="text-emerald-700 text-xs sm:text-sm font-bold block leading-snug">2026-10-15</strong>
             </div>
           </div>
 
-          <div class="p-4 bg-[#FAF4EC] border border-[#DECBB8] rounded-2xl text-xs text-slate-800 space-y-1">
-            <div class="font-bold text-[#2C365A]">Status: Submitted — Dispatch Team Notified</div>
-            <p>Our operations desk is verifying factory coordinates. Your lead inspector will be scheduled for deployment within 48 hours.</p>
+          <!-- Status & SLA Banner -->
+          <div class="p-4 sm:p-5 bg-gradient-to-r from-[#FAF4EC] via-amber-50/40 to-[#FAF4EC] border border-[#DECBB8] rounded-2xl flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl bg-[#2C365A] text-white flex items-center justify-center shrink-0 shadow-xs">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-[#2C365A] flex items-center gap-2">
+                  <span>Status: Submitted — Dispatch Desk Notified</span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-ping"></span>
+                </div>
+                <p class="text-[11px] text-slate-600 mt-0.5">Operations desk is verifying factory coordinates. Your lead inspector will be scheduled for deployment within 48 hours.</p>
+              </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-[10px] font-mono-code font-bold uppercase tracking-wider bg-white border border-[#DECBB8] text-slate-700 shadow-2xs">
+              48h SLA Active
+            </span>
           </div>
 
           <!-- AUTOMATED EMAIL CONFIRMATION SYSTEM MODULE -->
-          <div class="p-5 bg-gradient-to-br from-slate-50 via-blue-50/40 to-slate-50 border border-blue-200/80 rounded-2xl space-y-4">
+          <div class="p-5 sm:p-6 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 border border-blue-200/80 rounded-3xl space-y-4">
             <div class="flex flex-wrap items-center justify-between gap-3">
               <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-xl bg-[#2C365A] text-white flex items-center justify-center shadow-sm">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <div class="w-10 h-10 rounded-2xl bg-[#2C365A] text-white flex items-center justify-center shadow-sm shrink-0">
+                  <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 </div>
                 <div>
                   <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
@@ -499,24 +529,24 @@
                   <p class="text-[11px] text-slate-500">Official bilingual inspection dossier ready for overseas buyer transmission.</p>
                 </div>
               </div>
-              <span id="emailStatusPill" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+              <span id="emailStatusPill" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200 shadow-2xs">
                 <span class="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse"></span>
                 <span id="emailStatusText">Queued for Dispatch</span>
               </span>
             </div>
 
             <!-- Recipient Routing Card -->
-            <div class="grid sm:grid-cols-3 gap-3 text-[11px] bg-white p-3.5 rounded-xl border border-slate-200">
+            <div class="grid sm:grid-cols-3 gap-3 text-[11px] bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-2xs">
               <div>
-                <span class="text-slate-400 block font-medium">To (Overseas Buyer):</span>
+                <span class="text-slate-400 block text-[10px] font-mono-code uppercase font-semibold">To (Overseas Buyer):</span>
                 <strong id="resBuyerEmail" class="text-slate-800 font-mono text-xs">client@company.com</strong>
               </div>
               <div>
-                <span class="text-slate-400 block font-medium">Operations Desk CC:</span>
+                <span class="text-slate-400 block text-[10px] font-mono-code uppercase font-semibold">Operations Desk CC:</span>
                 <span class="text-slate-700 font-mono text-xs">ops@zashaais.com</span>
               </div>
               <div>
-                <span class="text-slate-400 block font-medium">Transmission Protocol:</span>
+                <span class="text-slate-400 block text-[10px] font-mono-code uppercase font-semibold">Transmission Protocol:</span>
                 <span class="text-emerald-700 font-bold flex items-center gap-1">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   Azure Cloud Verified
@@ -526,12 +556,12 @@
 
             <!-- Action Buttons for Email Dispatch -->
             <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
-              <div class="flex flex-wrap items-center gap-2">
-                <button id="btnSendEmailConfirmation" onclick="triggerAutomatedEmailConfirmation()" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <button id="btnSendEmailConfirmation" onclick="triggerAutomatedEmailConfirmation()" class="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm hover:shadow-blue-500/20">
+                  <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                   <span id="btnSendEmailLabel">Send Official Email Confirmation</span>
                 </button>
-                <button onclick="previewEmailLetterModal()" class="px-4 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-semibold transition flex items-center gap-1.5">
+                <button onclick="previewEmailLetterModal()" class="px-4 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 text-xs font-semibold transition flex items-center gap-1.5 shadow-2xs">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                   <span>Preview Formal Email Letter</span>
                 </button>
@@ -539,26 +569,30 @@
 
               <button onclick="dispatchDirectMailto()" class="text-xs text-blue-600 hover:text-blue-800 font-semibold underline flex items-center gap-1">
                 <span>Open in Outlook / Mail Client</span>
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Actions -->
-        <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200">
-          <div class="flex items-center gap-2">
-            <button onclick="window.print()" class="px-4 py-2 rounded-full border border-[#DECBB8] bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <!-- Actions Footer Bar -->
+        <div class="pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100">
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="window.print()" class="px-4 py-2 rounded-full border border-[#DECBB8] bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold transition flex items-center gap-1.5 shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
               <span>Print Confirmation Slip</span>
             </button>
-            <button onclick="switchPortalSection('history')" class="px-4 py-2 rounded-full bg-[#FAF4EC] hover:bg-[#F5ECE1] text-[#2C365A] border border-[#DECBB8] text-xs font-semibold transition">
-              View in My Bookings
+            <button onclick="switchPortalSection('history')" class="px-4 py-2 rounded-full bg-[#FAF4EC] hover:bg-[#F5ECE1] text-[#2C365A] border border-[#DECBB8] text-xs font-semibold transition shadow-2xs flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              <span>View in My Bookings</span>
+            </button>
+            <button onclick="switchPortalSection('booking')" class="px-4 py-2 rounded-full border border-blue-200 bg-blue-50/60 hover:bg-blue-100 text-blue-700 text-xs font-semibold transition flex items-center gap-1.5">
+              <span>+ Book Another Inspection</span>
             </button>
           </div>
 
-          <button onclick="dispatchConfirmationWhatsApp()" class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
+          <button onclick="dispatchConfirmationWhatsApp()" class="px-6 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-2 shadow-sm hover:shadow-emerald-900/20">
+            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.062-2.18-.553-1.636-.675-2.73-2.339-2.812-2.449-.082-.11-1.07-1.424-1.07-2.716 0-1.292.678-1.928.92-2.19.242-.261.53-.327.708-.327.177 0 .355.002.508.01.162.008.378-.061.59.45.22.529.749 1.83.815 1.964.066.134.11.29.022.467-.088.176-.132.286-.264.441-.132.155-.278.347-.397.466-.132.133-.27.278-.116.543.154.264.686 1.131 1.472 1.831 1.011.902 1.865 1.18 2.13 1.312.264.132.418.11.572-.066.155-.176.662-.771.839-1.036.176-.264.353-.22.595-.132.242.088 1.543.727 1.808.859.265.132.441.198.507.308.066.11.066.639-.078 1.044z"/></svg>
             <span>Send Dossier via WhatsApp</span>
           </button>
         </div>
